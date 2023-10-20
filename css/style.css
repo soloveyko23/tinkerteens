@@ -1566,12 +1566,12 @@ textarea.input {
   position: relative;
   overflow: auto;
   max-width: 100%;
-  padding-bottom: 0.625rem;
+  width: 100%;
 }
 
 .tabs__navigation .divider {
   position: absolute;
-  bottom: 10px;
+  bottom: 0px;
   height: 2px;
   width: 100%;
   border-radius: 0.25rem 0.25rem 0px 0px;
@@ -1585,7 +1585,6 @@ textarea.input {
   padding: 0.5rem 0.625rem;
   font: var(--heading-sm);
   letter-spacing: 0.25px;
-  margin-bottom: 0.5rem;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   white-space: nowrap;
@@ -3572,6 +3571,10 @@ b {
 
   .input.input-referral {
     padding: 0.75rem 7rem 0.75rem 1rem;
+  }
+
+  .tabs__navigation {
+    padding-bottom: 0.625rem;
   }
 
   .profile.profile--size-xs .profile__name {

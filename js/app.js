@@ -268,6 +268,179 @@
             }
         }
     }
+    class DynamicAdapt {
+        constructor(type) {
+            this.type = type;
+        }
+        init() {
+            this.оbjects = [];
+            this.daClassname = "_dynamic_adapt_";
+            this.nodes = [ ...document.querySelectorAll("[data-da]") ];
+            this.nodes.forEach((node => {
+                const data = node.dataset.da.trim();
+                const dataArray = data.split(",");
+                const оbject = {};
+                оbject.element = node;
+                оbject.parent = node.parentNode;
+                оbject.destination = document.querySelector(`${dataArray[0].trim()}`);
+                оbject.breakpoint = dataArray[1] ? dataArray[1].trim() : "767";
+                оbject.place = dataArray[2] ? dataArray[2].trim() : "last";
+                оbject.index = this.indexInParent(оbject.parent, оbject.element);
+                this.оbjects.push(оbject);
+            }));
+            this.arraySort(this.оbjects);
+            this.mediaQueries = this.оbjects.map((({breakpoint}) => `(${this.type}-width: ${breakpoint}px),${breakpoint}`)).filter(((item, index, self) => self.indexOf(item) === index));
+            this.mediaQueries.forEach((media => {
+                const mediaSplit = media.split(",");
+                const matchMedia = window.matchMedia(mediaSplit[0]);
+                const mediaBreakpoint = mediaSplit[1];
+                const оbjectsFilter = this.оbjects.filter((({breakpoint}) => breakpoint === mediaBreakpoint));
+                matchMedia.addEventListener("change", (() => {
+                    this.mediaHandler(matchMedia, оbjectsFilter);
+                }));
+                this.mediaHandler(matchMedia, оbjectsFilter);
+            }));
+        }
+        mediaHandler(matchMedia, оbjects) {
+            if (matchMedia.matches) оbjects.forEach((оbject => {
+                this.moveTo(оbject.place, оbject.element, оbject.destination);
+            })); else оbjects.forEach((({parent, element, index}) => {
+                if (element.classList.contains(this.daClassname)) this.moveBack(parent, element, index);
+            }));
+        }
+        moveTo(place, element, destination) {
+            element.classList.add(this.daClassname);
+            if (place === "last" || place >= destination.children.length) {
+                destination.append(element);
+                return;
+            }
+            if (place === "first") {
+                destination.prepend(element);
+                return;
+            }
+            destination.children[place].before(element);
+        }
+        moveBack(parent, element, index) {
+            element.classList.remove(this.daClassname);
+            if (parent.children[index] !== void 0) parent.children[index].before(element); else parent.append(element);
+        }
+        indexInParent(parent, element) {
+            return [ ...parent.children ].indexOf(element);
+        }
+        arraySort(arr) {
+            if (this.type === "min") arr.sort(((a, b) => {
+                if (a.breakpoint === b.breakpoint) {
+                    if (a.place === b.place) return 0;
+                    if (a.place === "first" || b.place === "last") return -1;
+                    if (a.place === "last" || b.place === "first") return 1;
+                    return 0;
+                }
+                return a.breakpoint - b.breakpoint;
+            })); else {
+                arr.sort(((a, b) => {
+                    if (a.breakpoint === b.breakpoint) {
+                        if (a.place === b.place) return 0;
+                        if (a.place === "first" || b.place === "last") return 1;
+                        if (a.place === "last" || b.place === "first") return -1;
+                        return 0;
+                    }
+                    return b.breakpoint - a.breakpoint;
+                }));
+                return;
+            }
+        }
+    }
+    const da = new DynamicAdapt("max");
+    da.init();
+    function buttonRipple() {
+        const ANIMATED_CLASS_NAME = "animated";
+        const elements = document.querySelectorAll("[data-ripple]");
+        const elementsSpan = [];
+        elements.forEach(((element, index) => {
+            let addAnimation = false;
+            if (element.classList.contains("FLASH")) {
+                element.addEventListener("animationend", (() => {
+                    element.classList.remove(ANIMATED_CLASS_NAME);
+                }));
+                addAnimation = true;
+            }
+            if (!elementsSpan[index]) elementsSpan[index] = element.querySelector(".circle");
+            element.addEventListener("mousemove", (e => {
+                const buttonRect = element.getBoundingClientRect();
+                const offsetX = e.clientX - buttonRect.left;
+                const offsetY = e.clientY - buttonRect.top;
+                elementsSpan[index].style.left = offsetX + "px";
+                elementsSpan[index].style.top = offsetY + "px";
+                if (addAnimation) element.classList.add(ANIMATED_CLASS_NAME);
+            }));
+        }));
+    }
+    function copyReferral() {
+        document.addEventListener("DOMContentLoaded", (function() {
+            const inputReferralLink = document.querySelector(".referral-program__link");
+            if (inputReferralLink) {
+                document.querySelector(".button-copy-link-referral");
+                const inputReferral = document.querySelector(".input-referral");
+                inputReferral.value = inputReferral.getAttribute("data-value");
+                let clickHandler = function() {
+                    inputReferral.select();
+                    document.execCommand("copy");
+                    window.getSelection().removeAllRanges();
+                    const span = document.createElement("span");
+                    span.className = "text-body-md-light referral-program__link-thank flex items-center gap-2";
+                    span.innerHTML = `${inputReferral.getAttribute("data-after-text")} <img width="16" height="16" src="./img/icons-ios/check.png"/>`;
+                    inputReferral.value = "";
+                    inputReferral.placeholder = "";
+                    inputReferralLink.insertAdjacentElement("beforeend", span);
+                    setTimeout((() => {
+                        inputReferral.value = inputReferral.getAttribute("data-value");
+                        span.remove();
+                        inputReferralLink.addEventListener("click", clickHandler);
+                    }), 3e3);
+                    inputReferralLink.removeEventListener("click", clickHandler);
+                };
+                inputReferralLink.addEventListener("click", clickHandler);
+            }
+        }));
+    }
+    function moveWidgetsOnResize() {
+        const widgetsSmallContainer = document.querySelector(".content-widgets-small");
+        const widgetsLargeContainer = document.querySelector(".content-widgets-large");
+        function moveWidgets() {
+            if (window.matchMedia("(max-width: 1024px)").matches) {
+                const widgetsToMove = widgetsSmallContainer.querySelectorAll(".widget");
+                widgetsToMove.forEach((widget => {
+                    widgetsLargeContainer.appendChild(widget);
+                }));
+            }
+        }
+        moveWidgets();
+        window.addEventListener("resize", moveWidgets);
+    }
+    function moveDividerTabs() {
+        document.addEventListener("DOMContentLoaded", (function() {
+            const tabs = document.querySelector("[data-tabs]");
+            const tabsTitles = document.querySelectorAll("[data-tabs-titles] .tabs__title");
+            const divider = document.querySelector("[data-tabs-titles] .divider");
+            if (tabs) {
+                const initialTab = tabsTitles[0];
+                divider.style.width = initialTab.getBoundingClientRect().width + "px";
+                divider.style.transform = `translateX(${initialTab.offsetLeft}px)`;
+                tabsTitles.forEach((tabTitle => {
+                    tabTitle.addEventListener("click", (function() {
+                        const tabTitleRect = this.getBoundingClientRect();
+                        const leftPosition = tabTitleRect.left - tabsTitles[0].getBoundingClientRect().left;
+                        divider.style.width = tabTitleRect.width + "px";
+                        divider.style.transform = `translateX(${leftPosition}px)`;
+                    }));
+                }));
+            }
+        }));
+    }
+    moveDividerTabs();
+    moveWidgetsOnResize();
+    copyReferral();
+    buttonRipple();
     window["FLS"] = true;
     isWebp();
     menuInit();
