@@ -1810,11 +1810,11 @@ b {
 }
 
 .truncate {
-  display: -webkit-box;
+  display: -webkit-box !important;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-  overflow: hidden;
-  white-space: wrap;
+  overflow: hidden !important;
+  white-space: wrap !important;
 }
 
 .logo-page {
