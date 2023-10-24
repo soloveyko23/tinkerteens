@@ -4375,7 +4375,7 @@ b {
   }
 
   .content-widgets-large--cols {
-    margin-bottom: 0;
+    margin-bottom: 0 !important;
   }
 
   .critical-notification {
