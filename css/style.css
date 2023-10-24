@@ -2397,10 +2397,6 @@ b {
   letter-spacing: 0.25px;
 }
 
-.content-widgets-large--cols .widget {
-  margin-bottom: 0;
-}
-
 .content-widgets-large .classes-calendar-schedule__slider {
   margin-left: 0;
   margin-right: 0;
@@ -3823,6 +3819,10 @@ b {
     height: 5.375rem;
   }
 
+  .content-widgets-large--cols .widget {
+    margin-bottom: 0;
+  }
+
   .critical-notification {
     padding: 1.5rem;
   }
@@ -4372,6 +4372,10 @@ b {
 
   .calendar-button__date {
     margin-bottom: 0.25rem;
+  }
+
+  .content-widgets-large--cols {
+    margin-bottom: 0;
   }
 
   .critical-notification {

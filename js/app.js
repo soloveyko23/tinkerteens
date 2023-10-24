@@ -3480,9 +3480,9 @@
     document.querySelectorAll(".chart__canvas").forEach((canvasElement => {
         createDoughnutChart(canvasElement);
     }));
-    var ctx = document.querySelector("#chart");
-    if (ctx) {
-        ctx.getContext("2d");
+    var accountantChart = document.querySelector("#chart");
+    if (accountantChart) {
+        var ctx = document.querySelector("#chart").getContext("2d");
         var gradientStroke = ctx.createLinearGradient(0, 0, 100, 0);
         gradientStroke.addColorStop(0, "#ff6c00");
         gradientStroke.addColorStop(1, "#ff3b74");
