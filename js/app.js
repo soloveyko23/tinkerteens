@@ -3480,83 +3480,86 @@
     document.querySelectorAll(".chart__canvas").forEach((canvasElement => {
         createDoughnutChart(canvasElement);
     }));
-    var ctx = document.getElementById("chart").getContext("2d");
-    var gradientStroke = ctx.createLinearGradient(0, 0, 100, 0);
-    gradientStroke.addColorStop(0, "#ff6c00");
-    gradientStroke.addColorStop(1, "#ff3b74");
-    var gradientBkgrd = ctx.createLinearGradient(0, 0, 0, 400);
-    gradientBkgrd.addColorStop(0, "rgba(244,94,132,0.2)");
-    gradientBkgrd.addColorStop(1, "rgba(249,135,94,0)");
-    const data = {
-        labels: [ "Вересень", "Жовтень", "Листопад", "Грудень", "Січень" ],
-        datasets: [ {
-            backgroundColor: "#355CF7",
-            borderColor: "#355CF7",
-            data: [ 6e4, 105e3, 155e3, 165e3, 25e4 ],
-            pointHoverBackgroundColor: "#fff",
-            pointBorderColor: "#355CF7",
-            pointBorderWidth: 0,
-            pointHoverRadius: 8,
-            pointHoverBorderWidth: 6,
-            pointRadius: 1,
-            borderWidth: 5,
-            pointHitRadius: 16
-        } ]
-    };
-    var chart = new Chart(ctx, {
-        type: "line",
-        data,
-        options: {
-            plugins: {
-                legend: {
-                    display: false
-                }
-            },
-            scales: {
-                x: {
-                    grid: {
+    var ctx = document.querySelector("#chart");
+    if (ctx) {
+        ctx.getContext("2d");
+        var gradientStroke = ctx.createLinearGradient(0, 0, 100, 0);
+        gradientStroke.addColorStop(0, "#ff6c00");
+        gradientStroke.addColorStop(1, "#ff3b74");
+        var gradientBkgrd = ctx.createLinearGradient(0, 0, 0, 400);
+        gradientBkgrd.addColorStop(0, "rgba(244,94,132,0.2)");
+        gradientBkgrd.addColorStop(1, "rgba(249,135,94,0)");
+        const data = {
+            labels: [ "Вересень", "Жовтень", "Листопад", "Грудень", "Січень" ],
+            datasets: [ {
+                backgroundColor: "#355CF7",
+                borderColor: "#355CF7",
+                data: [ 6e4, 105e3, 155e3, 165e3, 25e4 ],
+                pointHoverBackgroundColor: "#fff",
+                pointBorderColor: "#355CF7",
+                pointBorderWidth: 0,
+                pointHoverRadius: 8,
+                pointHoverBorderWidth: 6,
+                pointRadius: 1,
+                borderWidth: 5,
+                pointHitRadius: 16
+            } ]
+        };
+        var chart = new Chart(ctx, {
+            type: "line",
+            data,
+            options: {
+                plugins: {
+                    legend: {
                         display: false
-                    },
-                    beginAtZero: true
+                    }
                 },
-                y: {
-                    ticks: {
-                        callback: function(value, index, values) {
-                            return value / 1e3 + "K";
+                scales: {
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        beginAtZero: true
+                    },
+                    y: {
+                        ticks: {
+                            callback: function(value, index, values) {
+                                return value / 1e3 + "K";
+                            }
                         }
                     }
-                }
-            },
-            interaction: {
-                intersect: false
-            },
-            elements: {
-                line: {
-                    tension: 0
+                },
+                interaction: {
+                    intersect: false
+                },
+                elements: {
+                    line: {
+                        tension: 0
+                    }
                 }
             }
-        }
-    });
-    const customTooltip = document.getElementById("customTooltip");
-    const tooltipTitle = document.getElementById("tooltip-title");
-    const tooltipBody = document.getElementById("tooltip-body");
-    const canvas = document.getElementById("chart");
-    Chart.defaults.plugins.tooltip.enabled = false;
-    canvas.addEventListener("mousemove", (function(event) {
-        const element = chart.getElementsAtEventForMode(event, "point", chart.options);
-        if (element && element.length > 0) {
-            const index = element[0].index;
-            const position = chart.getDatasetMeta(0).data[index].getCenterPoint();
-            tooltipTitle.innerHTML = data.labels[index];
-            tooltipBody.innerHTML = `${data.datasets[0].data[index]}`;
-            customTooltip.style.display = "block";
-            customTooltip.style.left = canvas.offsetLeft + position.x + "px";
-            customTooltip.style.top = canvas.offsetTop + position.y + "px";
-        } else customTooltip.style.display = "none";
-    }));
-    canvas.addEventListener("mouseout", (function() {
-        customTooltip.style.display = "none";
-    }));
+        });
+        const customTooltip = document.getElementById("customTooltip");
+        const tooltipTitle = document.getElementById("tooltip-title");
+        const tooltipBody = document.getElementById("tooltip-body");
+        const canvas = document.getElementById("chart");
+        Chart.defaults.plugins.tooltip.enabled = false;
+        canvas.addEventListener("mousemove", (function(event) {
+            const element = chart.getElementsAtEventForMode(event, "point", chart.options);
+            if (element && element.length > 0) {
+                const index = element[0].index;
+                const position = chart.getDatasetMeta(0).data[index].getCenterPoint();
+                tooltipTitle.innerHTML = data.labels[index];
+                tooltipBody.innerHTML = `${data.datasets[0].data[index]}`;
+                customTooltip.style.display = "block";
+                customTooltip.style.left = canvas.offsetLeft + position.x + "px";
+                customTooltip.style.top = canvas.offsetTop + position.y + "px";
+            } else customTooltip.style.display = "none";
+        }));
+        canvas.addEventListener("mouseout", (function() {
+            customTooltip.style.display = "none";
+        }));
+    }
     clickCreateRipple();
     moveDividerTabs();
     moveWidgetsOnResize();
