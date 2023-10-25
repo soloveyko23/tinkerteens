@@ -3480,86 +3480,138 @@
     document.querySelectorAll(".chart__canvas").forEach((canvasElement => {
         createDoughnutChart(canvasElement);
     }));
-    var accountantChart = document.querySelector("#chart");
-    if (accountantChart) {
-        var ctx = document.querySelector("#chart").getContext("2d");
-        var gradientStroke = ctx.createLinearGradient(0, 0, 100, 0);
-        gradientStroke.addColorStop(0, "#ff6c00");
-        gradientStroke.addColorStop(1, "#ff3b74");
-        var gradientBkgrd = ctx.createLinearGradient(0, 0, 0, 400);
-        gradientBkgrd.addColorStop(0, "rgba(244,94,132,0.2)");
-        gradientBkgrd.addColorStop(1, "rgba(249,135,94,0)");
-        const data = {
-            labels: [ "Вересень", "Жовтень", "Листопад", "Грудень", "Січень" ],
+    Chart.defaults.plugins.tooltip.enabled = false;
+    Chart.defaults.font.size = "14px";
+    Chart.defaults.font.famaly = "e-Ukraine";
+    Chart.defaults.color = "#A4A9C2";
+    Chart.defaults.font.lineHeight = "140%";
+    Chart.defaults.borderColor = "#D9DDE9";
+    const ctx = document.getElementById("chart").getContext("2d");
+    const colors = {
+        blue: {
+            default: "#355CF7",
+            half: "rgba(53, 92, 247, 0.2)",
+            quarter: "rgba(53, 92, 247, 0.25)",
+            zero: "rgba(53, 92, 247, 0)"
+        },
+        red: {
+            default: "rgba(231, 9, 109, 1)",
+            half: "rgba(231, 9, 109, 0.2)",
+            quarter: "rgba(231, 9, 109, 0.25)",
+            zero: "rgba(231, 9, 109, 0)"
+        }
+    };
+    const labels = [ "Вересень", "Жовтень", "Листопад", "Грудень" ];
+    const incomeData = [ 2e5, 15e4, 1e5, 25e4 ];
+    const expenseData = [ 3e4, 5e4, 7e4, 8e4 ];
+    const customChart = new Chart(ctx, {
+        type: "line",
+        data: {
+            labels,
             datasets: [ {
-                backgroundColor: "#355CF7",
-                borderColor: "#355CF7",
-                data: [ 6e4, 105e3, 155e3, 165e3, 25e4 ],
+                pointBackgroundColor: colors.blue.default,
+                borderColor: colors.blue.default,
+                data: incomeData,
+                borderWidth: 2,
+                pointRadius: 3,
                 pointHoverBackgroundColor: "#fff",
                 pointBorderColor: "#355CF7",
-                pointBorderWidth: 0,
+                pointBorderWidth: 6,
+                pointHoverRadius: 8,
+                pointHoverBorderWidth: 6,
+                pointRadius: 1,
+                borderWidth: 5,
+                pointHitRadius: 16
+            }, {
+                pointBackgroundColor: colors.red.default,
+                borderColor: colors.red.default,
+                data: expenseData,
+                borderWidth: 2,
+                pointRadius: 3,
+                pointHoverBackgroundColor: "#fff",
+                pointBorderColor: "#E7096D",
+                pointBorderWidth: 6,
                 pointHoverRadius: 8,
                 pointHoverBorderWidth: 6,
                 pointRadius: 1,
                 borderWidth: 5,
                 pointHitRadius: 16
             } ]
-        };
-        var chart = new Chart(ctx, {
-            type: "line",
-            data,
-            options: {
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                },
-                scales: {
-                    x: {
-                        grid: {
-                            display: false
-                        },
-                        beginAtZero: true
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                x: {
+                    grid: {
+                        display: false,
+                        borderDash: [ 5, 5 ]
                     },
-                    y: {
-                        ticks: {
-                            callback: function(value, index, values) {
-                                return value / 1e3 + "K";
-                            }
-                        }
+                    ticks: {
+                        maxRotation: 0,
+                        minRotation: 0
                     }
                 },
-                interaction: {
-                    intersect: false
-                },
-                elements: {
-                    line: {
-                        tension: 0
-                    }
+                y: {
+                    title: {
+                        display: true
+                    },
+                    grid: {
+                        display: true,
+                        color: "#D9DDE9",
+                        borderWidth: 2,
+                        borderDash: [ 5, 5 ]
+                    },
+                    max: 25e4,
+                    min: 0,
+                    stepSize: 5e4
                 }
             }
-        });
-        const customTooltip = document.getElementById("customTooltip");
-        const tooltipTitle = document.getElementById("tooltip-title");
-        const tooltipBody = document.getElementById("tooltip-body");
-        const canvas = document.getElementById("chart");
-        Chart.defaults.plugins.tooltip.enabled = false;
-        canvas.addEventListener("mousemove", (function(event) {
-            const element = chart.getElementsAtEventForMode(event, "point", chart.options);
-            if (element && element.length > 0) {
-                const index = element[0].index;
-                const position = chart.getDatasetMeta(0).data[index].getCenterPoint();
-                tooltipTitle.innerHTML = data.labels[index];
-                tooltipBody.innerHTML = `${data.datasets[0].data[index]}`;
-                customTooltip.style.display = "block";
-                customTooltip.style.left = canvas.offsetLeft + position.x + "px";
-                customTooltip.style.top = canvas.offsetTop + position.y + "px";
-            } else customTooltip.style.display = "none";
-        }));
-        canvas.addEventListener("mouseout", (function() {
-            customTooltip.style.display = "none";
-        }));
+        }
+    });
+    const customTooltip = document.getElementById("customTooltip");
+    const tooltipTitle = document.getElementById("tooltip-title");
+    document.querySelector("#tooltip-title > span");
+    const tooltipBody = document.getElementById("tooltip-body");
+    const chartContainer = document.getElementById("chart-container");
+    function formatNumberWithCommas(number) {
+        return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     }
+    document.getElementById("chart").addEventListener("mousemove", (event => {
+        const activePoints = customChart.getElementsAtEventForMode(event, "nearest", {
+            intersect: true
+        }, false);
+        if (activePoints.length > 0) {
+            const index = activePoints[0].index;
+            const datasetIndex = activePoints[0].datasetIndex;
+            customTooltip.offsetWidth;
+            const tooltipHeight = customTooltip.offsetHeight;
+            chartContainer.offsetLeft;
+            chartContainer.offsetTop;
+            if (datasetIndex === 0) {
+                tooltipTitle.innerHTML = `${labels[index]}` + `<span style="background-color: ${colors.blue.default}"></span>`;
+                tooltipBody.innerHTML = `${formatNumberWithCommas(incomeData[index])} ₴`;
+                document.querySelector(".stat-chart--income p").innerHTML = `${formatNumberWithCommas(incomeData[index])} ₴`;
+                document.querySelector(".stat-chart--expense p").innerHTML = `${formatNumberWithCommas(expenseData[index])} ₴`;
+                document.querySelector(".stat-chart--profit p").innerHTML = `${formatNumberWithCommas(incomeData[index] - expenseData[index])} ₴`;
+            } else if (datasetIndex === 1) {
+                tooltipTitle.innerHTML = `${labels[index]}` + `<span style="background-color: ${colors.red.default}"></span>`;
+                tooltipBody.innerHTML = `${formatNumberWithCommas(expenseData[index])} ₴`;
+                document.querySelector(".stat-chart--income p").innerHTML = `${formatNumberWithCommas(incomeData[index])} ₴`;
+                document.querySelector(".stat-chart--expense p").innerHTML = `${formatNumberWithCommas(expenseData[index])} ₴`;
+                document.querySelector(".stat-chart--profit p").innerHTML = `${formatNumberWithCommas(incomeData[index] - expenseData[index])} ₴`;
+            }
+            customTooltip.style.display = "block";
+            const tooltipX = event.offsetX + 10;
+            const tooltipY = event.offsetY - tooltipHeight - 10;
+            customTooltip.style.left = `${tooltipX}px`;
+            customTooltip.style.top = `${tooltipY}px`;
+        } else customTooltip.style.display = "none";
+    }));
     clickCreateRipple();
     moveDividerTabs();
     moveWidgetsOnResize();

@@ -2744,6 +2744,54 @@ b {
   }
 }
 
+#chart {
+  max-height: 300px;
+  /* Максимальная высота графика */
+}
+
+#customTooltip {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.75rem;
+  background: rgba(31, 31, 31, 0.9);
+  -webkit-box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+#customTooltip #tooltip-title {
+  color: var(--grayscale-300);
+  font: var(--body-sm-light);
+  letter-spacing: 0.25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  gap: 0.25rem;
+  margin-bottom: 0.25rem;
+  white-space: nowrap;
+}
+
+#customTooltip #tooltip-title span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: block;
+  min-width: 10px;
+}
+
+#customTooltip #tooltip-body {
+  color: var(--background-primary);
+  font: var(--heading-md);
+  letter-spacing: 0.25px;
+  white-space: nowrap;
+}
+
 .header {
   margin-bottom: 1.5rem;
   padding-bottom: 1rem;
@@ -3695,53 +3743,63 @@ b {
   background: linear-gradient(180deg, #ECEFFE 0%, rgba(236, 239, 254, 0) 100%);
 }
 
-.income-expenses .custom-tooltip {
-  border-radius: 12px;
-  background: rgba(31, 31, 31, 0.9);
-  -webkit-box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.1);
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  padding: 8px 12px;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  gap: 2px;
+.income-expenses__stats {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
 }
 
-.income-expenses .custom-tooltip .value {
-  color: var(--background-primary, #FFF);
-  font-family: "e-Ukraine";
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 120%;
-  letter-spacing: 0.25px;
+.income-expenses__stats .stat-chart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.625rem;
+}
+
+.income-expenses__stats .stat-chart--income .perc,
+.income-expenses__stats .stat-chart--profit .perc {
+  background-color: var(--semanticcolor-success-100);
+  color: var(--semanticcolor-success-500);
+}
+
+.income-expenses__stats .stat-chart--expense .perc {
+  background-color: var(--semanticcolor-error-100);
+  color: var(--semanticcolor-error-500);
+}
+
+.income-expenses__stats .stat-chart .svg-icon {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.income-expenses__stats .stat-chart__info-footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  gap: 0.5rem;
 }
 
-.income-expenses .custom-tooltip .value::after {
-  content: "₴";
-  /* Знак гривны */
-  margin-left: 4px;
-  /* Расстояние между числом и знаком гривны */
+.income-expenses__stats .stat-chart__info-footer span {
+  width: 10px;
+  height: 10px;
+  min-width: 10px;
+  border-radius: 50%;
 }
 
-.income-expenses .custom-tooltip .month {
-  color: var(--grayscale-300, #D9DDE9);
-  font-family: "e-Ukraine";
-  font-size: 12px;
-  font-weight: 300;
-  line-height: 120%;
+.income-expenses__stats .stat-chart__info-footer .perc {
+  border-radius: 6px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0.125rem 0.25rem;
+  gap: 10px;
+  font: var(--body-sm-regular);
   letter-spacing: 0.25px;
 }
 
