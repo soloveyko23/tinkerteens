@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" class="background-primary">
+
+<head>
+	<title>HomePage</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<style>
+		body {
+			opacity: 0;
+		}
+	</style>
+	<link rel="stylesheet" href="css/style.min.css?_v=20231026031345">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.tailwindcss.com?_v=20231026031345"></script>
+</head>
+
+<body class="">
+	<div class="wrapper wrapper-single-page">
+		<main class="content">
+			<div class="content-bg--mob"></div>
+			<section class="sign-in">
+				<div class="sign-in__container">
+					<div class="sign-in__content">
+						<div class="sign-in__left left-content">
+							<div class="left-content__logo">
+								<a href="#" class="logo-page">
+									<picture><source srcset="img/logo.webp" type="image/webp"><img src="img/logo.png" width="48" height="48" alt="Logo Sidebar"></picture>
+									<span>
+										Онлайн-школа
+										Тінкертінс
+									</span>
+								</a>
+							</div>
+							<div class="left-content__form">
+								<div class="left-content__form-header md:text-left text-center">
+									<h1 class="md:heading-4xl heading-xl md:mb-6 mb-2">Вхід в систему</h1>
+									<p class="text-body-md-regular text-grayscale-800">Введіть свій логін та пароль</p>
+								</div>
+								<form action="" class="form" method="POST">
+									<div class="form__row">
+										<div class="form__line">
+											<label for="#login" class="form__label">Логін або ел.пошта</label>
+											<input autocomplete="off" type="text" name="login" id="login" placeholder="Введіть логін або пошту" class="input">
+										</div>
+										<div class="form__line">
+											<label for="#password" class="form__label">Пароль</label>
+											<input autocomplete="off" type="text" name="password" id="password" placeholder="Введіть пароль" class="input">
+										</div>
+									</div>
+									<div class="form__row cols-2">
+										<div class="checkbox">
+											<input id="c_1" data-error="Помилка" class="checkbox__input" type="checkbox" value="1" name="form[]">
+											<label for="c_1" class="checkbox__label"><span class="checkbox__text">Запам’ятати мене</span></label>
+										</div>
+										<div class="sm:text-right">
+											<a href="#" class="link-blue">Забули пароль?</a>
+										</div>
+									</div>
+									<div class="form__row row-button">
+										<a href="#" class="button button-large button-blue fw" data-ripple>
+											<span class="circle">
+
+											</span>
+											<span class="button__inner">
+												<span class="button__text">
+													Увійти
+												</span>
+											</span>
+										</a>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div class="sign-in__right right-content">
+							<div class="content-bg--mob"></div>
+							<div class="sign-in__slider swiper">
+								<div class="sign-in__wrapper swiper-wrapper">
+									<div class="sign-in__slide swiper-slide slide">
+										<div class="slide__body">
+											<div class="slide__image">
+												<img srcset="img/sign-in/calender-dynamic-color.png 2x" alt="01">
+											</div>
+											<div class="slide__info">
+												<p class="md:text-light text-dark xl:heading-xl heading-lg">
+													Зручний розклад занять <br>
+													та доступ до уроків
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="sign-in__slide swiper-slide slide">
+										<div class="slide__body">
+											<div class="slide__image">
+												<img srcset="img/sign-in/calender-dynamic-color-1.png 2x" alt="01">
+											</div>
+											<div class="slide__info">
+												<p class="md:text-light text-dark xl:heading-xl heading-lg">
+													Реферальна програма <br>
+													та бонусні години
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="sign-in__slide swiper-slide slide">
+										<div class="slide__body">
+											<div class="slide__image">
+												<img srcset="img/sign-in/calender-dynamic-color-2.png 2x" alt="01">
+											</div>
+											<div class="slide__info">
+												<p class="md:text-light text-dark xl:heading-xl heading-lg">
+													Бонуси за успішність, які можна
+													витратити на покупку крутих товарів
+													у нашому магазині
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="sign-in__slide swiper-slide slide">
+										<div class="slide__body">
+											<div class="slide__image">
+												<img srcset="img/sign-in/calender-dynamic-color-3.png 2x" alt="01">
+											</div>
+											<div class="slide__info">
+												<p class="md:text-light text-dark xl:heading-xl heading-lg">
+													Відгуки вчителів про успіхи учнів
+													та сертифікати за успішне
+													проходження курсів
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-pagination swiper-pagination-type-1"></div>
+
+							</div>
+							<div class="right-content__buttons">
+								<a href="#" class="button-next button button-large button-blue fw" data-ripple>
+									<span class="circle">
+
+									</span>
+									<span class="button__inner">
+										<span class="button__text">
+											Далі
+										</span>
+									</span>
+								</a>
+								<a href="#" class="button-skip link-blue text-center inline">
+									Пропустити
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- /.sign-in -->
+
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__content">
+					<div class="footer__actions">
+						<div class="footer__copyright">
+							© Тінкертінс, 2023
+						</div>
+						<div class="footer__language language">
+							<ul class="language__list">
+								<li>
+									<a href="#" class="language__switch">ENG</a>
+								</li>
+								<li>
+									<a href="#" class="language__switch active">UKR</a>
+								</li>
+								<li>
+									<a href="#" class="language__switch disabled" disabled>RUS</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="footer__menu menu">
+						<nav class="menu__body">
+							<ul class="menu__list">
+								<li class="menu__item">
+									<a href="#" class="menu__link">
+										Умови користування послугами
+									</a>
+								</li>
+								<li class="menu__item">
+									<a href="#" class="menu__link">
+										Політика конфіденційності
+									</a>
+								</li>
+								<li class="menu__item">
+									<a href="#" class="menu__link">
+										Відмова від відповідальності
+									</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+
+
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js?_v=20231026031345"></script>
+	<script src="js/app.min.js?_v=20231026031345"></script>
+</body>
+
+</html>

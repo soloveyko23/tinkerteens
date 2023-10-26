@@ -5,12 +5,16 @@
 	<title>HomePage</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
-	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20231025165950">
+	<style>
+		body {
+			opacity: 0;
+		}
+	</style>
+	<link rel="stylesheet" href="css/style.min.css?_v=20231026031345">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://cdn.tailwindcss.com?_v=20231025165950"></script>
+	<script src="https://cdn.tailwindcss.com?_v=20231026031345"></script>
 </head>
 
 <body>
@@ -297,248 +301,336 @@
 										Перейти
 									</a>
 								</div>
-								<div class="widget__body">
-									<div class="classes-calendar__days calendar-dates">
-										<div class="calendar-dates__list flex flex-wrap items-center gap-2 justify-between">
-											<a href="#" class="calendar-dates__button calendar-button">
-												<div class="calendar-button__body">
-													<div class="calendar-button__day text-grayscale-600 heading-sm">
-														Пн
-													</div>
-													<div class="calendar-button__date md:heading-xl heading-lg">
-														04
-													</div>
-													<div class="calendar-button__lesson-badges flex items-center gap-1 justify-center">
-														<span class="lesson-badge background-sky-600">
+								<div class="widget__body" data-tabs>
+									<div class="classes-calendar__slider swiper mb-5">
+										<div class="classes-calendar__wrapper swiper-wrapper" data-tabs-titles>
+											<div class="classes-calendar__slide swiper-slide  _tab-active">
+												<a href="#" class="calendar-dates__button calendar-button">
+													<div class="calendar-button__body">
+														<div class="calendar-button__day text-grayscale-600 heading-sm">
+															Пн
+														</div>
+														<div class="calendar-button__date md:heading-xl heading-lg">
+															04
+														</div>
+														<div class="calendar-button__lesson-badges flex items-center gap-1 justify-center">
+															<span class="lesson-badge background-sky-600">
 
-														</span>
+															</span>
+														</div>
 													</div>
-												</div>
-											</a>
-											<a href="#" class="calendar-dates__button calendar-button active-day">
-												<div class="calendar-button__body">
-													<div class="calendar-button__day text-grayscale-600 heading-sm">
-														Вт
-													</div>
-													<div class="calendar-button__date md:heading-xl heading-lg">
-														05
-													</div>
-													<div class="calendar-button__lesson-badges flex items-center gap-1 justify-center">
-														<span class="lesson-badge background-violet-700">
+												</a>
+											</div>
 
-														</span>
-														<span class="lesson-badge background-green-700">
+											<div class="classes-calendar__slide swiper-slide">
+												<a href="#" class="calendar-dates__button calendar-button ">
+													<div class="calendar-button__body">
+														<div class="calendar-button__day text-grayscale-600 heading-sm">
+															Вт
+														</div>
+														<div class="calendar-button__date md:heading-xl heading-lg">
+															05
+														</div>
+														<div class="calendar-button__lesson-badges flex items-center gap-1 justify-center">
+															<span class="lesson-badge background-violet-700">
 
-														</span>
-													</div>
-												</div>
-											</a>
-											<a href="#" class="calendar-dates__button calendar-button">
-												<div class="calendar-button__body">
-													<div class="calendar-button__day text-grayscale-600 heading-sm">
-														Ср
-													</div>
-													<div class="calendar-button__date md:heading-xl heading-lg">
-														06
-													</div>
-													<div class="calendar-button__lesson-badges flex items-center gap-1 justify-center">
+															</span>
+															<span class="lesson-badge background-green-700">
 
+															</span>
+														</div>
 													</div>
-												</div>
-											</a>
-											<a href="#" class="calendar-dates__button calendar-button">
-												<div class="calendar-button__body">
-													<div class="calendar-button__day text-grayscale-600 heading-sm">
-														Чт
-													</div>
-													<div class="calendar-button__date md:heading-xl heading-lg">
-														07
-													</div>
-													<div class="calendar-button__lesson-badges flex items-center gap-1 justify-center">
+												</a>
+											</div>
+											<div class="classes-calendar__slide swiper-slide">
+												<a href="#" class="calendar-dates__button calendar-button ">
+													<div class="calendar-button__body">
+														<div class="calendar-button__day text-grayscale-600 heading-sm">
+															Ср
+														</div>
+														<div class="calendar-button__date md:heading-xl heading-lg">
+															06
+														</div>
+														<div class="calendar-button__lesson-badges flex items-center gap-1 justify-center">
 
+														</div>
 													</div>
-												</div>
-											</a>
-											<a href="#" class="calendar-dates__button calendar-button">
-												<div class="calendar-button__body">
-													<div class="calendar-button__day text-grayscale-600 heading-sm">
-														Пт
-													</div>
-													<div class="calendar-button__date md:heading-xl heading-lg">
-														08
-													</div>
-													<div class="calendar-button__lesson-badges flex items-center gap-1 justify-center">
-														<span class="lesson-badge background-sky-600">
+												</a>
+											</div>
+											<div class="classes-calendar__slide swiper-slide">
+												<a href="#" class="calendar-dates__button calendar-button ">
+													<div class="calendar-button__body">
+														<div class="calendar-button__day text-grayscale-600 heading-sm">
+															Чт
+														</div>
+														<div class="calendar-button__date md:heading-xl heading-lg">
+															07
+														</div>
+														<div class="calendar-button__lesson-badges flex items-center gap-1 justify-center">
 
-														</span>
-														<span class="lesson-badge background-green-700">
+														</div>
+													</div>
+												</a>
+											</div>
+											<div class="classes-calendar__slide swiper-slide">
+												<a href="#" class="calendar-dates__button calendar-button ">
+													<div class="calendar-button__body">
+														<div class="calendar-button__day text-grayscale-600 heading-sm">
+															Пт
+														</div>
+														<div class="calendar-button__date md:heading-xl heading-lg">
+															08
+														</div>
+														<div class="calendar-button__lesson-badges flex items-center gap-1 justify-center">
+															<span class="lesson-badge background-sky-600">
 
-														</span>
-													</div>
-												</div>
-											</a>
-											<a href="#" class="calendar-dates__button calendar-button">
-												<div class="calendar-button__body">
-													<div class="calendar-button__day text-grayscale-600 heading-sm">
-														Сб
-													</div>
-													<div class="calendar-button__date md:heading-xl heading-lg">
-														09
-													</div>
-													<div class="calendar-button__lesson-badges flex items-center gap-1 justify-center">
+															</span>
+															<span class="lesson-badge background-green-700">
 
+															</span>
+														</div>
 													</div>
-												</div>
-											</a>
-											<a href="#" class="calendar-dates__button calendar-button">
-												<div class="calendar-button__body">
-													<div class="calendar-button__day text-grayscale-600 heading-sm">
-														Нд
-													</div>
-													<div class="calendar-button__date md:heading-xl heading-lg">
-														10
-													</div>
-													<div class="calendar-button__lesson-badges flex items-center gap-1 justify-center">
+												</a>
+											</div>
+											<div class="classes-calendar__slide swiper-slide">
+												<a href="#" class="calendar-dates__button calendar-button ">
+													<div class="calendar-button__body">
+														<div class="calendar-button__day text-grayscale-600 heading-sm">
+															Сб
+														</div>
+														<div class="calendar-button__date md:heading-xl heading-lg">
+															09
+														</div>
+														<div class="calendar-button__lesson-badges flex items-center gap-1 justify-center">
 
+														</div>
 													</div>
-												</div>
-											</a>
+												</a>
+											</div>
+											<div class="classes-calendar__slide swiper-slide">
+												<a href="#" class="calendar-dates__button calendar-button ">
+													<div class="calendar-button__body">
+														<div class="calendar-button__day text-grayscale-600 heading-sm">
+															Нд
+														</div>
+														<div class="calendar-button__date md:heading-xl heading-lg">
+															10
+														</div>
+														<div class="calendar-button__lesson-badges flex items-center gap-1 justify-center">
 
+														</div>
+													</div>
+												</a>
+											</div>
 										</div>
 									</div>
-									<div class="wide-lessons-tile">
-										<div class="wide-lesson lesson-wide">
-											<div class="lesson-wide-badge background-violet-700"></div>
-											<div class="lesson-wide__body">
-												<div class="lesson-wide__header md:mb-4 mb-3 flex flex-wrap item-center gap-3 justify-between">
-													<div class="title-element-with-emoji">
-														<div class="emoji-box emoji-box--size-m">
-															<img srcset="img/icons-ios/robot.png 2x" alt="Icon IOS Robot">
-														</div>
-														<p class="md:heading-md heading-sm">
-															Програмування у Minecraft Програмування у Minecraft Програмування у Minecraft Програмування у Minecraft Програмування у Minecraft Програмування у Minecraft Програмування у Minecraft Програмування у Minecraft Програмування у Minecraft Програмування у Minecraft
-														</p>
-													</div>
-													<div class="tags">
-														<div class="tag tag--medium tag-successful">
-															<div class="svg-icon">
-																<svg class="icon icon--size-s" height="16" width="16">
-																	<use xlink:href="img/icons/icons.svg#tabler_check"></use>
-																</svg>
-
-
+									<div class="classes-calendar__body" data-tabs-body>
+										<div class="classes-calendar__tabs-body">
+											<div class="wide-lessons-tile">
+												<div class="wide-lesson lesson-wide">
+													<div class="lesson-wide-badge background-violet-700"></div>
+													<div class="lesson-wide__body">
+														<div class="lesson-wide__header md:mb-4 mb-3 flex flex-wrap item-center gap-3 justify-between">
+															<div class="title-element-with-emoji">
+																<div class="emoji-box emoji-box--size-m">
+																	<img srcset="img/icons-ios/robot.png 2x" alt="Icon IOS Robot">
+																</div>
+																<p class="md:heading-md heading-sm">
+																	Програмування у Minecraft Програмування у Minecraft Програмування у Minecraft Програмування у Minecraft Програмування у Minecraft Програмування у Minecraft Програмування у Minecraft Програмування у Minecraft Програмування у Minecraft Програмування у Minecraft
+																</p>
 															</div>
-															Відвідування
+															<div class="tags">
+																<div class="tag tag--medium tag-successful">
+																	<div class="svg-icon">
+																		<svg class="icon icon--size-s" height="16" width="16">
+																			<use xlink:href="img/icons/icons.svg#tabler_check"></use>
+																		</svg>
+
+
+																	</div>
+																	Відвідування
+																</div>
+															</div>
+														</div>
+														<div class="lesson-wide__content">
+															<div class="lesson-times flex items-center flex-wrap gap-x-5 gap-y-2">
+																<div class="lesson-times-line lesson-times__time">
+																	<div class="svg-icon">
+																		<svg class="icon icon--size-sm" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+																			<path d="M10 5C10.221 5 10.433 5.0878 10.5893 5.24408C10.7455 5.40036 10.8333 5.61232 10.8333 5.83333V9.51833L12.5817 10.5283C12.7715 10.6396 12.9096 10.8215 12.9659 11.0342C13.0221 11.247 12.9919 11.4733 12.8819 11.6639C12.7719 11.8545 12.5909 11.9938 12.3786 12.0515C12.1662 12.1091 11.9396 12.0804 11.7483 11.9717L9.58333 10.7217C9.45693 10.6482 9.35197 10.5429 9.27887 10.4163C9.20577 10.2897 9.16709 10.1462 9.16666 10V5.83333C9.16666 5.61232 9.25446 5.40036 9.41074 5.24408C9.56702 5.0878 9.77898 5 10 5Z" fill="#747B98" />
+																			<path d="M1.66666 9.99996C1.66666 11.6481 2.15541 13.2593 3.07108 14.6297C3.98676 16.0001 5.28825 17.0682 6.81097 17.699C8.33369 18.3297 10.0092 18.4947 11.6258 18.1732C13.2423 17.8516 14.7271 17.058 15.8926 15.8925C17.058 14.7271 17.8517 13.2422 18.1732 11.6257C18.4948 10.0092 18.3297 8.33365 17.699 6.81093C17.0683 5.28821 16.0002 3.98672 14.6298 3.07105C13.2593 2.15537 11.6482 1.66663 10 1.66663C8.90565 1.66663 7.82202 1.88217 6.81097 2.30096C5.79992 2.71975 4.88126 3.33358 4.10744 4.1074C2.54464 5.67021 1.66666 7.78982 1.66666 9.99996ZM9.16666 5.83329C9.16666 5.61228 9.25446 5.40032 9.41074 5.24404C9.56702 5.08776 9.77898 4.99996 10 4.99996C10.221 4.99996 10.433 5.08776 10.5893 5.24404C10.7455 5.40032 10.8333 5.61228 10.8333 5.83329V9.51829L12.5817 10.5283C12.7715 10.6396 12.9096 10.8214 12.9659 11.0342C13.0221 11.2469 12.9919 11.4733 12.8819 11.6639C12.7719 11.8544 12.5909 11.9938 12.3786 12.0514C12.1662 12.1091 11.9396 12.0804 11.7483 11.9716L9.58333 10.7216C9.45693 10.6482 9.35197 10.5429 9.27887 10.4163C9.20577 10.2897 9.16709 10.1462 9.16666 9.99996V5.83329Z" fill="#CACFE0" />
+																		</svg>
+																	</div>
+																	<span>17:00-18:00</span>
+																</div>
+																<div class="lesson-times-line lesson-times__lesson-type">
+																	<div class="svg-icon">
+																		<svg class="icon icon--size-sm" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+																			<path d="M8.40571 2.49714C8.8849 2.20142 9.4369 2.0448 10 2.0448C10.5631 2.0448 11.1151 2.20142 11.5943 2.49714L18.6743 6.86571C18.7511 6.91305 18.8146 6.979 18.8591 7.05746C18.9036 7.13592 18.9276 7.22434 18.9288 7.31452C18.93 7.40471 18.9084 7.49373 18.8661 7.57336C18.8237 7.65298 18.7619 7.72062 18.6864 7.77L11.6614 12.3629C11.1675 12.6858 10.5902 12.8579 10 12.8579C9.40985 12.8579 8.83249 12.6858 8.33857 12.3629L2.14286 8.31286V12.6793C2.14286 12.8214 2.08641 12.9576 1.98595 13.0581C1.88548 13.1586 1.74922 13.215 1.60714 13.215C1.46506 13.215 1.3288 13.1586 1.22833 13.0581C1.12787 12.9576 1.07143 12.8214 1.07143 12.6793V7.5C1.07143 7.46928 1.07428 7.43928 1.07857 7.41071C1.06086 7.30559 1.07492 7.19758 1.11895 7.10049C1.16298 7.0034 1.23497 6.92166 1.32571 6.86571L8.40571 2.49714Z" fill="#747B98" />
+																			<path d="M4.28569 10.9928L7.75212 13.2592C8.42037 13.6962 9.20152 13.929 9.99998 13.929C10.7984 13.929 11.5796 13.6962 12.2478 13.2592L15.7143 10.9935V14.4642C15.7143 14.6778 15.5985 14.8064 15.4621 14.9399C15.3943 15.0057 15.2971 15.0971 15.17 15.2057C14.826 15.4991 14.4581 15.7631 14.07 15.9949C13.1185 16.5664 11.7293 17.1428 9.99998 17.1428C8.2714 17.1428 6.8814 16.5664 5.92998 15.9949C5.54187 15.7631 5.17391 15.4991 4.82998 15.2057C4.72953 15.1202 4.63186 15.0316 4.53712 14.9399C4.4014 14.8064 4.28569 14.6778 4.28569 14.4642V10.9928Z" fill="#CACFE0" />
+																		</svg>
+																	</div>
+																	<span>Індивідуально</span>
+																</div>
+																<div class="lesson-times-line lesson-times-line__profile profile profile--size-xs">
+
+																	<div class="profile__avatar avatar-icon avatar-bg-pink">
+																		<div class="svg-icon">
+																			<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+																				<path d="M8.00002 1.33337C6.15902 1.33337 4.66669 2.82571 4.66669 4.66671C4.66669 6.50771 6.15902 8.00004 8.00002 8.00004C9.84102 8.00004 11.3334 6.50771 11.3334 4.66671C11.3334 2.82571 9.84102 1.33337 8.00002 1.33337ZM4.08335 9.33337C3.70769 9.33337 3.3474 9.48258 3.08174 9.74819C2.81607 10.0138 2.66678 10.374 2.66669 10.7497V11C2.66669 12.2517 3.31402 13.189 4.30669 13.7934C5.28335 14.3877 6.59535 14.6667 8.00002 14.6667C9.40469 14.6667 10.7167 14.3877 11.6934 13.7934C12.686 13.189 13.3334 12.2517 13.3334 11V10.7497C13.3334 10.5637 13.2967 10.3795 13.2255 10.2076C13.1543 10.0358 13.05 9.87961 12.9184 9.74809C12.7868 9.61657 12.6307 9.51225 12.4588 9.44109C12.2869 9.36993 12.1027 9.33333 11.9167 9.33337H4.08335Z" fill="white"></path>
+																				<path d="M4.66663 4.66671C4.66663 2.82571 6.15896 1.33337 7.99996 1.33337C9.84096 1.33337 11.3333 2.82571 11.3333 4.66671C11.3333 6.50771 9.84096 8.00004 7.99996 8.00004C6.15896 8.00004 4.66663 6.50771 4.66663 4.66671Z" fill="white"></path>
+																			</svg>
+																		</div>
+																	</div>
+																	<div class="profile__content">
+																		<p class="profile__name ">
+																			Тетяна Петренко
+																		</p>
+																	</div>
+
+																</div>
+															</div>
 														</div>
 													</div>
 												</div>
-												<div class="lesson-wide__content">
-													<div class="lesson-times flex items-center flex-wrap gap-x-5 gap-y-2">
-														<div class="lesson-times-line lesson-times__time">
-															<div class="svg-icon">
-																<svg class="icon icon--size-sm" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-																	<path d="M10 5C10.221 5 10.433 5.0878 10.5893 5.24408C10.7455 5.40036 10.8333 5.61232 10.8333 5.83333V9.51833L12.5817 10.5283C12.7715 10.6396 12.9096 10.8215 12.9659 11.0342C13.0221 11.247 12.9919 11.4733 12.8819 11.6639C12.7719 11.8545 12.5909 11.9938 12.3786 12.0515C12.1662 12.1091 11.9396 12.0804 11.7483 11.9717L9.58333 10.7217C9.45693 10.6482 9.35197 10.5429 9.27887 10.4163C9.20577 10.2897 9.16709 10.1462 9.16666 10V5.83333C9.16666 5.61232 9.25446 5.40036 9.41074 5.24408C9.56702 5.0878 9.77898 5 10 5Z" fill="#747B98" />
-																	<path d="M1.66666 9.99996C1.66666 11.6481 2.15541 13.2593 3.07108 14.6297C3.98676 16.0001 5.28825 17.0682 6.81097 17.699C8.33369 18.3297 10.0092 18.4947 11.6258 18.1732C13.2423 17.8516 14.7271 17.058 15.8926 15.8925C17.058 14.7271 17.8517 13.2422 18.1732 11.6257C18.4948 10.0092 18.3297 8.33365 17.699 6.81093C17.0683 5.28821 16.0002 3.98672 14.6298 3.07105C13.2593 2.15537 11.6482 1.66663 10 1.66663C8.90565 1.66663 7.82202 1.88217 6.81097 2.30096C5.79992 2.71975 4.88126 3.33358 4.10744 4.1074C2.54464 5.67021 1.66666 7.78982 1.66666 9.99996ZM9.16666 5.83329C9.16666 5.61228 9.25446 5.40032 9.41074 5.24404C9.56702 5.08776 9.77898 4.99996 10 4.99996C10.221 4.99996 10.433 5.08776 10.5893 5.24404C10.7455 5.40032 10.8333 5.61228 10.8333 5.83329V9.51829L12.5817 10.5283C12.7715 10.6396 12.9096 10.8214 12.9659 11.0342C13.0221 11.2469 12.9919 11.4733 12.8819 11.6639C12.7719 11.8544 12.5909 11.9938 12.3786 12.0514C12.1662 12.1091 11.9396 12.0804 11.7483 11.9716L9.58333 10.7216C9.45693 10.6482 9.35197 10.5429 9.27887 10.4163C9.20577 10.2897 9.16709 10.1462 9.16666 9.99996V5.83329Z" fill="#CACFE0" />
-																</svg>
-															</div>
-															<span>17:00-18:00</span>
-														</div>
-														<div class="lesson-times-line lesson-times__lesson-type">
-															<div class="svg-icon">
-																<svg class="icon icon--size-sm" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-																	<path d="M8.40571 2.49714C8.8849 2.20142 9.4369 2.0448 10 2.0448C10.5631 2.0448 11.1151 2.20142 11.5943 2.49714L18.6743 6.86571C18.7511 6.91305 18.8146 6.979 18.8591 7.05746C18.9036 7.13592 18.9276 7.22434 18.9288 7.31452C18.93 7.40471 18.9084 7.49373 18.8661 7.57336C18.8237 7.65298 18.7619 7.72062 18.6864 7.77L11.6614 12.3629C11.1675 12.6858 10.5902 12.8579 10 12.8579C9.40985 12.8579 8.83249 12.6858 8.33857 12.3629L2.14286 8.31286V12.6793C2.14286 12.8214 2.08641 12.9576 1.98595 13.0581C1.88548 13.1586 1.74922 13.215 1.60714 13.215C1.46506 13.215 1.3288 13.1586 1.22833 13.0581C1.12787 12.9576 1.07143 12.8214 1.07143 12.6793V7.5C1.07143 7.46928 1.07428 7.43928 1.07857 7.41071C1.06086 7.30559 1.07492 7.19758 1.11895 7.10049C1.16298 7.0034 1.23497 6.92166 1.32571 6.86571L8.40571 2.49714Z" fill="#747B98" />
-																	<path d="M4.28569 10.9928L7.75212 13.2592C8.42037 13.6962 9.20152 13.929 9.99998 13.929C10.7984 13.929 11.5796 13.6962 12.2478 13.2592L15.7143 10.9935V14.4642C15.7143 14.6778 15.5985 14.8064 15.4621 14.9399C15.3943 15.0057 15.2971 15.0971 15.17 15.2057C14.826 15.4991 14.4581 15.7631 14.07 15.9949C13.1185 16.5664 11.7293 17.1428 9.99998 17.1428C8.2714 17.1428 6.8814 16.5664 5.92998 15.9949C5.54187 15.7631 5.17391 15.4991 4.82998 15.2057C4.72953 15.1202 4.63186 15.0316 4.53712 14.9399C4.4014 14.8064 4.28569 14.6778 4.28569 14.4642V10.9928Z" fill="#CACFE0" />
-																</svg>
-															</div>
-															<span>Індивідуально</span>
-														</div>
-														<div class="lesson-times-line lesson-times-line__profile profile profile--size-xs">
-
-															<div class="profile__avatar avatar-icon avatar-bg-pink">
-																<div class="svg-icon">
-																	<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-																		<path d="M8.00002 1.33337C6.15902 1.33337 4.66669 2.82571 4.66669 4.66671C4.66669 6.50771 6.15902 8.00004 8.00002 8.00004C9.84102 8.00004 11.3334 6.50771 11.3334 4.66671C11.3334 2.82571 9.84102 1.33337 8.00002 1.33337ZM4.08335 9.33337C3.70769 9.33337 3.3474 9.48258 3.08174 9.74819C2.81607 10.0138 2.66678 10.374 2.66669 10.7497V11C2.66669 12.2517 3.31402 13.189 4.30669 13.7934C5.28335 14.3877 6.59535 14.6667 8.00002 14.6667C9.40469 14.6667 10.7167 14.3877 11.6934 13.7934C12.686 13.189 13.3334 12.2517 13.3334 11V10.7497C13.3334 10.5637 13.2967 10.3795 13.2255 10.2076C13.1543 10.0358 13.05 9.87961 12.9184 9.74809C12.7868 9.61657 12.6307 9.51225 12.4588 9.44109C12.2869 9.36993 12.1027 9.33333 11.9167 9.33337H4.08335Z" fill="white"></path>
-																		<path d="M4.66663 4.66671C4.66663 2.82571 6.15896 1.33337 7.99996 1.33337C9.84096 1.33337 11.3333 2.82571 11.3333 4.66671C11.3333 6.50771 9.84096 8.00004 7.99996 8.00004C6.15896 8.00004 4.66663 6.50771 4.66663 4.66671Z" fill="white"></path>
-																	</svg>
+												<div class="wide-lesson lesson-wide">
+													<div class="lesson-wide-badge background-green-700"></div>
+													<div class="lesson-wide__body">
+														<div class="lesson-wide__header md:mb-4 mb-3 flex flex-wrap item-center gap-3 justify-between">
+															<div class="title-element-with-emoji">
+																<div class="emoji-box emoji-box--size-m">
+																	<img srcset="img/icons-ios/robot.png 2x" alt="Icon IOS Robot">
 																</div>
-															</div>
-															<div class="profile__content">
-																<p class="profile__name ">
-																	Тетяна Петренко
+																<p class="md:heading-md heading-sm">
+																	Програмування у Minecraft
 																</p>
 															</div>
+															<div class="tags">
+																<div class="tag tag--medium tag-cancelled">
+																	<div class="svg-icon">
+																		<svg class="icon icon--size-s" height="16" width="16">
+																			<use xlink:href="img/icons/icons.svg#maki_cross"></use>
+																		</svg>
 
+																	</div>
+																	Скасовано
+																</div>
+															</div>
+														</div>
+														<div class="lesson-wide__content">
+															<div class="lesson-times flex items-center flex-wrap gap-x-5 gap-y-2">
+																<div class="lesson-times-line lesson-times__time">
+																	<div class="svg-icon">
+																		<svg class="icon icon--size-sm" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+																			<path d="M10 5C10.221 5 10.433 5.0878 10.5893 5.24408C10.7455 5.40036 10.8333 5.61232 10.8333 5.83333V9.51833L12.5817 10.5283C12.7715 10.6396 12.9096 10.8215 12.9659 11.0342C13.0221 11.247 12.9919 11.4733 12.8819 11.6639C12.7719 11.8545 12.5909 11.9938 12.3786 12.0515C12.1662 12.1091 11.9396 12.0804 11.7483 11.9717L9.58333 10.7217C9.45693 10.6482 9.35197 10.5429 9.27887 10.4163C9.20577 10.2897 9.16709 10.1462 9.16666 10V5.83333C9.16666 5.61232 9.25446 5.40036 9.41074 5.24408C9.56702 5.0878 9.77898 5 10 5Z" fill="#747B98" />
+																			<path d="M1.66666 9.99996C1.66666 11.6481 2.15541 13.2593 3.07108 14.6297C3.98676 16.0001 5.28825 17.0682 6.81097 17.699C8.33369 18.3297 10.0092 18.4947 11.6258 18.1732C13.2423 17.8516 14.7271 17.058 15.8926 15.8925C17.058 14.7271 17.8517 13.2422 18.1732 11.6257C18.4948 10.0092 18.3297 8.33365 17.699 6.81093C17.0683 5.28821 16.0002 3.98672 14.6298 3.07105C13.2593 2.15537 11.6482 1.66663 10 1.66663C8.90565 1.66663 7.82202 1.88217 6.81097 2.30096C5.79992 2.71975 4.88126 3.33358 4.10744 4.1074C2.54464 5.67021 1.66666 7.78982 1.66666 9.99996ZM9.16666 5.83329C9.16666 5.61228 9.25446 5.40032 9.41074 5.24404C9.56702 5.08776 9.77898 4.99996 10 4.99996C10.221 4.99996 10.433 5.08776 10.5893 5.24404C10.7455 5.40032 10.8333 5.61228 10.8333 5.83329V9.51829L12.5817 10.5283C12.7715 10.6396 12.9096 10.8214 12.9659 11.0342C13.0221 11.2469 12.9919 11.4733 12.8819 11.6639C12.7719 11.8544 12.5909 11.9938 12.3786 12.0514C12.1662 12.1091 11.9396 12.0804 11.7483 11.9716L9.58333 10.7216C9.45693 10.6482 9.35197 10.5429 9.27887 10.4163C9.20577 10.2897 9.16709 10.1462 9.16666 9.99996V5.83329Z" fill="#CACFE0" />
+																		</svg>
+																	</div>
+																	<span>17:00-18:00</span>
+																</div>
+																<div class="lesson-times-line lesson-times__lesson-type">
+																	<div class="svg-icon">
+																		<svg class="icon icon--size-sm" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+																			<path d="M8.40571 2.49714C8.8849 2.20142 9.4369 2.0448 10 2.0448C10.5631 2.0448 11.1151 2.20142 11.5943 2.49714L18.6743 6.86571C18.7511 6.91305 18.8146 6.979 18.8591 7.05746C18.9036 7.13592 18.9276 7.22434 18.9288 7.31452C18.93 7.40471 18.9084 7.49373 18.8661 7.57336C18.8237 7.65298 18.7619 7.72062 18.6864 7.77L11.6614 12.3629C11.1675 12.6858 10.5902 12.8579 10 12.8579C9.40985 12.8579 8.83249 12.6858 8.33857 12.3629L2.14286 8.31286V12.6793C2.14286 12.8214 2.08641 12.9576 1.98595 13.0581C1.88548 13.1586 1.74922 13.215 1.60714 13.215C1.46506 13.215 1.3288 13.1586 1.22833 13.0581C1.12787 12.9576 1.07143 12.8214 1.07143 12.6793V7.5C1.07143 7.46928 1.07428 7.43928 1.07857 7.41071C1.06086 7.30559 1.07492 7.19758 1.11895 7.10049C1.16298 7.0034 1.23497 6.92166 1.32571 6.86571L8.40571 2.49714Z" fill="#747B98" />
+																			<path d="M4.28569 10.9928L7.75212 13.2592C8.42037 13.6962 9.20152 13.929 9.99998 13.929C10.7984 13.929 11.5796 13.6962 12.2478 13.2592L15.7143 10.9935V14.4642C15.7143 14.6778 15.5985 14.8064 15.4621 14.9399C15.3943 15.0057 15.2971 15.0971 15.17 15.2057C14.826 15.4991 14.4581 15.7631 14.07 15.9949C13.1185 16.5664 11.7293 17.1428 9.99998 17.1428C8.2714 17.1428 6.8814 16.5664 5.92998 15.9949C5.54187 15.7631 5.17391 15.4991 4.82998 15.2057C4.72953 15.1202 4.63186 15.0316 4.53712 14.9399C4.4014 14.8064 4.28569 14.6778 4.28569 14.4642V10.9928Z" fill="#CACFE0" />
+																		</svg>
+																	</div>
+																	<span>Індивідуально</span>
+																</div>
+																<div class="lesson-times-line lesson-times-line__profile profile profile--size-xs">
+
+																	<div class="profile__avatar avatar-icon avatar-bg-green">
+																		<div class="svg-icon">
+																			<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+																				<path d="M8.00002 1.33337C6.15902 1.33337 4.66669 2.82571 4.66669 4.66671C4.66669 6.50771 6.15902 8.00004 8.00002 8.00004C9.84102 8.00004 11.3334 6.50771 11.3334 4.66671C11.3334 2.82571 9.84102 1.33337 8.00002 1.33337ZM4.08335 9.33337C3.70769 9.33337 3.3474 9.48258 3.08174 9.74819C2.81607 10.0138 2.66678 10.374 2.66669 10.7497V11C2.66669 12.2517 3.31402 13.189 4.30669 13.7934C5.28335 14.3877 6.59535 14.6667 8.00002 14.6667C9.40469 14.6667 10.7167 14.3877 11.6934 13.7934C12.686 13.189 13.3334 12.2517 13.3334 11V10.7497C13.3334 10.5637 13.2967 10.3795 13.2255 10.2076C13.1543 10.0358 13.05 9.87961 12.9184 9.74809C12.7868 9.61657 12.6307 9.51225 12.4588 9.44109C12.2869 9.36993 12.1027 9.33333 11.9167 9.33337H4.08335Z" fill="white"></path>
+																				<path d="M4.66663 4.66671C4.66663 2.82571 6.15896 1.33337 7.99996 1.33337C9.84096 1.33337 11.3333 2.82571 11.3333 4.66671C11.3333 6.50771 9.84096 8.00004 7.99996 8.00004C6.15896 8.00004 4.66663 6.50771 4.66663 4.66671Z" fill="white"></path>
+																			</svg>
+																		</div>
+																	</div>
+																	<div class="profile__content">
+																		<p class="profile__name ">
+																			Тетяна Петренко
+																		</p>
+																	</div>
+
+																</div>
+															</div>
 														</div>
 													</div>
 												</div>
 											</div>
 										</div>
-										<div class="wide-lesson lesson-wide">
-											<div class="lesson-wide-badge background-green-700"></div>
-											<div class="lesson-wide__body">
-												<div class="lesson-wide__header md:mb-4 mb-3 flex flex-wrap item-center gap-3 justify-between">
-													<div class="title-element-with-emoji">
-														<div class="emoji-box emoji-box--size-m">
-															<img srcset="img/icons-ios/robot.png 2x" alt="Icon IOS Robot">
-														</div>
-														<p class="md:heading-md heading-sm">
-															Програмування у Minecraft
-														</p>
-													</div>
-													<div class="tags">
-														<div class="tag tag--medium tag-cancelled">
-															<div class="svg-icon">
-																<svg class="icon icon--size-s" height="16" width="16">
-																	<use xlink:href="img/icons/icons.svg#maki_cross"></use>
-																</svg>
-
-															</div>
-															Скасовано
-														</div>
-													</div>
-												</div>
-												<div class="lesson-wide__content">
-													<div class="lesson-times flex items-center flex-wrap gap-x-5 gap-y-2">
-														<div class="lesson-times-line lesson-times__time">
-															<div class="svg-icon">
-																<svg class="icon icon--size-sm" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-																	<path d="M10 5C10.221 5 10.433 5.0878 10.5893 5.24408C10.7455 5.40036 10.8333 5.61232 10.8333 5.83333V9.51833L12.5817 10.5283C12.7715 10.6396 12.9096 10.8215 12.9659 11.0342C13.0221 11.247 12.9919 11.4733 12.8819 11.6639C12.7719 11.8545 12.5909 11.9938 12.3786 12.0515C12.1662 12.1091 11.9396 12.0804 11.7483 11.9717L9.58333 10.7217C9.45693 10.6482 9.35197 10.5429 9.27887 10.4163C9.20577 10.2897 9.16709 10.1462 9.16666 10V5.83333C9.16666 5.61232 9.25446 5.40036 9.41074 5.24408C9.56702 5.0878 9.77898 5 10 5Z" fill="#747B98" />
-																	<path d="M1.66666 9.99996C1.66666 11.6481 2.15541 13.2593 3.07108 14.6297C3.98676 16.0001 5.28825 17.0682 6.81097 17.699C8.33369 18.3297 10.0092 18.4947 11.6258 18.1732C13.2423 17.8516 14.7271 17.058 15.8926 15.8925C17.058 14.7271 17.8517 13.2422 18.1732 11.6257C18.4948 10.0092 18.3297 8.33365 17.699 6.81093C17.0683 5.28821 16.0002 3.98672 14.6298 3.07105C13.2593 2.15537 11.6482 1.66663 10 1.66663C8.90565 1.66663 7.82202 1.88217 6.81097 2.30096C5.79992 2.71975 4.88126 3.33358 4.10744 4.1074C2.54464 5.67021 1.66666 7.78982 1.66666 9.99996ZM9.16666 5.83329C9.16666 5.61228 9.25446 5.40032 9.41074 5.24404C9.56702 5.08776 9.77898 4.99996 10 4.99996C10.221 4.99996 10.433 5.08776 10.5893 5.24404C10.7455 5.40032 10.8333 5.61228 10.8333 5.83329V9.51829L12.5817 10.5283C12.7715 10.6396 12.9096 10.8214 12.9659 11.0342C13.0221 11.2469 12.9919 11.4733 12.8819 11.6639C12.7719 11.8544 12.5909 11.9938 12.3786 12.0514C12.1662 12.1091 11.9396 12.0804 11.7483 11.9716L9.58333 10.7216C9.45693 10.6482 9.35197 10.5429 9.27887 10.4163C9.20577 10.2897 9.16709 10.1462 9.16666 9.99996V5.83329Z" fill="#CACFE0" />
-																</svg>
-															</div>
-															<span>17:00-18:00</span>
-														</div>
-														<div class="lesson-times-line lesson-times__lesson-type">
-															<div class="svg-icon">
-																<svg class="icon icon--size-sm" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-																	<path d="M8.40571 2.49714C8.8849 2.20142 9.4369 2.0448 10 2.0448C10.5631 2.0448 11.1151 2.20142 11.5943 2.49714L18.6743 6.86571C18.7511 6.91305 18.8146 6.979 18.8591 7.05746C18.9036 7.13592 18.9276 7.22434 18.9288 7.31452C18.93 7.40471 18.9084 7.49373 18.8661 7.57336C18.8237 7.65298 18.7619 7.72062 18.6864 7.77L11.6614 12.3629C11.1675 12.6858 10.5902 12.8579 10 12.8579C9.40985 12.8579 8.83249 12.6858 8.33857 12.3629L2.14286 8.31286V12.6793C2.14286 12.8214 2.08641 12.9576 1.98595 13.0581C1.88548 13.1586 1.74922 13.215 1.60714 13.215C1.46506 13.215 1.3288 13.1586 1.22833 13.0581C1.12787 12.9576 1.07143 12.8214 1.07143 12.6793V7.5C1.07143 7.46928 1.07428 7.43928 1.07857 7.41071C1.06086 7.30559 1.07492 7.19758 1.11895 7.10049C1.16298 7.0034 1.23497 6.92166 1.32571 6.86571L8.40571 2.49714Z" fill="#747B98" />
-																	<path d="M4.28569 10.9928L7.75212 13.2592C8.42037 13.6962 9.20152 13.929 9.99998 13.929C10.7984 13.929 11.5796 13.6962 12.2478 13.2592L15.7143 10.9935V14.4642C15.7143 14.6778 15.5985 14.8064 15.4621 14.9399C15.3943 15.0057 15.2971 15.0971 15.17 15.2057C14.826 15.4991 14.4581 15.7631 14.07 15.9949C13.1185 16.5664 11.7293 17.1428 9.99998 17.1428C8.2714 17.1428 6.8814 16.5664 5.92998 15.9949C5.54187 15.7631 5.17391 15.4991 4.82998 15.2057C4.72953 15.1202 4.63186 15.0316 4.53712 14.9399C4.4014 14.8064 4.28569 14.6778 4.28569 14.4642V10.9928Z" fill="#CACFE0" />
-																</svg>
-															</div>
-															<span>Індивідуально</span>
-														</div>
-														<div class="lesson-times-line lesson-times-line__profile profile profile--size-xs">
-
-															<div class="profile__avatar avatar-icon avatar-bg-green">
-																<div class="svg-icon">
-																	<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-																		<path d="M8.00002 1.33337C6.15902 1.33337 4.66669 2.82571 4.66669 4.66671C4.66669 6.50771 6.15902 8.00004 8.00002 8.00004C9.84102 8.00004 11.3334 6.50771 11.3334 4.66671C11.3334 2.82571 9.84102 1.33337 8.00002 1.33337ZM4.08335 9.33337C3.70769 9.33337 3.3474 9.48258 3.08174 9.74819C2.81607 10.0138 2.66678 10.374 2.66669 10.7497V11C2.66669 12.2517 3.31402 13.189 4.30669 13.7934C5.28335 14.3877 6.59535 14.6667 8.00002 14.6667C9.40469 14.6667 10.7167 14.3877 11.6934 13.7934C12.686 13.189 13.3334 12.2517 13.3334 11V10.7497C13.3334 10.5637 13.2967 10.3795 13.2255 10.2076C13.1543 10.0358 13.05 9.87961 12.9184 9.74809C12.7868 9.61657 12.6307 9.51225 12.4588 9.44109C12.2869 9.36993 12.1027 9.33333 11.9167 9.33337H4.08335Z" fill="white"></path>
-																		<path d="M4.66663 4.66671C4.66663 2.82571 6.15896 1.33337 7.99996 1.33337C9.84096 1.33337 11.3333 2.82571 11.3333 4.66671C11.3333 6.50771 9.84096 8.00004 7.99996 8.00004C6.15896 8.00004 4.66663 6.50771 4.66663 4.66671Z" fill="white"></path>
-																	</svg>
+										<div class="classes-calendar__tabs-body">
+											<div class="wide-lessons-tile">
+												<div class="wide-lesson lesson-wide">
+													<div class="lesson-wide-badge background-green-700"></div>
+													<div class="lesson-wide__body">
+														<div class="lesson-wide__header md:mb-4 mb-3 flex flex-wrap item-center gap-3 justify-between">
+															<div class="title-element-with-emoji">
+																<div class="emoji-box emoji-box--size-m">
+																	<img srcset="img/icons-ios/robot.png 2x" alt="Icon IOS Robot">
 																</div>
-															</div>
-															<div class="profile__content">
-																<p class="profile__name ">
-																	Тетяна Петренко
+																<p class="md:heading-md heading-sm">
+																	Програмування у Minecraft
 																</p>
 															</div>
+															<div class="tags">
+																<div class="tag tag--medium tag-cancelled">
+																	<div class="svg-icon">
+																		<svg class="icon icon--size-s" height="16" width="16">
+																			<use xlink:href="img/icons/icons.svg#maki_cross"></use>
+																		</svg>
 
+																	</div>
+																	Скасовано
+																</div>
+															</div>
+														</div>
+														<div class="lesson-wide__content">
+															<div class="lesson-times flex items-center flex-wrap gap-x-5 gap-y-2">
+																<div class="lesson-times-line lesson-times__time">
+																	<div class="svg-icon">
+																		<svg class="icon icon--size-sm" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+																			<path d="M10 5C10.221 5 10.433 5.0878 10.5893 5.24408C10.7455 5.40036 10.8333 5.61232 10.8333 5.83333V9.51833L12.5817 10.5283C12.7715 10.6396 12.9096 10.8215 12.9659 11.0342C13.0221 11.247 12.9919 11.4733 12.8819 11.6639C12.7719 11.8545 12.5909 11.9938 12.3786 12.0515C12.1662 12.1091 11.9396 12.0804 11.7483 11.9717L9.58333 10.7217C9.45693 10.6482 9.35197 10.5429 9.27887 10.4163C9.20577 10.2897 9.16709 10.1462 9.16666 10V5.83333C9.16666 5.61232 9.25446 5.40036 9.41074 5.24408C9.56702 5.0878 9.77898 5 10 5Z" fill="#747B98" />
+																			<path d="M1.66666 9.99996C1.66666 11.6481 2.15541 13.2593 3.07108 14.6297C3.98676 16.0001 5.28825 17.0682 6.81097 17.699C8.33369 18.3297 10.0092 18.4947 11.6258 18.1732C13.2423 17.8516 14.7271 17.058 15.8926 15.8925C17.058 14.7271 17.8517 13.2422 18.1732 11.6257C18.4948 10.0092 18.3297 8.33365 17.699 6.81093C17.0683 5.28821 16.0002 3.98672 14.6298 3.07105C13.2593 2.15537 11.6482 1.66663 10 1.66663C8.90565 1.66663 7.82202 1.88217 6.81097 2.30096C5.79992 2.71975 4.88126 3.33358 4.10744 4.1074C2.54464 5.67021 1.66666 7.78982 1.66666 9.99996ZM9.16666 5.83329C9.16666 5.61228 9.25446 5.40032 9.41074 5.24404C9.56702 5.08776 9.77898 4.99996 10 4.99996C10.221 4.99996 10.433 5.08776 10.5893 5.24404C10.7455 5.40032 10.8333 5.61228 10.8333 5.83329V9.51829L12.5817 10.5283C12.7715 10.6396 12.9096 10.8214 12.9659 11.0342C13.0221 11.2469 12.9919 11.4733 12.8819 11.6639C12.7719 11.8544 12.5909 11.9938 12.3786 12.0514C12.1662 12.1091 11.9396 12.0804 11.7483 11.9716L9.58333 10.7216C9.45693 10.6482 9.35197 10.5429 9.27887 10.4163C9.20577 10.2897 9.16709 10.1462 9.16666 9.99996V5.83329Z" fill="#CACFE0" />
+																		</svg>
+																	</div>
+																	<span>17:00-18:00</span>
+																</div>
+																<div class="lesson-times-line lesson-times__lesson-type">
+																	<div class="svg-icon">
+																		<svg class="icon icon--size-sm" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+																			<path d="M8.40571 2.49714C8.8849 2.20142 9.4369 2.0448 10 2.0448C10.5631 2.0448 11.1151 2.20142 11.5943 2.49714L18.6743 6.86571C18.7511 6.91305 18.8146 6.979 18.8591 7.05746C18.9036 7.13592 18.9276 7.22434 18.9288 7.31452C18.93 7.40471 18.9084 7.49373 18.8661 7.57336C18.8237 7.65298 18.7619 7.72062 18.6864 7.77L11.6614 12.3629C11.1675 12.6858 10.5902 12.8579 10 12.8579C9.40985 12.8579 8.83249 12.6858 8.33857 12.3629L2.14286 8.31286V12.6793C2.14286 12.8214 2.08641 12.9576 1.98595 13.0581C1.88548 13.1586 1.74922 13.215 1.60714 13.215C1.46506 13.215 1.3288 13.1586 1.22833 13.0581C1.12787 12.9576 1.07143 12.8214 1.07143 12.6793V7.5C1.07143 7.46928 1.07428 7.43928 1.07857 7.41071C1.06086 7.30559 1.07492 7.19758 1.11895 7.10049C1.16298 7.0034 1.23497 6.92166 1.32571 6.86571L8.40571 2.49714Z" fill="#747B98" />
+																			<path d="M4.28569 10.9928L7.75212 13.2592C8.42037 13.6962 9.20152 13.929 9.99998 13.929C10.7984 13.929 11.5796 13.6962 12.2478 13.2592L15.7143 10.9935V14.4642C15.7143 14.6778 15.5985 14.8064 15.4621 14.9399C15.3943 15.0057 15.2971 15.0971 15.17 15.2057C14.826 15.4991 14.4581 15.7631 14.07 15.9949C13.1185 16.5664 11.7293 17.1428 9.99998 17.1428C8.2714 17.1428 6.8814 16.5664 5.92998 15.9949C5.54187 15.7631 5.17391 15.4991 4.82998 15.2057C4.72953 15.1202 4.63186 15.0316 4.53712 14.9399C4.4014 14.8064 4.28569 14.6778 4.28569 14.4642V10.9928Z" fill="#CACFE0" />
+																		</svg>
+																	</div>
+																	<span>Індивідуально</span>
+																</div>
+																<div class="lesson-times-line lesson-times-line__profile profile profile--size-xs">
+
+																	<div class="profile__avatar avatar-icon avatar-bg-green">
+																		<div class="svg-icon">
+																			<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+																				<path d="M8.00002 1.33337C6.15902 1.33337 4.66669 2.82571 4.66669 4.66671C4.66669 6.50771 6.15902 8.00004 8.00002 8.00004C9.84102 8.00004 11.3334 6.50771 11.3334 4.66671C11.3334 2.82571 9.84102 1.33337 8.00002 1.33337ZM4.08335 9.33337C3.70769 9.33337 3.3474 9.48258 3.08174 9.74819C2.81607 10.0138 2.66678 10.374 2.66669 10.7497V11C2.66669 12.2517 3.31402 13.189 4.30669 13.7934C5.28335 14.3877 6.59535 14.6667 8.00002 14.6667C9.40469 14.6667 10.7167 14.3877 11.6934 13.7934C12.686 13.189 13.3334 12.2517 13.3334 11V10.7497C13.3334 10.5637 13.2967 10.3795 13.2255 10.2076C13.1543 10.0358 13.05 9.87961 12.9184 9.74809C12.7868 9.61657 12.6307 9.51225 12.4588 9.44109C12.2869 9.36993 12.1027 9.33333 11.9167 9.33337H4.08335Z" fill="white"></path>
+																				<path d="M4.66663 4.66671C4.66663 2.82571 6.15896 1.33337 7.99996 1.33337C9.84096 1.33337 11.3333 2.82571 11.3333 4.66671C11.3333 6.50771 9.84096 8.00004 7.99996 8.00004C6.15896 8.00004 4.66663 6.50771 4.66663 4.66671Z" fill="white"></path>
+																			</svg>
+																		</div>
+																	</div>
+																	<div class="profile__content">
+																		<p class="profile__name ">
+																			Тетяна Петренко
+																		</p>
+																	</div>
+
+																</div>
+															</div>
 														</div>
 													</div>
 												</div>
 											</div>
 										</div>
 									</div>
+
 								</div>
 							</div>
 							<div class="widget my-payments">
@@ -639,7 +731,7 @@
 								<div class="widget__body">
 									<p class="text-body-md-light mb-3 text-grayscale-800">Поділіться цим посиланням і отримайте бонусні години за реєстрацію на навчання ваших знайомих!</p>
 									<div class="referral-program__link">
-										<input autocomplete="off" type="text" data-after-text="Скопійовано! " name="form[]" data-value="http://bit.ly/t3390wg" placeholder="http://bit.ly/t3390wg" class="input input-referral">
+										<input autocomplete="off" type="text" readonly data-after-text="Скопійовано! " name="form[]" data-value="http://bit.ly/t3390wg" placeholder="http://bit.ly/t3390wg" class="input input-referral">
 										<div class="referral-program__button">
 											<button type="submit" class="button button-copy-link-referral button-blue button-medium" data-ripple>
 												<span class="circle">
@@ -1028,8 +1120,8 @@
 
 
 	</div>
-	<script src="https://cdn.jsdelivr.net/npm/chart.js?_v=20231025165950"></script>
-	<script src="js/app.min.js?_v=20231025165950"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js?_v=20231026031345"></script>
+	<script src="js/app.min.js?_v=20231026031345"></script>
 </body>
 
 </html>
