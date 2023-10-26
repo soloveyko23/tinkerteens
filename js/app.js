@@ -3914,7 +3914,7 @@
     if (buttonSkip) buttonSkip.addEventListener("click", (e => {
         e.preventDefault();
         const signIn = document.querySelector(".sign-in");
-        signIn.classList.add("hidden");
+        signIn.classList.add("hiddenn");
     }));
     window.addEventListener("load", (function(e) {
         initSliders();

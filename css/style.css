@@ -5304,7 +5304,7 @@ b {
             transform: translateX(-100%);
   }
 
-  .hidden .sign-in__right {
+  .hiddenn .sign-in__right {
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
     -webkit-transform: translateX(-100%);
