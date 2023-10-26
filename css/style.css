@@ -5040,8 +5040,8 @@ b {
   }
 
   .statistic-row {
-    -ms-grid-columns: 1fr;
-    grid-template-columns: 1fr;
+    -ms-grid-columns: 1fr !important;
+    grid-template-columns: 1fr !important;
   }
 
   .sign-in__left .left-content__form-header {
