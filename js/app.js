@@ -13,13 +13,6 @@
             document.documentElement.classList.add(className);
         }));
     }
-    function addLoadedClass() {
-        if (!document.documentElement.classList.contains("loading")) window.addEventListener("load", (function() {
-            setTimeout((function() {
-                document.documentElement.classList.add("loaded");
-            }), 0);
-        }));
-    }
     function getHash() {
         if (location.hash) return location.hash.replace("#", "");
     }
@@ -279,6 +272,32 @@
                 return mdQueriesArray;
             }
         }
+    }
+    function formQuantity() {
+        const quantityElements = document.querySelectorAll("[data-quantity]");
+        quantityElements.forEach((quantityElement => {
+            const plusButton = quantityElement.querySelector("[data-quantity-plus]");
+            const minusButton = quantityElement.querySelector("[data-quantity-minus]");
+            const valueElement = quantityElement.querySelector("[data-quantity-value]");
+            if (plusButton && minusButton && valueElement) {
+                plusButton.addEventListener("click", (() => {
+                    handleQuantityChange(valueElement, 1);
+                }));
+                minusButton.addEventListener("click", (() => {
+                    handleQuantityChange(valueElement, -1);
+                }));
+                valueElement.addEventListener("input", (() => {
+                    valueElement.value = valueElement.value.replace(/\D/g, "");
+                    handleQuantityChange(valueElement, 0);
+                }));
+            }
+        }));
+    }
+    function handleQuantityChange(valueElement, change) {
+        let value = parseInt(valueElement.value) || 1;
+        value += change;
+        if (value < 1) value = 1; else if (+valueElement.dataset.quantityMax && value > +valueElement.dataset.quantityMax) value = +valueElement.dataset.quantityMax;
+        valueElement.value = value;
     }
     function ssr_window_esm_isObject(obj) {
         return obj !== null && typeof obj === "object" && "constructor" in obj && obj.constructor === Object;
@@ -3872,8 +3891,10 @@
                 },
                 on: {}
             });
-            let isEndReached = false;
-            new swiper_core_Swiper(".sign-in__slider", {
+            var isLastSlide = false;
+            var currentSlide = 0;
+            localStorage.getItem("rightContentShown");
+            const signInSlider = new swiper_core_Swiper(".sign-in__slider", {
                 modules: [ Pagination, Autoplay, Navigation ],
                 observer: true,
                 observeParents: true,
@@ -3887,9 +3908,6 @@
                     el: ".sign-in .swiper-pagination",
                     clickable: true
                 },
-                navigation: {
-                    nextEl: ".right-content__buttons .button-next"
-                },
                 breakpoints: {
                     768: {
                         loop: false
@@ -3900,20 +3918,45 @@
                 },
                 on: {
                     slideChange: function() {
-                        if (this.isEnd && !isEndReached) {
+                        currentSlide = this.activeIndex;
+                        isLastSlide = this.isEnd;
+                        if (isLastSlide) {
                             const signIn = document.querySelector(".sign-in");
-                            signIn.classList.add("hide");
-                            isEndReached = true;
+                            signIn.classList.remove("hiddenn");
                         }
                     }
                 }
             });
+            const nextButton = document.querySelector(".right-content__buttons .button-next");
+            if (nextButton) nextButton.addEventListener("click", (function() {
+                if (signInSlider) {
+                    if (isLastSlide && currentSlide === signInSlider.slides.length - 1) {
+                        const signIn = document.querySelector(".sign-in");
+                        signIn.classList.add("hiddenn");
+                        localStorage.setItem("rightContentShown", "true");
+                    }
+                    signInSlider.slideNext();
+                }
+            }));
+            const rightContentShownStorage = localStorage.getItem("rightContentShown");
+            const mediaQuery = window.matchMedia("(max-width: 768px)");
+            if (mediaQuery.matches) if (rightContentShownStorage === "true") {
+                const signIn = document.querySelector(".sign-in");
+                if (signIn) {
+                    signIn.classList.add("hiddenn");
+                    signInSlider.destroy();
+                }
+            } else {
+                const signIn = document.querySelector(".sign-in");
+                if (signIn) signIn.classList.remove("hiddenn");
+            }
         }
     }
     const buttonSkip = document.querySelector(".right-content__buttons > .button-skip");
     if (buttonSkip) buttonSkip.addEventListener("click", (e => {
         e.preventDefault();
         const signIn = document.querySelector(".sign-in");
+        localStorage.setItem("rightContentShown", "true");
         signIn.classList.add("hiddenn");
     }));
     window.addEventListener("load", (function(e) {
@@ -4300,6 +4343,34 @@
             customChart.update();
         }));
     }
+    function delayRedirect(link) {
+        setTimeout((function() {
+            window.location.href = link.href;
+        }), 300);
+    }
+    const menuLinks = document.querySelectorAll(".menu__link");
+    menuLinks.forEach((function(link) {
+        link.addEventListener("click", (function(event) {
+            event.preventDefault();
+            delayRedirect(link);
+        }));
+    }));
+    const tabsBodyProducts = document.querySelector(".tabs__body--products");
+    const shopStudentBonuses = document.querySelector(".shop-student__bonuses");
+    if (tabsBodyProducts) {
+        const observer = new MutationObserver((mutationsList => {
+            for (const mutation of mutationsList) if (mutation.type === "attributes" && mutation.attributeName === "hidden") if (tabsBodyProducts.hasAttribute("hidden")) {
+                shopStudentBonuses.classList.add("hide");
+                console.log("Класс tabs__body--products скрыт");
+            } else {
+                shopStudentBonuses.classList.remove("hide");
+                console.log("Класс tabs__body--products видим");
+            }
+        }));
+        observer.observe(tabsBodyProducts, {
+            attributes: true
+        });
+    }
     clickCreateRipple();
     moveDividerTabs();
     moveWidgetsOnResize();
@@ -4307,7 +4378,7 @@
     buttonRipple();
     window["FLS"] = true;
     isWebp();
-    addLoadedClass();
     menuInit();
     tabs();
+    formQuantity();
 })();

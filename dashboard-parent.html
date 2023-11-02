@@ -8,13 +8,33 @@
 	<style>
 		body {
 			opacity: 0;
+			pointer-events: none;
 		}
 	</style>
-	<link rel="stylesheet" href="css/style.min.css?_v=20231026031345">
+	<link rel="stylesheet" href="css/style.min.css?_v=20231102173243">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://cdn.tailwindcss.com?_v=20231026031345"></script>
+	<script src="https://cdn.tailwindcss.com?_v=20231102173243"></script>
+	<style>
+		.lock body {
+			overflow: hidden;
+			touch-action: none;
+			overscroll-behavior: none;
+		}
+
+		.loading body {
+			opacity: 0;
+			visibility: hidden;
+		}
+
+		.loaded body {
+			transition: opacity 0.5s ease 0s;
+			opacity: 1;
+			visibility: visible;
+			pointer-events: auto;
+		}
+	</style>
 </head>
 
 <body>
@@ -36,7 +56,8 @@
 								<nav class="menu__body">
 									<ul class="menu__list">
 										<li class="menu__item">
-											<a href="#" class="menu__link link-menu link-with-icon link-with-icon--hover selected">
+
+											<a href="dashboard-parent.html" class="menu__link link-menu link-with-icon link-with-icon--hover selected">
 												<div class="link-menu-wrap">
 													<div class="link-menu-icon svg-icon">
 														<svg class="icon icon--size-m" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none">
@@ -51,7 +72,7 @@
 											</a>
 										</li>
 										<li class="menu__item">
-											<a href="#" class="menu__link link-menu link-with-icon link-with-icon--hover">
+											<a href="#" class="menu__link link-menu link-with-icon link-with-icon--hover ">
 												<div class="link-menu-wrap">
 													<div class="link-menu-icon svg-icon">
 														<svg class="icon icon--size-m" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -69,7 +90,7 @@
 											</a>
 										</li>
 										<li class="menu__item">
-											<a href="#" class="menu__link link-menu link-with-icon link-with-icon--hover">
+											<a href="my-balance.html" class="menu__link link-menu link-with-icon link-with-icon--hover ">
 												<div class="link-menu-wrap">
 													<div class="link-menu-icon svg-icon">
 														<svg class="icon icon--size-m" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -84,12 +105,13 @@
 											</a>
 										</li>
 										<li class="menu__item">
-											<a href="#" class="menu__link link-menu link-with-icon link-with-icon--hover">
+											<a href="my-child.html" class="menu__link link-menu link-with-icon link-with-icon--hover ">
 												<div class="link-menu-wrap">
 													<div class="link-menu-icon svg-icon">
-														<svg class="icon icon--size-m" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none">
-															<path d="M3.33333 14C2.96667 14 2.65267 13.8693 2.39133 13.608C2.13 13.3467 1.99956 13.0329 2 12.6667V3.33333C2 2.96667 2.13067 2.65267 2.392 2.39133C2.65333 2.13 2.96711 1.99956 3.33333 2H6C6.36667 2 6.68067 2.13067 6.942 2.392C7.20333 2.65333 7.33378 2.96711 7.33333 3.33333V12.6667C7.33333 13.0333 7.20267 13.3473 6.94133 13.6087C6.68 13.87 6.36622 14.0004 6 14H3.33333ZM10 14C9.63333 14 9.31933 13.8693 9.058 13.608C8.79667 13.3467 8.66622 13.0329 8.66667 12.6667V9.33333C8.66667 8.96667 8.79734 8.65267 9.05867 8.39133C9.32 8.13 9.63378 7.99956 10 8H12.6667C13.0333 8 13.3473 8.13067 13.6087 8.392C13.87 8.65334 14.0004 8.96711 14 9.33333V12.6667C14 13.0333 13.8693 13.3473 13.608 13.6087C13.3467 13.87 13.0329 14.0004 12.6667 14H10ZM10 6.66667C9.63333 6.66667 9.31933 6.536 9.058 6.27467C8.79667 6.01333 8.66622 5.69956 8.66667 5.33333V3.33333C8.66667 2.96667 8.79734 2.65267 9.05867 2.39133C9.32 2.13 9.63378 1.99956 10 2H12.6667C13.0333 2 13.3473 2.13067 13.6087 2.392C13.87 2.65333 14.0004 2.96711 14 3.33333V5.33333C14 5.7 13.8693 6.014 13.608 6.27533C13.3467 6.53667 13.0329 6.66711 12.6667 6.66667H10Z" fill="#CACFE0" />
-															<path d="M9.05784 6.27467C9.31917 6.536 9.63317 6.66667 9.99984 6.66667H12.6665C13.0327 6.66711 13.3465 6.53667 13.6078 6.27533C13.8692 6.014 13.9998 5.7 13.9998 5.33333V3.33333C14.0003 2.96711 13.8698 2.65333 13.6085 2.392C13.3472 2.13067 13.0332 2 12.6665 2H9.99984C9.63362 1.99956 9.31984 2.13 9.05851 2.39133C8.79717 2.65267 8.66651 2.96667 8.66651 3.33333V5.33333C8.66606 5.69956 8.79651 6.01333 9.05784 6.27467Z" fill="#747B98" />
+														<svg class="icon icon--size-m" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+															<path d="M8.0998 12C9.13415 12 10.1261 11.5891 10.8575 10.8577C11.5889 10.1263 11.9998 9.13436 11.9998 8.10001C11.9998 7.06567 11.5889 6.07369 10.8575 5.3423C10.1261 4.6109 9.13415 4.20001 8.0998 4.20001C7.06546 4.20001 6.07348 4.6109 5.34209 5.3423C4.6107 6.07369 4.1998 7.06567 4.1998 8.10001C4.1998 9.13436 4.6107 10.1263 5.34209 10.8577C6.07348 11.5891 7.06546 12 8.0998 12ZM14.9242 18.174C15.5602 18.4344 16.369 18.6 17.3986 18.6C22.1986 18.6 22.1986 15 22.1986 15C22.1986 14.5228 22.0091 14.0652 21.6718 13.7276C21.3345 13.3901 20.877 13.2003 20.3998 13.2H14.8462C15.3178 13.7712 15.601 14.502 15.601 15.3V15.7272C15.5985 15.8283 15.5917 15.9292 15.5806 16.0296C15.4996 16.7794 15.2761 17.507 14.9242 18.174ZM20.3998 9.00001C20.3998 9.79566 20.0837 10.5587 19.5211 11.1213C18.9585 11.6839 18.1955 12 17.3998 12C16.6042 12 15.8411 11.6839 15.2785 11.1213C14.7159 10.5587 14.3998 9.79566 14.3998 9.00001C14.3998 8.20436 14.7159 7.4413 15.2785 6.87869C15.8411 6.31608 16.6042 6.00001 17.3998 6.00001C18.1955 6.00001 18.9585 6.31608 19.5211 6.87869C20.0837 7.4413 20.3998 8.20436 20.3998 9.00001ZM1.7998 15.6C1.7998 14.9635 2.05266 14.353 2.50275 13.903C2.95284 13.4529 3.56328 13.2 4.1998 13.2H11.9998C12.6363 13.2 13.2468 13.4529 13.6969 13.903C14.1469 14.353 14.3998 14.9635 14.3998 15.6C14.3998 15.6 14.3998 20.4 8.0998 20.4C1.7998 20.4 1.7998 15.6 1.7998 15.6Z" fill="#CACFE0" />
+															<path d="M10.8579 10.8577C10.1265 11.5891 9.13454 12 8.1002 12C7.06585 12 6.07387 11.5891 5.34248 10.8577C4.61109 10.1263 4.2002 9.1343 4.2002 8.09995C4.2002 7.06561 4.61109 6.07363 5.34248 5.34223C6.07387 4.61084 7.06585 4.19995 8.1002 4.19995C9.13454 4.19995 10.1265 4.61084 10.8579 5.34223C11.5893 6.07363 12.0002 7.06561 12.0002 8.09995C12.0002 9.1343 11.5893 10.1263 10.8579 10.8577Z" fill="#747B98" />
+															<path d="M19.5215 11.1213C20.0841 10.5587 20.4002 9.7956 20.4002 8.99995C20.4002 8.2043 20.0841 7.44124 19.5215 6.87863C18.9589 6.31602 18.1958 5.99995 17.4002 5.99995C16.6045 5.99995 15.8415 6.31602 15.2789 6.87863C14.7163 7.44124 14.4002 8.2043 14.4002 8.99995C14.4002 9.7956 14.7163 10.5587 15.2789 11.1213C15.8415 11.6839 16.6045 12 17.4002 12C18.1958 12 18.9589 11.6839 19.5215 11.1213Z" fill="#747B98" />
 														</svg>
 													</div>
 													<span>Мої діти</span>
@@ -98,7 +120,7 @@
 											</a>
 										</li>
 										<li class="menu__item">
-											<a href="#" class="menu__link link-menu link-with-icon link-with-icon--hover">
+											<a href="my-payments.html" class="menu__link link-menu link-with-icon link-with-icon--hover ">
 												<div class="link-menu-wrap">
 													<div class="link-menu-icon svg-icon">
 														<svg class="icon icon--size-m" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -115,7 +137,7 @@
 											</a>
 										</li>
 										<li class="menu__item">
-											<a href="#" class="menu__link link-menu link-with-icon link-with-icon--hover">
+											<a href="#" class="menu__link link-menu link-with-icon link-with-icon--hover ">
 												<div class="link-menu-wrap">
 													<div class="link-menu-icon svg-icon">
 														<svg class="icon icon--size-m" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -131,7 +153,7 @@
 											</a>
 										</li>
 										<li class="menu__item">
-											<a href="#" class="menu__link link-menu link-with-icon link-with-icon--hover">
+											<a href="shop-parent.html" class="menu__link link-menu link-with-icon link-with-icon--hover ">
 												<div class="link-menu-wrap">
 													<div class="link-menu-icon svg-icon">
 														<svg class="icon icon--size-m" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -149,7 +171,7 @@
 											</a>
 										</li>
 										<li class="menu__item">
-											<a href="#" class="menu__link link-menu link-with-icon link-with-icon--hover">
+											<a href="#" class="menu__link link-menu link-with-icon link-with-icon--hover ">
 												<div class="link-menu-wrap">
 													<div class="link-menu-icon svg-icon">
 														<svg class="icon icon--size-m" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -168,7 +190,7 @@
 							</div>
 						</div>
 						<div class="sidebar__content-bottom">
-							<a href="#" class="sidebar-logout link-with-icon link-with-icon--hover">
+							<a href="#" class="sidebar-logout link-with-icon link-with-icon--hover undefined">
 								<div class="svg-icon">
 									<svg class="icon icon--size-m" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
 										<path d="M16 2H15C12.171 2 10.758 2 9.879 2.879C9 3.758 9 5.172 9 8V16C9 18.829 9 20.243 9.879 21.122C10.757 22 12.171 22 14.998 22H16C18.828 22 20.242 22 21.121 21.121C22 20.243 22 18.828 22 16V8C22 5.172 22 3.757 21.121 2.879C20.242 2 18.828 2 16 2Z" fill="#CACFE0" />
@@ -201,8 +223,21 @@
 										Огляд
 									</h1>
 								</div>
-								<div class="header__title-page-bottom">
-
+								<div class="header__title-page-bottom undefined">
+									<div class="breadcrumbs">
+										<ul>
+											<li>
+												<a href="#">
+													Мої діти @@
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													Олег Петренко
+												</a>
+											</li>
+										</ul>
+									</div>
 								</div>
 
 
@@ -235,831 +270,832 @@
 						</div>
 					</div>
 				</header>
-				<div class="content__container">
-
-					<div class="widget my-balance">
-						<div class="widget__body flex justify-between gap-4 items-center xl:flex-nowrap flex-wrap">
-							<h4 class="md:heading-lg heading-md order-first">
-								Мій баланс
-							</h4>
-							<div class="my-balance__hours flex md:items-center md:gap-8 gap-4 md:justify-center md:flex-row flex-col lg:order-2 lg:flex-auto flex-1 basis-full order-2">
-								<div class="my-balance__column column-balance flex items-center gap-4">
-									<div class="svg-icon">
-										<svg class="icon icon--size-m" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-											<path d="M12 2.5C9.2385 2.5 7 4.7385 7 7.5C7 10.2615 9.2385 12.5 12 12.5C14.7615 12.5 17 10.2615 17 7.5C17 4.7385 14.7615 2.5 12 2.5ZM6.125 14.5C5.5615 14.5 5.02108 14.7238 4.62257 15.1222C4.22407 15.5206 4.00013 16.061 4 16.6245V17C4 18.8775 4.971 20.2835 6.46 21.19C7.925 22.0815 9.893 22.5 12 22.5C14.107 22.5 16.075 22.0815 17.54 21.19C19.029 20.2835 20 18.8775 20 17V16.6245C20 16.3455 19.945 16.0692 19.8382 15.8114C19.7314 15.5536 19.5749 15.3194 19.3776 15.1221C19.1802 14.9248 18.946 14.7683 18.6882 14.6616C18.4303 14.5548 18.154 14.4999 17.875 14.5H6.125Z" fill="#CACFE0" />
-											<path d="M7.00012 7.50006C7.00012 4.73856 9.23862 2.50006 12.0001 2.50006C14.7616 2.50006 17.0001 4.73856 17.0001 7.50006C17.0001 10.2616 14.7616 12.5001 12.0001 12.5001C9.23862 12.5001 7.00012 10.2616 7.00012 7.50006Z" fill="#747B98" />
-										</svg>
+				<div class="content-wrapper">
+					<div class="content__container">
+						<div class="widget my-balance">
+							<div class="widget__body flex justify-between gap-4 items-center xl:flex-nowrap flex-wrap">
+								<h4 class="md:heading-lg heading-md order-first">
+									Мій баланс
+								</h4>
+								<div class="my-balance__hours flex md:items-center md:gap-8 gap-4 lg:justify-center md:flex-row flex-col lg:order-2 lg:flex-auto flex-1 basis-full order-2">
+									<div class="my-balance__column column-balance flex items-center gap-4">
+										<div class="svg-icon">
+											<svg class="icon icon--size-m" xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+												<path d="M12 2.5C9.2385 2.5 7 4.7385 7 7.5C7 10.2615 9.2385 12.5 12 12.5C14.7615 12.5 17 10.2615 17 7.5C17 4.7385 14.7615 2.5 12 2.5ZM6.125 14.5C5.5615 14.5 5.02108 14.7238 4.62257 15.1222C4.22407 15.5206 4.00013 16.061 4 16.6245V17C4 18.8775 4.971 20.2835 6.46 21.19C7.925 22.0815 9.893 22.5 12 22.5C14.107 22.5 16.075 22.0815 17.54 21.19C19.029 20.2835 20 18.8775 20 17V16.6245C20 16.3455 19.945 16.0692 19.8382 15.8114C19.7314 15.5536 19.5749 15.3194 19.3776 15.1221C19.1802 14.9248 18.946 14.7683 18.6882 14.6616C18.4303 14.5548 18.154 14.4999 17.875 14.5H6.125Z" fill="#CACFE0" />
+												<path d="M7.00012 7.50006C7.00012 4.73856 9.23862 2.50006 12.0001 2.50006C14.7616 2.50006 17.0001 4.73856 17.0001 7.50006C17.0001 10.2616 14.7616 12.5001 12.0001 12.5001C9.23862 12.5001 7.00012 10.2616 7.00012 7.50006Z" fill="#747B98" />
+											</svg>
+										</div>
+										<div class="column-balance__info">
+											<p class="md:heading-xl heading-lg">
+												4 год 30 хв
+											</p>
+											<span class="text-grayscale-600">
+												Індивідуальні заняття
+											</span>
+										</div>
 									</div>
-									<div class="column-balance__info">
-										<p class="md:heading-xl heading-lg">
-											4 год 30 хв
-										</p>
-										<span class="text-grayscale-600">
-											Індивідуальні заняття
-										</span>
+									<div class="my-balance__column column-balance flex items-center gap-4 disabled">
+										<div class="svg-icon">
+											<svg class="icon icon--size-m" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+												<path d="M5.00016 5.33333C5.5306 5.33333 6.0393 5.12261 6.41438 4.74754C6.78945 4.37247 7.00016 3.86376 7.00016 3.33333C7.00016 2.8029 6.78945 2.29419 6.41438 1.91911C6.0393 1.54404 5.5306 1.33333 5.00016 1.33333C4.46973 1.33333 3.96102 1.54404 3.58595 1.91911C3.21088 2.29419 3.00016 2.8029 3.00016 3.33333C3.00016 3.86376 3.21088 4.37247 3.58595 4.74754C3.96102 5.12261 4.46973 5.33333 5.00016 5.33333ZM1.3335 7.17866C1.3335 6.52666 1.86083 5.99999 2.51216 5.99999H5.69016C5.45576 6.40521 5.33272 6.86521 5.3335 7.33333C5.33305 7.71172 5.41333 8.08585 5.56899 8.43074C5.72465 8.77563 5.95211 9.08334 6.23616 9.33333H5.51216C5.13643 9.33334 4.76964 9.44797 4.46076 9.66191C4.15188 9.87585 3.91561 10.1789 3.7835 10.5307C2.78483 10.2867 2.1655 9.74199 1.80083 9.13533C1.3335 8.35733 1.3335 7.55733 1.3335 7.41799V7.17866ZM10.6668 7.33333C10.6676 6.8652 10.5446 6.40519 10.3102 5.99999H13.4882C14.1402 5.99999 14.6668 6.52733 14.6668 7.17866V7.41866C14.6668 7.55666 14.6668 8.35733 14.2002 9.13533C13.8348 9.74199 13.2155 10.2867 12.2168 10.5307C12.0848 10.1789 11.8485 9.87574 11.5396 9.66179C11.2308 9.44784 10.8639 9.33325 10.4882 9.33333H9.76416C10.0482 9.08334 10.2757 8.77563 10.4313 8.43074C10.587 8.08585 10.6673 7.71172 10.6668 7.33333ZM13.0002 3.33333C13.0002 3.86376 12.7894 4.37247 12.4144 4.74754C12.0393 5.12261 11.5306 5.33333 11.0002 5.33333C10.4697 5.33333 9.96102 5.12261 9.58595 4.74754C9.21088 4.37247 9.00016 3.86376 9.00016 3.33333C9.00016 2.8029 9.21088 2.29419 9.58595 1.91911C9.96102 1.54404 10.4697 1.33333 11.0002 1.33333C11.5306 1.33333 12.0393 1.54404 12.4144 1.91911C12.7894 2.29419 13.0002 2.8029 13.0002 3.33333ZM4.3335 11.1787C4.3335 10.5267 4.86083 9.99999 5.51216 9.99999H10.4882C11.1395 9.99999 11.6668 10.5273 11.6668 11.1787V11.4187C11.6668 11.5567 11.6668 12.3573 11.2002 13.1353C10.7048 13.958 9.74216 14.6667 8.00016 14.6667C6.25816 14.6667 5.29483 13.958 4.80016 13.1353C4.3335 12.3573 4.3335 11.5573 4.3335 11.418V11.1787ZM8.00016 9.33333C8.26281 9.33333 8.52288 9.2816 8.76553 9.18109C9.00818 9.08058 9.22866 8.93326 9.41438 8.74754C9.60009 8.56182 9.74741 8.34135 9.84792 8.09869C9.94843 7.85604 10.0002 7.59597 10.0002 7.33333C10.0002 7.07068 9.94843 6.81061 9.84792 6.56796C9.74741 6.32531 9.60009 6.10483 9.41438 5.91911C9.22866 5.7334 9.00818 5.58608 8.76553 5.48557C8.52288 5.38506 8.26281 5.33333 8.00016 5.33333C7.46973 5.33333 6.96102 5.54404 6.58595 5.91911C6.21088 6.29419 6.00016 6.8029 6.00016 7.33333C6.00016 7.86376 6.21088 8.37247 6.58595 8.74754C6.96102 9.12261 7.46973 9.33333 8.00016 9.33333Z" fill="#CACFE0" />
+												<path d="M6.41421 4.74759C6.03914 5.12266 5.53043 5.33337 5 5.33337C4.46957 5.33337 3.96086 5.12266 3.58579 4.74759C3.21071 4.37251 3 3.86381 3 3.33337C3 2.80294 3.21071 2.29423 3.58579 1.91916C3.96086 1.54409 4.46957 1.33337 5 1.33337C5.53043 1.33337 6.03914 1.54409 6.41421 1.91916C6.78929 2.29423 7 2.80294 7 3.33337C7 3.86381 6.78929 4.37251 6.41421 4.74759Z" fill="#747B98" />
+												<path d="M12.4142 4.74759C12.7893 4.37251 13 3.86381 13 3.33337C13 2.80294 12.7893 2.29423 12.4142 1.91916C12.0391 1.54409 11.5304 1.33337 11 1.33337C10.4696 1.33337 9.96086 1.54409 9.58579 1.91916C9.21071 2.29423 9 2.80294 9 3.33337C9 3.86381 9.21071 4.37251 9.58579 4.74759C9.96086 5.12266 10.4696 5.33337 11 5.33337C11.5304 5.33337 12.0391 5.12266 12.4142 4.74759Z" fill="#747B98" />
+												<path d="M8.76537 9.18113C8.52272 9.28164 8.26264 9.33337 8 9.33337C7.46957 9.33337 6.96086 9.12266 6.58579 8.74759C6.21071 8.37252 6 7.86381 6 7.33337C6 6.80294 6.21071 6.29423 6.58579 5.91916C6.96086 5.54409 7.46957 5.33337 8 5.33337C8.26264 5.33337 8.52272 5.38511 8.76537 5.48561C9.00802 5.58612 9.2285 5.73344 9.41421 5.91916C9.59993 6.10488 9.74725 6.32536 9.84776 6.56801C9.94827 6.81066 10 7.07073 10 7.33337C10 7.59602 9.94827 7.85609 9.84776 8.09874C9.74725 8.34139 9.59993 8.56187 9.41421 8.74759C9.2285 8.93331 9.00802 9.08062 8.76537 9.18113Z" fill="#747B98" />
+											</svg>
+										</div>
+										<div class="column-balance__info">
+											<p class="md:heading-xl heading-lg">
+												0 хв
+											</p>
+											<span class="text-grayscale-600">
+												Групові заняття
+											</span>
+										</div>
 									</div>
 								</div>
-								<div class="my-balance__column column-balance flex items-center gap-4 disabled">
-									<div class="svg-icon">
-										<svg class="icon icon--size-m" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-											<path d="M5.00016 5.33333C5.5306 5.33333 6.0393 5.12261 6.41438 4.74754C6.78945 4.37247 7.00016 3.86376 7.00016 3.33333C7.00016 2.8029 6.78945 2.29419 6.41438 1.91911C6.0393 1.54404 5.5306 1.33333 5.00016 1.33333C4.46973 1.33333 3.96102 1.54404 3.58595 1.91911C3.21088 2.29419 3.00016 2.8029 3.00016 3.33333C3.00016 3.86376 3.21088 4.37247 3.58595 4.74754C3.96102 5.12261 4.46973 5.33333 5.00016 5.33333ZM1.3335 7.17866C1.3335 6.52666 1.86083 5.99999 2.51216 5.99999H5.69016C5.45576 6.40521 5.33272 6.86521 5.3335 7.33333C5.33305 7.71172 5.41333 8.08585 5.56899 8.43074C5.72465 8.77563 5.95211 9.08334 6.23616 9.33333H5.51216C5.13643 9.33334 4.76964 9.44797 4.46076 9.66191C4.15188 9.87585 3.91561 10.1789 3.7835 10.5307C2.78483 10.2867 2.1655 9.74199 1.80083 9.13533C1.3335 8.35733 1.3335 7.55733 1.3335 7.41799V7.17866ZM10.6668 7.33333C10.6676 6.8652 10.5446 6.40519 10.3102 5.99999H13.4882C14.1402 5.99999 14.6668 6.52733 14.6668 7.17866V7.41866C14.6668 7.55666 14.6668 8.35733 14.2002 9.13533C13.8348 9.74199 13.2155 10.2867 12.2168 10.5307C12.0848 10.1789 11.8485 9.87574 11.5396 9.66179C11.2308 9.44784 10.8639 9.33325 10.4882 9.33333H9.76416C10.0482 9.08334 10.2757 8.77563 10.4313 8.43074C10.587 8.08585 10.6673 7.71172 10.6668 7.33333ZM13.0002 3.33333C13.0002 3.86376 12.7894 4.37247 12.4144 4.74754C12.0393 5.12261 11.5306 5.33333 11.0002 5.33333C10.4697 5.33333 9.96102 5.12261 9.58595 4.74754C9.21088 4.37247 9.00016 3.86376 9.00016 3.33333C9.00016 2.8029 9.21088 2.29419 9.58595 1.91911C9.96102 1.54404 10.4697 1.33333 11.0002 1.33333C11.5306 1.33333 12.0393 1.54404 12.4144 1.91911C12.7894 2.29419 13.0002 2.8029 13.0002 3.33333ZM4.3335 11.1787C4.3335 10.5267 4.86083 9.99999 5.51216 9.99999H10.4882C11.1395 9.99999 11.6668 10.5273 11.6668 11.1787V11.4187C11.6668 11.5567 11.6668 12.3573 11.2002 13.1353C10.7048 13.958 9.74216 14.6667 8.00016 14.6667C6.25816 14.6667 5.29483 13.958 4.80016 13.1353C4.3335 12.3573 4.3335 11.5573 4.3335 11.418V11.1787ZM8.00016 9.33333C8.26281 9.33333 8.52288 9.2816 8.76553 9.18109C9.00818 9.08058 9.22866 8.93326 9.41438 8.74754C9.60009 8.56182 9.74741 8.34135 9.84792 8.09869C9.94843 7.85604 10.0002 7.59597 10.0002 7.33333C10.0002 7.07068 9.94843 6.81061 9.84792 6.56796C9.74741 6.32531 9.60009 6.10483 9.41438 5.91911C9.22866 5.7334 9.00818 5.58608 8.76553 5.48557C8.52288 5.38506 8.26281 5.33333 8.00016 5.33333C7.46973 5.33333 6.96102 5.54404 6.58595 5.91911C6.21088 6.29419 6.00016 6.8029 6.00016 7.33333C6.00016 7.86376 6.21088 8.37247 6.58595 8.74754C6.96102 9.12261 7.46973 9.33333 8.00016 9.33333Z" fill="#CACFE0" />
-											<path d="M6.41421 4.74759C6.03914 5.12266 5.53043 5.33337 5 5.33337C4.46957 5.33337 3.96086 5.12266 3.58579 4.74759C3.21071 4.37251 3 3.86381 3 3.33337C3 2.80294 3.21071 2.29423 3.58579 1.91916C3.96086 1.54409 4.46957 1.33337 5 1.33337C5.53043 1.33337 6.03914 1.54409 6.41421 1.91916C6.78929 2.29423 7 2.80294 7 3.33337C7 3.86381 6.78929 4.37251 6.41421 4.74759Z" fill="#747B98" />
-											<path d="M12.4142 4.74759C12.7893 4.37251 13 3.86381 13 3.33337C13 2.80294 12.7893 2.29423 12.4142 1.91916C12.0391 1.54409 11.5304 1.33337 11 1.33337C10.4696 1.33337 9.96086 1.54409 9.58579 1.91916C9.21071 2.29423 9 2.80294 9 3.33337C9 3.86381 9.21071 4.37251 9.58579 4.74759C9.96086 5.12266 10.4696 5.33337 11 5.33337C11.5304 5.33337 12.0391 5.12266 12.4142 4.74759Z" fill="#747B98" />
-											<path d="M8.76537 9.18113C8.52272 9.28164 8.26264 9.33337 8 9.33337C7.46957 9.33337 6.96086 9.12266 6.58579 8.74759C6.21071 8.37252 6 7.86381 6 7.33337C6 6.80294 6.21071 6.29423 6.58579 5.91916C6.96086 5.54409 7.46957 5.33337 8 5.33337C8.26264 5.33337 8.52272 5.38511 8.76537 5.48561C9.00802 5.58612 9.2285 5.73344 9.41421 5.91916C9.59993 6.10488 9.74725 6.32536 9.84776 6.56801C9.94827 6.81066 10 7.07073 10 7.33337C10 7.59602 9.94827 7.85609 9.84776 8.09874C9.74725 8.34139 9.59993 8.56187 9.41421 8.74759C9.2285 8.93331 9.00802 9.08062 8.76537 9.18113Z" fill="#747B98" />
-										</svg>
-									</div>
-									<div class="column-balance__info">
-										<p class="md:heading-xl heading-lg">
-											0 хв
-										</p>
-										<span class="text-grayscale-600">
-											Групові заняття
-										</span>
-									</div>
-								</div>
-							</div>
-							<a href="#" class="button button-large button-blue lg:order-3 order-1" data-ripple>
-								<span class="circle">
+								<a href="#" class="button button-large button-blue lg:order-3 order-1" data-ripple>
+									<span class="circle">
 
-								</span>
-								<span class="button__inner">
-									<span class="button__text">
-										Додати години
 									</span>
-								</span>
-							</a>
-						</div>
-					</div>
-					<div class="content-widgets">
-						<div class="content-widgets-large">
-							<div class="widget classes-calendar">
-								<div class="widget__header">
-									<h4 class="md:heading-lg heading-md">
-										Календар занять
-									</h4>
-									<a href="#" class="link-blue">
-										Перейти
-									</a>
-								</div>
-								<div class="widget__body" data-tabs>
-									<div class="classes-calendar__slider swiper mb-5">
-										<div class="classes-calendar__wrapper swiper-wrapper" data-tabs-titles>
-											<div class="classes-calendar__slide swiper-slide  _tab-active">
-												<a href="#" class="calendar-dates__button calendar-button">
-													<div class="calendar-button__body">
-														<div class="calendar-button__day text-grayscale-600 heading-sm">
-															Пн
-														</div>
-														<div class="calendar-button__date md:heading-xl heading-lg">
-															04
-														</div>
-														<div class="calendar-button__lesson-badges flex items-center gap-1 justify-center">
-															<span class="lesson-badge background-sky-600">
-
-															</span>
-														</div>
-													</div>
-												</a>
-											</div>
-
-											<div class="classes-calendar__slide swiper-slide">
-												<a href="#" class="calendar-dates__button calendar-button ">
-													<div class="calendar-button__body">
-														<div class="calendar-button__day text-grayscale-600 heading-sm">
-															Вт
-														</div>
-														<div class="calendar-button__date md:heading-xl heading-lg">
-															05
-														</div>
-														<div class="calendar-button__lesson-badges flex items-center gap-1 justify-center">
-															<span class="lesson-badge background-violet-700">
-
-															</span>
-															<span class="lesson-badge background-green-700">
-
-															</span>
-														</div>
-													</div>
-												</a>
-											</div>
-											<div class="classes-calendar__slide swiper-slide">
-												<a href="#" class="calendar-dates__button calendar-button ">
-													<div class="calendar-button__body">
-														<div class="calendar-button__day text-grayscale-600 heading-sm">
-															Ср
-														</div>
-														<div class="calendar-button__date md:heading-xl heading-lg">
-															06
-														</div>
-														<div class="calendar-button__lesson-badges flex items-center gap-1 justify-center">
-
-														</div>
-													</div>
-												</a>
-											</div>
-											<div class="classes-calendar__slide swiper-slide">
-												<a href="#" class="calendar-dates__button calendar-button ">
-													<div class="calendar-button__body">
-														<div class="calendar-button__day text-grayscale-600 heading-sm">
-															Чт
-														</div>
-														<div class="calendar-button__date md:heading-xl heading-lg">
-															07
-														</div>
-														<div class="calendar-button__lesson-badges flex items-center gap-1 justify-center">
-
-														</div>
-													</div>
-												</a>
-											</div>
-											<div class="classes-calendar__slide swiper-slide">
-												<a href="#" class="calendar-dates__button calendar-button ">
-													<div class="calendar-button__body">
-														<div class="calendar-button__day text-grayscale-600 heading-sm">
-															Пт
-														</div>
-														<div class="calendar-button__date md:heading-xl heading-lg">
-															08
-														</div>
-														<div class="calendar-button__lesson-badges flex items-center gap-1 justify-center">
-															<span class="lesson-badge background-sky-600">
-
-															</span>
-															<span class="lesson-badge background-green-700">
-
-															</span>
-														</div>
-													</div>
-												</a>
-											</div>
-											<div class="classes-calendar__slide swiper-slide">
-												<a href="#" class="calendar-dates__button calendar-button ">
-													<div class="calendar-button__body">
-														<div class="calendar-button__day text-grayscale-600 heading-sm">
-															Сб
-														</div>
-														<div class="calendar-button__date md:heading-xl heading-lg">
-															09
-														</div>
-														<div class="calendar-button__lesson-badges flex items-center gap-1 justify-center">
-
-														</div>
-													</div>
-												</a>
-											</div>
-											<div class="classes-calendar__slide swiper-slide">
-												<a href="#" class="calendar-dates__button calendar-button ">
-													<div class="calendar-button__body">
-														<div class="calendar-button__day text-grayscale-600 heading-sm">
-															Нд
-														</div>
-														<div class="calendar-button__date md:heading-xl heading-lg">
-															10
-														</div>
-														<div class="calendar-button__lesson-badges flex items-center gap-1 justify-center">
-
-														</div>
-													</div>
-												</a>
-											</div>
-										</div>
-									</div>
-									<div class="classes-calendar__body" data-tabs-body>
-										<div class="classes-calendar__tabs-body">
-											<div class="wide-lessons-tile">
-												<div class="wide-lesson lesson-wide">
-													<div class="lesson-wide-badge background-violet-700"></div>
-													<div class="lesson-wide__body">
-														<div class="lesson-wide__header md:mb-4 mb-3 flex flex-wrap item-center gap-3 justify-between">
-															<div class="title-element-with-emoji">
-																<div class="emoji-box emoji-box--size-m">
-																	<img srcset="img/icons-ios/robot.png 2x" alt="Icon IOS Robot">
-																</div>
-																<p class="md:heading-md heading-sm">
-																	Програмування у Minecraft Програмування у Minecraft Програмування у Minecraft Програмування у Minecraft Програмування у Minecraft Програмування у Minecraft Програмування у Minecraft Програмування у Minecraft Програмування у Minecraft Програмування у Minecraft
-																</p>
-															</div>
-															<div class="tags">
-																<div class="tag tag--medium tag-successful">
-																	<div class="svg-icon">
-																		<svg class="icon icon--size-s" height="16" width="16">
-																			<use xlink:href="img/icons/icons.svg#tabler_check"></use>
-																		</svg>
-
-
-																	</div>
-																	Відвідування
-																</div>
-															</div>
-														</div>
-														<div class="lesson-wide__content">
-															<div class="lesson-times flex items-center flex-wrap gap-x-5 gap-y-2">
-																<div class="lesson-times-line lesson-times__time">
-																	<div class="svg-icon">
-																		<svg class="icon icon--size-sm" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-																			<path d="M10 5C10.221 5 10.433 5.0878 10.5893 5.24408C10.7455 5.40036 10.8333 5.61232 10.8333 5.83333V9.51833L12.5817 10.5283C12.7715 10.6396 12.9096 10.8215 12.9659 11.0342C13.0221 11.247 12.9919 11.4733 12.8819 11.6639C12.7719 11.8545 12.5909 11.9938 12.3786 12.0515C12.1662 12.1091 11.9396 12.0804 11.7483 11.9717L9.58333 10.7217C9.45693 10.6482 9.35197 10.5429 9.27887 10.4163C9.20577 10.2897 9.16709 10.1462 9.16666 10V5.83333C9.16666 5.61232 9.25446 5.40036 9.41074 5.24408C9.56702 5.0878 9.77898 5 10 5Z" fill="#747B98" />
-																			<path d="M1.66666 9.99996C1.66666 11.6481 2.15541 13.2593 3.07108 14.6297C3.98676 16.0001 5.28825 17.0682 6.81097 17.699C8.33369 18.3297 10.0092 18.4947 11.6258 18.1732C13.2423 17.8516 14.7271 17.058 15.8926 15.8925C17.058 14.7271 17.8517 13.2422 18.1732 11.6257C18.4948 10.0092 18.3297 8.33365 17.699 6.81093C17.0683 5.28821 16.0002 3.98672 14.6298 3.07105C13.2593 2.15537 11.6482 1.66663 10 1.66663C8.90565 1.66663 7.82202 1.88217 6.81097 2.30096C5.79992 2.71975 4.88126 3.33358 4.10744 4.1074C2.54464 5.67021 1.66666 7.78982 1.66666 9.99996ZM9.16666 5.83329C9.16666 5.61228 9.25446 5.40032 9.41074 5.24404C9.56702 5.08776 9.77898 4.99996 10 4.99996C10.221 4.99996 10.433 5.08776 10.5893 5.24404C10.7455 5.40032 10.8333 5.61228 10.8333 5.83329V9.51829L12.5817 10.5283C12.7715 10.6396 12.9096 10.8214 12.9659 11.0342C13.0221 11.2469 12.9919 11.4733 12.8819 11.6639C12.7719 11.8544 12.5909 11.9938 12.3786 12.0514C12.1662 12.1091 11.9396 12.0804 11.7483 11.9716L9.58333 10.7216C9.45693 10.6482 9.35197 10.5429 9.27887 10.4163C9.20577 10.2897 9.16709 10.1462 9.16666 9.99996V5.83329Z" fill="#CACFE0" />
-																		</svg>
-																	</div>
-																	<span>17:00-18:00</span>
-																</div>
-																<div class="lesson-times-line lesson-times__lesson-type">
-																	<div class="svg-icon">
-																		<svg class="icon icon--size-sm" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-																			<path d="M8.40571 2.49714C8.8849 2.20142 9.4369 2.0448 10 2.0448C10.5631 2.0448 11.1151 2.20142 11.5943 2.49714L18.6743 6.86571C18.7511 6.91305 18.8146 6.979 18.8591 7.05746C18.9036 7.13592 18.9276 7.22434 18.9288 7.31452C18.93 7.40471 18.9084 7.49373 18.8661 7.57336C18.8237 7.65298 18.7619 7.72062 18.6864 7.77L11.6614 12.3629C11.1675 12.6858 10.5902 12.8579 10 12.8579C9.40985 12.8579 8.83249 12.6858 8.33857 12.3629L2.14286 8.31286V12.6793C2.14286 12.8214 2.08641 12.9576 1.98595 13.0581C1.88548 13.1586 1.74922 13.215 1.60714 13.215C1.46506 13.215 1.3288 13.1586 1.22833 13.0581C1.12787 12.9576 1.07143 12.8214 1.07143 12.6793V7.5C1.07143 7.46928 1.07428 7.43928 1.07857 7.41071C1.06086 7.30559 1.07492 7.19758 1.11895 7.10049C1.16298 7.0034 1.23497 6.92166 1.32571 6.86571L8.40571 2.49714Z" fill="#747B98" />
-																			<path d="M4.28569 10.9928L7.75212 13.2592C8.42037 13.6962 9.20152 13.929 9.99998 13.929C10.7984 13.929 11.5796 13.6962 12.2478 13.2592L15.7143 10.9935V14.4642C15.7143 14.6778 15.5985 14.8064 15.4621 14.9399C15.3943 15.0057 15.2971 15.0971 15.17 15.2057C14.826 15.4991 14.4581 15.7631 14.07 15.9949C13.1185 16.5664 11.7293 17.1428 9.99998 17.1428C8.2714 17.1428 6.8814 16.5664 5.92998 15.9949C5.54187 15.7631 5.17391 15.4991 4.82998 15.2057C4.72953 15.1202 4.63186 15.0316 4.53712 14.9399C4.4014 14.8064 4.28569 14.6778 4.28569 14.4642V10.9928Z" fill="#CACFE0" />
-																		</svg>
-																	</div>
-																	<span>Індивідуально</span>
-																</div>
-																<div class="lesson-times-line lesson-times-line__profile profile profile--size-xs">
-
-																	<div class="profile__avatar avatar-icon avatar-bg-pink">
-																		<div class="svg-icon">
-																			<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-																				<path d="M8.00002 1.33337C6.15902 1.33337 4.66669 2.82571 4.66669 4.66671C4.66669 6.50771 6.15902 8.00004 8.00002 8.00004C9.84102 8.00004 11.3334 6.50771 11.3334 4.66671C11.3334 2.82571 9.84102 1.33337 8.00002 1.33337ZM4.08335 9.33337C3.70769 9.33337 3.3474 9.48258 3.08174 9.74819C2.81607 10.0138 2.66678 10.374 2.66669 10.7497V11C2.66669 12.2517 3.31402 13.189 4.30669 13.7934C5.28335 14.3877 6.59535 14.6667 8.00002 14.6667C9.40469 14.6667 10.7167 14.3877 11.6934 13.7934C12.686 13.189 13.3334 12.2517 13.3334 11V10.7497C13.3334 10.5637 13.2967 10.3795 13.2255 10.2076C13.1543 10.0358 13.05 9.87961 12.9184 9.74809C12.7868 9.61657 12.6307 9.51225 12.4588 9.44109C12.2869 9.36993 12.1027 9.33333 11.9167 9.33337H4.08335Z" fill="white"></path>
-																				<path d="M4.66663 4.66671C4.66663 2.82571 6.15896 1.33337 7.99996 1.33337C9.84096 1.33337 11.3333 2.82571 11.3333 4.66671C11.3333 6.50771 9.84096 8.00004 7.99996 8.00004C6.15896 8.00004 4.66663 6.50771 4.66663 4.66671Z" fill="white"></path>
-																			</svg>
-																		</div>
-																	</div>
-																	<div class="profile__content">
-																		<p class="profile__name ">
-																			Тетяна Петренко
-																		</p>
-																	</div>
-
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="wide-lesson lesson-wide">
-													<div class="lesson-wide-badge background-green-700"></div>
-													<div class="lesson-wide__body">
-														<div class="lesson-wide__header md:mb-4 mb-3 flex flex-wrap item-center gap-3 justify-between">
-															<div class="title-element-with-emoji">
-																<div class="emoji-box emoji-box--size-m">
-																	<img srcset="img/icons-ios/robot.png 2x" alt="Icon IOS Robot">
-																</div>
-																<p class="md:heading-md heading-sm">
-																	Програмування у Minecraft
-																</p>
-															</div>
-															<div class="tags">
-																<div class="tag tag--medium tag-cancelled">
-																	<div class="svg-icon">
-																		<svg class="icon icon--size-s" height="16" width="16">
-																			<use xlink:href="img/icons/icons.svg#maki_cross"></use>
-																		</svg>
-
-																	</div>
-																	Скасовано
-																</div>
-															</div>
-														</div>
-														<div class="lesson-wide__content">
-															<div class="lesson-times flex items-center flex-wrap gap-x-5 gap-y-2">
-																<div class="lesson-times-line lesson-times__time">
-																	<div class="svg-icon">
-																		<svg class="icon icon--size-sm" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-																			<path d="M10 5C10.221 5 10.433 5.0878 10.5893 5.24408C10.7455 5.40036 10.8333 5.61232 10.8333 5.83333V9.51833L12.5817 10.5283C12.7715 10.6396 12.9096 10.8215 12.9659 11.0342C13.0221 11.247 12.9919 11.4733 12.8819 11.6639C12.7719 11.8545 12.5909 11.9938 12.3786 12.0515C12.1662 12.1091 11.9396 12.0804 11.7483 11.9717L9.58333 10.7217C9.45693 10.6482 9.35197 10.5429 9.27887 10.4163C9.20577 10.2897 9.16709 10.1462 9.16666 10V5.83333C9.16666 5.61232 9.25446 5.40036 9.41074 5.24408C9.56702 5.0878 9.77898 5 10 5Z" fill="#747B98" />
-																			<path d="M1.66666 9.99996C1.66666 11.6481 2.15541 13.2593 3.07108 14.6297C3.98676 16.0001 5.28825 17.0682 6.81097 17.699C8.33369 18.3297 10.0092 18.4947 11.6258 18.1732C13.2423 17.8516 14.7271 17.058 15.8926 15.8925C17.058 14.7271 17.8517 13.2422 18.1732 11.6257C18.4948 10.0092 18.3297 8.33365 17.699 6.81093C17.0683 5.28821 16.0002 3.98672 14.6298 3.07105C13.2593 2.15537 11.6482 1.66663 10 1.66663C8.90565 1.66663 7.82202 1.88217 6.81097 2.30096C5.79992 2.71975 4.88126 3.33358 4.10744 4.1074C2.54464 5.67021 1.66666 7.78982 1.66666 9.99996ZM9.16666 5.83329C9.16666 5.61228 9.25446 5.40032 9.41074 5.24404C9.56702 5.08776 9.77898 4.99996 10 4.99996C10.221 4.99996 10.433 5.08776 10.5893 5.24404C10.7455 5.40032 10.8333 5.61228 10.8333 5.83329V9.51829L12.5817 10.5283C12.7715 10.6396 12.9096 10.8214 12.9659 11.0342C13.0221 11.2469 12.9919 11.4733 12.8819 11.6639C12.7719 11.8544 12.5909 11.9938 12.3786 12.0514C12.1662 12.1091 11.9396 12.0804 11.7483 11.9716L9.58333 10.7216C9.45693 10.6482 9.35197 10.5429 9.27887 10.4163C9.20577 10.2897 9.16709 10.1462 9.16666 9.99996V5.83329Z" fill="#CACFE0" />
-																		</svg>
-																	</div>
-																	<span>17:00-18:00</span>
-																</div>
-																<div class="lesson-times-line lesson-times__lesson-type">
-																	<div class="svg-icon">
-																		<svg class="icon icon--size-sm" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-																			<path d="M8.40571 2.49714C8.8849 2.20142 9.4369 2.0448 10 2.0448C10.5631 2.0448 11.1151 2.20142 11.5943 2.49714L18.6743 6.86571C18.7511 6.91305 18.8146 6.979 18.8591 7.05746C18.9036 7.13592 18.9276 7.22434 18.9288 7.31452C18.93 7.40471 18.9084 7.49373 18.8661 7.57336C18.8237 7.65298 18.7619 7.72062 18.6864 7.77L11.6614 12.3629C11.1675 12.6858 10.5902 12.8579 10 12.8579C9.40985 12.8579 8.83249 12.6858 8.33857 12.3629L2.14286 8.31286V12.6793C2.14286 12.8214 2.08641 12.9576 1.98595 13.0581C1.88548 13.1586 1.74922 13.215 1.60714 13.215C1.46506 13.215 1.3288 13.1586 1.22833 13.0581C1.12787 12.9576 1.07143 12.8214 1.07143 12.6793V7.5C1.07143 7.46928 1.07428 7.43928 1.07857 7.41071C1.06086 7.30559 1.07492 7.19758 1.11895 7.10049C1.16298 7.0034 1.23497 6.92166 1.32571 6.86571L8.40571 2.49714Z" fill="#747B98" />
-																			<path d="M4.28569 10.9928L7.75212 13.2592C8.42037 13.6962 9.20152 13.929 9.99998 13.929C10.7984 13.929 11.5796 13.6962 12.2478 13.2592L15.7143 10.9935V14.4642C15.7143 14.6778 15.5985 14.8064 15.4621 14.9399C15.3943 15.0057 15.2971 15.0971 15.17 15.2057C14.826 15.4991 14.4581 15.7631 14.07 15.9949C13.1185 16.5664 11.7293 17.1428 9.99998 17.1428C8.2714 17.1428 6.8814 16.5664 5.92998 15.9949C5.54187 15.7631 5.17391 15.4991 4.82998 15.2057C4.72953 15.1202 4.63186 15.0316 4.53712 14.9399C4.4014 14.8064 4.28569 14.6778 4.28569 14.4642V10.9928Z" fill="#CACFE0" />
-																		</svg>
-																	</div>
-																	<span>Індивідуально</span>
-																</div>
-																<div class="lesson-times-line lesson-times-line__profile profile profile--size-xs">
-
-																	<div class="profile__avatar avatar-icon avatar-bg-green">
-																		<div class="svg-icon">
-																			<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-																				<path d="M8.00002 1.33337C6.15902 1.33337 4.66669 2.82571 4.66669 4.66671C4.66669 6.50771 6.15902 8.00004 8.00002 8.00004C9.84102 8.00004 11.3334 6.50771 11.3334 4.66671C11.3334 2.82571 9.84102 1.33337 8.00002 1.33337ZM4.08335 9.33337C3.70769 9.33337 3.3474 9.48258 3.08174 9.74819C2.81607 10.0138 2.66678 10.374 2.66669 10.7497V11C2.66669 12.2517 3.31402 13.189 4.30669 13.7934C5.28335 14.3877 6.59535 14.6667 8.00002 14.6667C9.40469 14.6667 10.7167 14.3877 11.6934 13.7934C12.686 13.189 13.3334 12.2517 13.3334 11V10.7497C13.3334 10.5637 13.2967 10.3795 13.2255 10.2076C13.1543 10.0358 13.05 9.87961 12.9184 9.74809C12.7868 9.61657 12.6307 9.51225 12.4588 9.44109C12.2869 9.36993 12.1027 9.33333 11.9167 9.33337H4.08335Z" fill="white"></path>
-																				<path d="M4.66663 4.66671C4.66663 2.82571 6.15896 1.33337 7.99996 1.33337C9.84096 1.33337 11.3333 2.82571 11.3333 4.66671C11.3333 6.50771 9.84096 8.00004 7.99996 8.00004C6.15896 8.00004 4.66663 6.50771 4.66663 4.66671Z" fill="white"></path>
-																			</svg>
-																		</div>
-																	</div>
-																	<div class="profile__content">
-																		<p class="profile__name ">
-																			Тетяна Петренко
-																		</p>
-																	</div>
-
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="classes-calendar__tabs-body">
-											<div class="wide-lessons-tile">
-												<div class="wide-lesson lesson-wide">
-													<div class="lesson-wide-badge background-green-700"></div>
-													<div class="lesson-wide__body">
-														<div class="lesson-wide__header md:mb-4 mb-3 flex flex-wrap item-center gap-3 justify-between">
-															<div class="title-element-with-emoji">
-																<div class="emoji-box emoji-box--size-m">
-																	<img srcset="img/icons-ios/robot.png 2x" alt="Icon IOS Robot">
-																</div>
-																<p class="md:heading-md heading-sm">
-																	Програмування у Minecraft
-																</p>
-															</div>
-															<div class="tags">
-																<div class="tag tag--medium tag-cancelled">
-																	<div class="svg-icon">
-																		<svg class="icon icon--size-s" height="16" width="16">
-																			<use xlink:href="img/icons/icons.svg#maki_cross"></use>
-																		</svg>
-
-																	</div>
-																	Скасовано
-																</div>
-															</div>
-														</div>
-														<div class="lesson-wide__content">
-															<div class="lesson-times flex items-center flex-wrap gap-x-5 gap-y-2">
-																<div class="lesson-times-line lesson-times__time">
-																	<div class="svg-icon">
-																		<svg class="icon icon--size-sm" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-																			<path d="M10 5C10.221 5 10.433 5.0878 10.5893 5.24408C10.7455 5.40036 10.8333 5.61232 10.8333 5.83333V9.51833L12.5817 10.5283C12.7715 10.6396 12.9096 10.8215 12.9659 11.0342C13.0221 11.247 12.9919 11.4733 12.8819 11.6639C12.7719 11.8545 12.5909 11.9938 12.3786 12.0515C12.1662 12.1091 11.9396 12.0804 11.7483 11.9717L9.58333 10.7217C9.45693 10.6482 9.35197 10.5429 9.27887 10.4163C9.20577 10.2897 9.16709 10.1462 9.16666 10V5.83333C9.16666 5.61232 9.25446 5.40036 9.41074 5.24408C9.56702 5.0878 9.77898 5 10 5Z" fill="#747B98" />
-																			<path d="M1.66666 9.99996C1.66666 11.6481 2.15541 13.2593 3.07108 14.6297C3.98676 16.0001 5.28825 17.0682 6.81097 17.699C8.33369 18.3297 10.0092 18.4947 11.6258 18.1732C13.2423 17.8516 14.7271 17.058 15.8926 15.8925C17.058 14.7271 17.8517 13.2422 18.1732 11.6257C18.4948 10.0092 18.3297 8.33365 17.699 6.81093C17.0683 5.28821 16.0002 3.98672 14.6298 3.07105C13.2593 2.15537 11.6482 1.66663 10 1.66663C8.90565 1.66663 7.82202 1.88217 6.81097 2.30096C5.79992 2.71975 4.88126 3.33358 4.10744 4.1074C2.54464 5.67021 1.66666 7.78982 1.66666 9.99996ZM9.16666 5.83329C9.16666 5.61228 9.25446 5.40032 9.41074 5.24404C9.56702 5.08776 9.77898 4.99996 10 4.99996C10.221 4.99996 10.433 5.08776 10.5893 5.24404C10.7455 5.40032 10.8333 5.61228 10.8333 5.83329V9.51829L12.5817 10.5283C12.7715 10.6396 12.9096 10.8214 12.9659 11.0342C13.0221 11.2469 12.9919 11.4733 12.8819 11.6639C12.7719 11.8544 12.5909 11.9938 12.3786 12.0514C12.1662 12.1091 11.9396 12.0804 11.7483 11.9716L9.58333 10.7216C9.45693 10.6482 9.35197 10.5429 9.27887 10.4163C9.20577 10.2897 9.16709 10.1462 9.16666 9.99996V5.83329Z" fill="#CACFE0" />
-																		</svg>
-																	</div>
-																	<span>17:00-18:00</span>
-																</div>
-																<div class="lesson-times-line lesson-times__lesson-type">
-																	<div class="svg-icon">
-																		<svg class="icon icon--size-sm" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-																			<path d="M8.40571 2.49714C8.8849 2.20142 9.4369 2.0448 10 2.0448C10.5631 2.0448 11.1151 2.20142 11.5943 2.49714L18.6743 6.86571C18.7511 6.91305 18.8146 6.979 18.8591 7.05746C18.9036 7.13592 18.9276 7.22434 18.9288 7.31452C18.93 7.40471 18.9084 7.49373 18.8661 7.57336C18.8237 7.65298 18.7619 7.72062 18.6864 7.77L11.6614 12.3629C11.1675 12.6858 10.5902 12.8579 10 12.8579C9.40985 12.8579 8.83249 12.6858 8.33857 12.3629L2.14286 8.31286V12.6793C2.14286 12.8214 2.08641 12.9576 1.98595 13.0581C1.88548 13.1586 1.74922 13.215 1.60714 13.215C1.46506 13.215 1.3288 13.1586 1.22833 13.0581C1.12787 12.9576 1.07143 12.8214 1.07143 12.6793V7.5C1.07143 7.46928 1.07428 7.43928 1.07857 7.41071C1.06086 7.30559 1.07492 7.19758 1.11895 7.10049C1.16298 7.0034 1.23497 6.92166 1.32571 6.86571L8.40571 2.49714Z" fill="#747B98" />
-																			<path d="M4.28569 10.9928L7.75212 13.2592C8.42037 13.6962 9.20152 13.929 9.99998 13.929C10.7984 13.929 11.5796 13.6962 12.2478 13.2592L15.7143 10.9935V14.4642C15.7143 14.6778 15.5985 14.8064 15.4621 14.9399C15.3943 15.0057 15.2971 15.0971 15.17 15.2057C14.826 15.4991 14.4581 15.7631 14.07 15.9949C13.1185 16.5664 11.7293 17.1428 9.99998 17.1428C8.2714 17.1428 6.8814 16.5664 5.92998 15.9949C5.54187 15.7631 5.17391 15.4991 4.82998 15.2057C4.72953 15.1202 4.63186 15.0316 4.53712 14.9399C4.4014 14.8064 4.28569 14.6778 4.28569 14.4642V10.9928Z" fill="#CACFE0" />
-																		</svg>
-																	</div>
-																	<span>Індивідуально</span>
-																</div>
-																<div class="lesson-times-line lesson-times-line__profile profile profile--size-xs">
-
-																	<div class="profile__avatar avatar-icon avatar-bg-green">
-																		<div class="svg-icon">
-																			<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-																				<path d="M8.00002 1.33337C6.15902 1.33337 4.66669 2.82571 4.66669 4.66671C4.66669 6.50771 6.15902 8.00004 8.00002 8.00004C9.84102 8.00004 11.3334 6.50771 11.3334 4.66671C11.3334 2.82571 9.84102 1.33337 8.00002 1.33337ZM4.08335 9.33337C3.70769 9.33337 3.3474 9.48258 3.08174 9.74819C2.81607 10.0138 2.66678 10.374 2.66669 10.7497V11C2.66669 12.2517 3.31402 13.189 4.30669 13.7934C5.28335 14.3877 6.59535 14.6667 8.00002 14.6667C9.40469 14.6667 10.7167 14.3877 11.6934 13.7934C12.686 13.189 13.3334 12.2517 13.3334 11V10.7497C13.3334 10.5637 13.2967 10.3795 13.2255 10.2076C13.1543 10.0358 13.05 9.87961 12.9184 9.74809C12.7868 9.61657 12.6307 9.51225 12.4588 9.44109C12.2869 9.36993 12.1027 9.33333 11.9167 9.33337H4.08335Z" fill="white"></path>
-																				<path d="M4.66663 4.66671C4.66663 2.82571 6.15896 1.33337 7.99996 1.33337C9.84096 1.33337 11.3333 2.82571 11.3333 4.66671C11.3333 6.50771 9.84096 8.00004 7.99996 8.00004C6.15896 8.00004 4.66663 6.50771 4.66663 4.66671Z" fill="white"></path>
-																			</svg>
-																		</div>
-																	</div>
-																	<div class="profile__content">
-																		<p class="profile__name ">
-																			Тетяна Петренко
-																		</p>
-																	</div>
-
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-
-								</div>
-							</div>
-							<div class="widget my-payments">
-								<div class="widget__header">
-									<h4 class="md:heading-lg heading-md">
-										Мої оплати
-									</h4>
-									<a href="#" class="link-blue">
-										Перейти
-									</a>
-								</div>
-								<div class="widget__body">
-									<div class="my-payments__item item-payment item-payment-hour">
-										<div class="item-payments__body flex items-center justify-between gap-4">
-											<div class="item-payment__left flex items-center gap-4">
-												<div class="svg-icon svg-icon-bg">
-													<svg class="icon icon--size-m" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-														<path d="M12 6C12.2652 6 12.5196 6.10536 12.7071 6.29289C12.8946 6.48043 13 6.73478 13 7V11.422L15.098 12.634C15.3258 12.7676 15.4915 12.9858 15.559 13.2411C15.6265 13.4964 15.5903 13.768 15.4583 13.9967C15.3262 14.2254 15.1091 14.3926 14.8543 14.4617C14.5994 14.5309 14.3276 14.4965 14.098 14.366L11.5 12.866C11.3483 12.7778 11.2224 12.6515 11.1346 12.4996C11.0469 12.3477 11.0005 12.1754 11 12V7C11 6.73478 11.1054 6.48043 11.2929 6.29289C11.4804 6.10536 11.7348 6 12 6Z" fill="#747B98" />
-														<path d="M2 12C2 13.9778 2.58649 15.9112 3.6853 17.5557C4.78412 19.2002 6.3459 20.4819 8.17317 21.2388C10.0004 21.9957 12.0111 22.1937 13.9509 21.8079C15.8907 21.422 17.6725 20.4696 19.0711 19.0711C20.4696 17.6725 21.422 15.8907 21.8079 13.9509C22.1937 12.0111 21.9957 10.0004 21.2388 8.17317C20.4819 6.3459 19.2002 4.78412 17.5557 3.6853C15.9112 2.58649 13.9778 2 12 2C10.6868 2 9.38642 2.25866 8.17317 2.7612C6.95991 3.26375 5.85752 4.00035 4.92893 4.92893C3.05357 6.8043 2 9.34784 2 12ZM11 7C11 6.73478 11.1054 6.48043 11.2929 6.29289C11.4804 6.10536 11.7348 6 12 6C12.2652 6 12.5196 6.10536 12.7071 6.29289C12.8946 6.48043 13 6.73478 13 7V11.422L15.098 12.634C15.3258 12.7676 15.4915 12.9858 15.559 13.2411C15.6265 13.4964 15.5903 13.768 15.4583 13.9967C15.3262 14.2254 15.1091 14.3926 14.8543 14.4617C14.5994 14.5309 14.3276 14.4965 14.098 14.366L11.5 12.866C11.3483 12.7778 11.2224 12.6515 11.1346 12.4996C11.0469 12.3477 11.0005 12.1754 11 12V7Z" fill="#CACFE0" />
-													</svg>
-												</div>
-												<div class="item-payment__left-item">
-													<p class="md:text-body-lg-light text-body-md-light">
-														<b>+5 годин</b> групових занять
-													</p>
-													<span class="text-body-md-light text-grayscale-800">
-														01.08.23
-													</span>
-												</div>
-											</div>
-											<div class="item-payment__right">
-												<div class="price heading-lg whitespace-nowrap">
-													2000 ₴
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="my-payments__item item-payment item-payment-bonus">
-										<div class="item-payments__body flex items-center justify-between gap-4">
-											<div class="item-payment__left flex items-center gap-4">
-												<div class="svg-icon svg-icon-bg">
-													<svg class="icon icon--size-m" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-														<path d="M12 18.9523C7.99277 18.9523 4.44902 17.976 2.21367 16.4681C1.7584 16.9666 1.5 17.5025 1.5 18.0674C1.5 20.5143 6.20039 22.5 12 22.5C17.7996 22.5 22.5 20.5143 22.5 18.0674C22.5 17.5025 22.2416 16.9666 21.7863 16.4722C19.551 17.976 16.0072 18.9523 12 18.9523ZM12 13.6349C7.99277 13.6349 4.44902 12.6586 2.21367 11.1506C1.7584 11.6491 1.5 12.185 1.5 12.75C1.5 15.1969 6.20039 17.1826 12 17.1826C17.7996 17.1826 22.5 15.1969 22.5 12.75C22.5 12.185 22.2416 11.6491 21.7863 11.1548C19.551 12.6586 16.0072 13.6349 12 13.6349Z" fill="#CACFE0" />
-														<path d="M12 11.8651C17.7996 11.8651 22.5 9.87942 22.5 7.43257C22.5 4.98573 17.7996 3 12 3C6.20039 3 1.5 4.98573 1.5 7.43257C1.5 9.87942 6.20039 11.8651 12 11.8651Z" fill="#747B98" />
-													</svg>
-												</div>
-												<div class="item-payment__left-item">
-													<p class="md:text-body-lg-light text-body-md-light">
-														<b>+10 бонусів</b> (Олег Петренко)
-													</p>
-													<span class="text-body-md-light text-grayscale-800">
-														01.08.23
-													</span>
-												</div>
-											</div>
-											<div class="item-payment__right">
-												<div class="price heading-lg whitespace-nowrap">
-													20000 ₴
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="my-payments__item item-payment item-payment-hour">
-										<div class="item-payments__body flex items-center justify-between gap-4">
-											<div class="item-payment__left flex items-center gap-4">
-												<div class="svg-icon svg-icon-bg">
-													<svg class="icon icon--size-m" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-														<path d="M12 6C12.2652 6 12.5196 6.10536 12.7071 6.29289C12.8946 6.48043 13 6.73478 13 7V11.422L15.098 12.634C15.3258 12.7676 15.4915 12.9858 15.559 13.2411C15.6265 13.4964 15.5903 13.768 15.4583 13.9967C15.3262 14.2254 15.1091 14.3926 14.8543 14.4617C14.5994 14.5309 14.3276 14.4965 14.098 14.366L11.5 12.866C11.3483 12.7778 11.2224 12.6515 11.1346 12.4996C11.0469 12.3477 11.0005 12.1754 11 12V7C11 6.73478 11.1054 6.48043 11.2929 6.29289C11.4804 6.10536 11.7348 6 12 6Z" fill="#747B98" />
-														<path d="M2 12C2 13.9778 2.58649 15.9112 3.6853 17.5557C4.78412 19.2002 6.3459 20.4819 8.17317 21.2388C10.0004 21.9957 12.0111 22.1937 13.9509 21.8079C15.8907 21.422 17.6725 20.4696 19.0711 19.0711C20.4696 17.6725 21.422 15.8907 21.8079 13.9509C22.1937 12.0111 21.9957 10.0004 21.2388 8.17317C20.4819 6.3459 19.2002 4.78412 17.5557 3.6853C15.9112 2.58649 13.9778 2 12 2C10.6868 2 9.38642 2.25866 8.17317 2.7612C6.95991 3.26375 5.85752 4.00035 4.92893 4.92893C3.05357 6.8043 2 9.34784 2 12ZM11 7C11 6.73478 11.1054 6.48043 11.2929 6.29289C11.4804 6.10536 11.7348 6 12 6C12.2652 6 12.5196 6.10536 12.7071 6.29289C12.8946 6.48043 13 6.73478 13 7V11.422L15.098 12.634C15.3258 12.7676 15.4915 12.9858 15.559 13.2411C15.6265 13.4964 15.5903 13.768 15.4583 13.9967C15.3262 14.2254 15.1091 14.3926 14.8543 14.4617C14.5994 14.5309 14.3276 14.4965 14.098 14.366L11.5 12.866C11.3483 12.7778 11.2224 12.6515 11.1346 12.4996C11.0469 12.3477 11.0005 12.1754 11 12V7Z" fill="#CACFE0" />
-													</svg>
-												</div>
-												<div class="item-payment__left-item">
-													<p class="md:text-body-lg-light text-body-md-light">
-														<b>+5 годин</b> групових занять
-													</p>
-													<span class="text-body-md-light text-grayscale-800">
-														01.08.23
-													</span>
-												</div>
-											</div>
-											<div class="item-payment__right">
-												<div class="price heading-lg whitespace-nowrap">
-													2000 ₴
-												</div>
-											</div>
-										</div>
-									</div>
-									<p class="widget-alert">Немає жодної оплати. Поповніть ваш баланс, щоб продовжити заняття</p>
-								</div>
-							</div>
-							<div class="widget referral-program order-5">
-								<div class="widget__header">
-									<h4 class="md:heading-lg heading-md">
-										Реферальна програма
-									</h4>
-									<a href="#" class="link-blue">Перейти</a>
-								</div>
-								<div class="widget__body">
-									<p class="text-body-md-light mb-3 text-grayscale-800">Поділіться цим посиланням і отримайте бонусні години за реєстрацію на навчання ваших знайомих!</p>
-									<div class="referral-program__link">
-										<input autocomplete="off" type="text" readonly data-after-text="Скопійовано! " name="form[]" data-value="http://bit.ly/t3390wg" placeholder="http://bit.ly/t3390wg" class="input input-referral">
-										<div class="referral-program__button">
-											<button type="submit" class="button button-copy-link-referral button-blue button-medium" data-ripple>
-												<span class="circle">
-
-												</span>
-												<span class="button__inner">
-													<span class="button__text">
-														Копіювати
-													</span>
-												</span>
-											</button>
-										</div>
-
-									</div>
-								</div>
-							</div>
-
-						</div>
-						<div class="content-widgets-small">
-
-							<div class="widget my-childrens order-3">
-								<div class="widget__header">
-									<h4 class="md:heading-lg heading-md">
-										Мої діти
-									</h4>
-									<a href="#" class="link-blue">Перейти</a>
-								</div>
-								<div class="widget__body">
-
-									<div class="my-childrens__child child">
-										<div class="child__body">
-											<div class="profile profile--size-l">
-
-												<div class="profile__avatar avatar-text avatar-bg-purple text-light">
-													ОA
-												</div>
-												<div class="profile__content">
-													<p class="profile__name " title="Олег Аліна Петренко Олег Аліна Петренко">
-														Аліна Петренко
-													</p>
-													<div class="child__info flex items-center gap-y-1 gap-x-4">
-														<div class="child__info-line line-courses">
-															<div class="svg-icon">
-																<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-																	<path d="M6.18832 15H16.6666C16.6642 15.775 16.6483 16.3525 16.5725 16.8083C16.4808 17.3525 16.3141 17.64 16.0591 17.845C15.8033 18.05 15.445 18.1842 14.7675 18.2567C14.07 18.3317 13.1458 18.3333 11.8208 18.3333H8.12915C6.80415 18.3333 5.87915 18.3325 5.18248 18.2567C4.50498 18.1842 4.14665 18.05 3.89082 17.845C3.63582 17.64 3.46915 17.3525 3.37748 16.8092C3.37076 16.7673 3.36465 16.7254 3.35915 16.6833C3.32582 16.4408 3.30915 16.3192 3.41415 16.0333C3.51998 15.7467 3.56498 15.7025 3.65665 15.6125C3.9543 15.3303 4.32542 15.1377 4.72748 15.0567C4.96915 15.005 5.28582 15 6.18832 15Z" fill="#747B98" />
-																	<path d="M3.93915 2.27752C4.19415 2.02085 4.55081 1.85419 5.22581 1.76252C5.92081 1.66835 6.84081 1.66669 8.16081 1.66669H11.8391C13.1591 1.66669 14.0791 1.66835 14.7741 1.76252C15.4491 1.85419 15.8058 2.02085 16.0608 2.27752C16.315 2.53419 16.4808 2.89419 16.5716 3.57502C16.665 4.27502 16.6666 5.20419 16.6666 6.53502V15H6.18831C5.28498 15 4.96998 15.005 4.72748 15.0567C4.29998 15.1484 3.92748 15.3459 3.65665 15.6125C3.56498 15.7025 3.51998 15.7467 3.41415 16.0334C3.36364 16.155 3.33623 16.285 3.33331 16.4167V6.53502C3.33331 5.20419 3.33498 4.27585 3.42831 3.57502C3.51915 2.89502 3.68498 2.53419 3.93915 2.27752Z" fill="#CACFE0" />
-																	<path d="M6.04163 5.83337C6.04163 5.66761 6.10747 5.50864 6.22468 5.39143C6.34189 5.27422 6.50087 5.20837 6.66663 5.20837H13.3333C13.4991 5.20837 13.658 5.27422 13.7752 5.39143C13.8924 5.50864 13.9583 5.66761 13.9583 5.83337C13.9583 5.99913 13.8924 6.15811 13.7752 6.27532C13.658 6.39253 13.4991 6.45837 13.3333 6.45837H6.66663C6.50087 6.45837 6.34189 6.39253 6.22468 6.27532C6.10747 6.15811 6.04163 5.99913 6.04163 5.83337ZM6.66663 8.12504C6.50087 8.12504 6.34189 8.19089 6.22468 8.3081C6.10747 8.42531 6.04163 8.58428 6.04163 8.75004C6.04163 8.9158 6.10747 9.07477 6.22468 9.19198C6.34189 9.30919 6.50087 9.37504 6.66663 9.37504H10.8333C10.9991 9.37504 11.158 9.30919 11.2752 9.19198C11.3924 9.07477 11.4583 8.9158 11.4583 8.75004C11.4583 8.58428 11.3924 8.42531 11.2752 8.3081C11.158 8.19089 10.9991 8.12504 10.8333 8.12504H6.66663Z" fill="#747B98" />
-																</svg>
-
-															</div>
-															<p class="text-grayscale-800 text-body-sm-light">
-																Курси: 24
-															</p>
-														</div>
-														<div class="child__info-line line-bonus">
-															<div class="svg-icon">
-																<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-																	<path d="M10 15.7936C6.66064 15.7936 3.70752 14.98 1.84473 13.7234C1.46533 14.1388 1.25 14.5854 1.25 15.0562C1.25 17.0952 5.16699 18.75 10 18.75C14.833 18.75 18.75 17.0952 18.75 15.0562C18.75 14.5854 18.5347 14.1388 18.1553 13.7268C16.2925 14.98 13.3394 15.7936 10 15.7936ZM10 11.3624C6.66064 11.3624 3.70752 10.5488 1.84473 9.29218C1.46533 9.7076 1.25 10.1542 1.25 10.625C1.25 12.664 5.16699 14.3188 10 14.3188C14.833 14.3188 18.75 12.664 18.75 10.625C18.75 10.1542 18.5347 9.7076 18.1553 9.29564C16.2925 10.5488 13.3394 11.3624 10 11.3624Z" fill="#CACFE0" />
-																	<path d="M10 9.88762C14.833 9.88762 18.75 8.23285 18.75 6.19381C18.75 4.15477 14.833 2.5 10 2.5C5.16699 2.5 1.25 4.15477 1.25 6.19381C1.25 8.23285 5.16699 9.88762 10 9.88762Z" fill="#747B98" />
-																</svg>
-
-															</div>
-															<p class="text-grayscale-800 text-body-sm-light">
-																Бонуси: 140
-															</p>
-														</div>
-													</div>
-												</div>
-
-											</div>
-											<div class="child__info child__info--mob flex items-center gap-y-1 gap-x-4 ">
-												<div class="child__info-line line-courses">
-													<div class="svg-icon">
-														<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-															<path d="M6.18832 15H16.6666C16.6642 15.775 16.6483 16.3525 16.5725 16.8083C16.4808 17.3525 16.3141 17.64 16.0591 17.845C15.8033 18.05 15.445 18.1842 14.7675 18.2567C14.07 18.3317 13.1458 18.3333 11.8208 18.3333H8.12915C6.80415 18.3333 5.87915 18.3325 5.18248 18.2567C4.50498 18.1842 4.14665 18.05 3.89082 17.845C3.63582 17.64 3.46915 17.3525 3.37748 16.8092C3.37076 16.7673 3.36465 16.7254 3.35915 16.6833C3.32582 16.4408 3.30915 16.3192 3.41415 16.0333C3.51998 15.7467 3.56498 15.7025 3.65665 15.6125C3.9543 15.3303 4.32542 15.1377 4.72748 15.0567C4.96915 15.005 5.28582 15 6.18832 15Z" fill="#747B98" />
-															<path d="M3.93915 2.27752C4.19415 2.02085 4.55081 1.85419 5.22581 1.76252C5.92081 1.66835 6.84081 1.66669 8.16081 1.66669H11.8391C13.1591 1.66669 14.0791 1.66835 14.7741 1.76252C15.4491 1.85419 15.8058 2.02085 16.0608 2.27752C16.315 2.53419 16.4808 2.89419 16.5716 3.57502C16.665 4.27502 16.6666 5.20419 16.6666 6.53502V15H6.18831C5.28498 15 4.96998 15.005 4.72748 15.0567C4.29998 15.1484 3.92748 15.3459 3.65665 15.6125C3.56498 15.7025 3.51998 15.7467 3.41415 16.0334C3.36364 16.155 3.33623 16.285 3.33331 16.4167V6.53502C3.33331 5.20419 3.33498 4.27585 3.42831 3.57502C3.51915 2.89502 3.68498 2.53419 3.93915 2.27752Z" fill="#CACFE0" />
-															<path d="M6.04163 5.83337C6.04163 5.66761 6.10747 5.50864 6.22468 5.39143C6.34189 5.27422 6.50087 5.20837 6.66663 5.20837H13.3333C13.4991 5.20837 13.658 5.27422 13.7752 5.39143C13.8924 5.50864 13.9583 5.66761 13.9583 5.83337C13.9583 5.99913 13.8924 6.15811 13.7752 6.27532C13.658 6.39253 13.4991 6.45837 13.3333 6.45837H6.66663C6.50087 6.45837 6.34189 6.39253 6.22468 6.27532C6.10747 6.15811 6.04163 5.99913 6.04163 5.83337ZM6.66663 8.12504C6.50087 8.12504 6.34189 8.19089 6.22468 8.3081C6.10747 8.42531 6.04163 8.58428 6.04163 8.75004C6.04163 8.9158 6.10747 9.07477 6.22468 9.19198C6.34189 9.30919 6.50087 9.37504 6.66663 9.37504H10.8333C10.9991 9.37504 11.158 9.30919 11.2752 9.19198C11.3924 9.07477 11.4583 8.9158 11.4583 8.75004C11.4583 8.58428 11.3924 8.42531 11.2752 8.3081C11.158 8.19089 10.9991 8.12504 10.8333 8.12504H6.66663Z" fill="#747B98" />
-														</svg>
-
-													</div>
-													<p class="text-grayscale-800 text-body-sm-light">
-														Курси: 24
-													</p>
-												</div>
-												<div class="child__info-line line-bonus">
-													<div class="svg-icon">
-														<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-															<path d="M10 15.7936C6.66064 15.7936 3.70752 14.98 1.84473 13.7234C1.46533 14.1388 1.25 14.5854 1.25 15.0562C1.25 17.0952 5.16699 18.75 10 18.75C14.833 18.75 18.75 17.0952 18.75 15.0562C18.75 14.5854 18.5347 14.1388 18.1553 13.7268C16.2925 14.98 13.3394 15.7936 10 15.7936ZM10 11.3624C6.66064 11.3624 3.70752 10.5488 1.84473 9.29218C1.46533 9.7076 1.25 10.1542 1.25 10.625C1.25 12.664 5.16699 14.3188 10 14.3188C14.833 14.3188 18.75 12.664 18.75 10.625C18.75 10.1542 18.5347 9.7076 18.1553 9.29564C16.2925 10.5488 13.3394 11.3624 10 11.3624Z" fill="#CACFE0" />
-															<path d="M10 9.88762C14.833 9.88762 18.75 8.23285 18.75 6.19381C18.75 4.15477 14.833 2.5 10 2.5C5.16699 2.5 1.25 4.15477 1.25 6.19381C1.25 8.23285 5.16699 9.88762 10 9.88762Z" fill="#747B98" />
-														</svg>
-
-													</div>
-													<p class="text-grayscale-800 text-body-sm-light">
-														Бонуси: 140
-													</p>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="my-childrens__child child">
-										<div class="child__body">
-											<div class="profile profile--size-l">
-
-												<div class="profile__avatar avatar-text avatar-bg-green text-light">
-													ОA
-												</div>
-												<div class="profile__content">
-													<p class="profile__name " title="Олег Аліна Петренко Олег Аліна Петренко">
-														Олег Аліна Петренко Олег Аліна Петренко
-													</p>
-													<div class="child__info flex items-center gap-y-1 gap-x-4">
-														<div class="child__info-line line-courses">
-															<div class="svg-icon">
-																<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-																	<path d="M6.18832 15H16.6666C16.6642 15.775 16.6483 16.3525 16.5725 16.8083C16.4808 17.3525 16.3141 17.64 16.0591 17.845C15.8033 18.05 15.445 18.1842 14.7675 18.2567C14.07 18.3317 13.1458 18.3333 11.8208 18.3333H8.12915C6.80415 18.3333 5.87915 18.3325 5.18248 18.2567C4.50498 18.1842 4.14665 18.05 3.89082 17.845C3.63582 17.64 3.46915 17.3525 3.37748 16.8092C3.37076 16.7673 3.36465 16.7254 3.35915 16.6833C3.32582 16.4408 3.30915 16.3192 3.41415 16.0333C3.51998 15.7467 3.56498 15.7025 3.65665 15.6125C3.9543 15.3303 4.32542 15.1377 4.72748 15.0567C4.96915 15.005 5.28582 15 6.18832 15Z" fill="#747B98" />
-																	<path d="M3.93915 2.27752C4.19415 2.02085 4.55081 1.85419 5.22581 1.76252C5.92081 1.66835 6.84081 1.66669 8.16081 1.66669H11.8391C13.1591 1.66669 14.0791 1.66835 14.7741 1.76252C15.4491 1.85419 15.8058 2.02085 16.0608 2.27752C16.315 2.53419 16.4808 2.89419 16.5716 3.57502C16.665 4.27502 16.6666 5.20419 16.6666 6.53502V15H6.18831C5.28498 15 4.96998 15.005 4.72748 15.0567C4.29998 15.1484 3.92748 15.3459 3.65665 15.6125C3.56498 15.7025 3.51998 15.7467 3.41415 16.0334C3.36364 16.155 3.33623 16.285 3.33331 16.4167V6.53502C3.33331 5.20419 3.33498 4.27585 3.42831 3.57502C3.51915 2.89502 3.68498 2.53419 3.93915 2.27752Z" fill="#CACFE0" />
-																	<path d="M6.04163 5.83337C6.04163 5.66761 6.10747 5.50864 6.22468 5.39143C6.34189 5.27422 6.50087 5.20837 6.66663 5.20837H13.3333C13.4991 5.20837 13.658 5.27422 13.7752 5.39143C13.8924 5.50864 13.9583 5.66761 13.9583 5.83337C13.9583 5.99913 13.8924 6.15811 13.7752 6.27532C13.658 6.39253 13.4991 6.45837 13.3333 6.45837H6.66663C6.50087 6.45837 6.34189 6.39253 6.22468 6.27532C6.10747 6.15811 6.04163 5.99913 6.04163 5.83337ZM6.66663 8.12504C6.50087 8.12504 6.34189 8.19089 6.22468 8.3081C6.10747 8.42531 6.04163 8.58428 6.04163 8.75004C6.04163 8.9158 6.10747 9.07477 6.22468 9.19198C6.34189 9.30919 6.50087 9.37504 6.66663 9.37504H10.8333C10.9991 9.37504 11.158 9.30919 11.2752 9.19198C11.3924 9.07477 11.4583 8.9158 11.4583 8.75004C11.4583 8.58428 11.3924 8.42531 11.2752 8.3081C11.158 8.19089 10.9991 8.12504 10.8333 8.12504H6.66663Z" fill="#747B98" />
-																</svg>
-
-															</div>
-															<p class="text-grayscale-800 text-body-sm-light">
-																Курси: 24
-															</p>
-														</div>
-														<div class="child__info-line line-bonus">
-															<div class="svg-icon">
-																<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-																	<path d="M10 15.7936C6.66064 15.7936 3.70752 14.98 1.84473 13.7234C1.46533 14.1388 1.25 14.5854 1.25 15.0562C1.25 17.0952 5.16699 18.75 10 18.75C14.833 18.75 18.75 17.0952 18.75 15.0562C18.75 14.5854 18.5347 14.1388 18.1553 13.7268C16.2925 14.98 13.3394 15.7936 10 15.7936ZM10 11.3624C6.66064 11.3624 3.70752 10.5488 1.84473 9.29218C1.46533 9.7076 1.25 10.1542 1.25 10.625C1.25 12.664 5.16699 14.3188 10 14.3188C14.833 14.3188 18.75 12.664 18.75 10.625C18.75 10.1542 18.5347 9.7076 18.1553 9.29564C16.2925 10.5488 13.3394 11.3624 10 11.3624Z" fill="#CACFE0" />
-																	<path d="M10 9.88762C14.833 9.88762 18.75 8.23285 18.75 6.19381C18.75 4.15477 14.833 2.5 10 2.5C5.16699 2.5 1.25 4.15477 1.25 6.19381C1.25 8.23285 5.16699 9.88762 10 9.88762Z" fill="#747B98" />
-																</svg>
-
-															</div>
-															<p class="text-grayscale-800 text-body-sm-light">
-																Бонуси: 1400
-															</p>
-														</div>
-													</div>
-												</div>
-
-											</div>
-											<div class="child__info child__info--mob flex items-center gap-y-1 gap-x-4 ">
-												<div class="child__info-line line-courses">
-													<div class="svg-icon">
-														<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-															<path d="M6.18832 15H16.6666C16.6642 15.775 16.6483 16.3525 16.5725 16.8083C16.4808 17.3525 16.3141 17.64 16.0591 17.845C15.8033 18.05 15.445 18.1842 14.7675 18.2567C14.07 18.3317 13.1458 18.3333 11.8208 18.3333H8.12915C6.80415 18.3333 5.87915 18.3325 5.18248 18.2567C4.50498 18.1842 4.14665 18.05 3.89082 17.845C3.63582 17.64 3.46915 17.3525 3.37748 16.8092C3.37076 16.7673 3.36465 16.7254 3.35915 16.6833C3.32582 16.4408 3.30915 16.3192 3.41415 16.0333C3.51998 15.7467 3.56498 15.7025 3.65665 15.6125C3.9543 15.3303 4.32542 15.1377 4.72748 15.0567C4.96915 15.005 5.28582 15 6.18832 15Z" fill="#747B98" />
-															<path d="M3.93915 2.27752C4.19415 2.02085 4.55081 1.85419 5.22581 1.76252C5.92081 1.66835 6.84081 1.66669 8.16081 1.66669H11.8391C13.1591 1.66669 14.0791 1.66835 14.7741 1.76252C15.4491 1.85419 15.8058 2.02085 16.0608 2.27752C16.315 2.53419 16.4808 2.89419 16.5716 3.57502C16.665 4.27502 16.6666 5.20419 16.6666 6.53502V15H6.18831C5.28498 15 4.96998 15.005 4.72748 15.0567C4.29998 15.1484 3.92748 15.3459 3.65665 15.6125C3.56498 15.7025 3.51998 15.7467 3.41415 16.0334C3.36364 16.155 3.33623 16.285 3.33331 16.4167V6.53502C3.33331 5.20419 3.33498 4.27585 3.42831 3.57502C3.51915 2.89502 3.68498 2.53419 3.93915 2.27752Z" fill="#CACFE0" />
-															<path d="M6.04163 5.83337C6.04163 5.66761 6.10747 5.50864 6.22468 5.39143C6.34189 5.27422 6.50087 5.20837 6.66663 5.20837H13.3333C13.4991 5.20837 13.658 5.27422 13.7752 5.39143C13.8924 5.50864 13.9583 5.66761 13.9583 5.83337C13.9583 5.99913 13.8924 6.15811 13.7752 6.27532C13.658 6.39253 13.4991 6.45837 13.3333 6.45837H6.66663C6.50087 6.45837 6.34189 6.39253 6.22468 6.27532C6.10747 6.15811 6.04163 5.99913 6.04163 5.83337ZM6.66663 8.12504C6.50087 8.12504 6.34189 8.19089 6.22468 8.3081C6.10747 8.42531 6.04163 8.58428 6.04163 8.75004C6.04163 8.9158 6.10747 9.07477 6.22468 9.19198C6.34189 9.30919 6.50087 9.37504 6.66663 9.37504H10.8333C10.9991 9.37504 11.158 9.30919 11.2752 9.19198C11.3924 9.07477 11.4583 8.9158 11.4583 8.75004C11.4583 8.58428 11.3924 8.42531 11.2752 8.3081C11.158 8.19089 10.9991 8.12504 10.8333 8.12504H6.66663Z" fill="#747B98" />
-														</svg>
-
-													</div>
-													<p class="text-grayscale-800 text-body-sm-light">
-														Курси: 24
-													</p>
-												</div>
-												<div class="child__info-line line-bonus">
-													<div class="svg-icon">
-														<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-															<path d="M10 15.7936C6.66064 15.7936 3.70752 14.98 1.84473 13.7234C1.46533 14.1388 1.25 14.5854 1.25 15.0562C1.25 17.0952 5.16699 18.75 10 18.75C14.833 18.75 18.75 17.0952 18.75 15.0562C18.75 14.5854 18.5347 14.1388 18.1553 13.7268C16.2925 14.98 13.3394 15.7936 10 15.7936ZM10 11.3624C6.66064 11.3624 3.70752 10.5488 1.84473 9.29218C1.46533 9.7076 1.25 10.1542 1.25 10.625C1.25 12.664 5.16699 14.3188 10 14.3188C14.833 14.3188 18.75 12.664 18.75 10.625C18.75 10.1542 18.5347 9.7076 18.1553 9.29564C16.2925 10.5488 13.3394 11.3624 10 11.3624Z" fill="#CACFE0" />
-															<path d="M10 9.88762C14.833 9.88762 18.75 8.23285 18.75 6.19381C18.75 4.15477 14.833 2.5 10 2.5C5.16699 2.5 1.25 4.15477 1.25 6.19381C1.25 8.23285 5.16699 9.88762 10 9.88762Z" fill="#747B98" />
-														</svg>
-
-													</div>
-													<p class="text-grayscale-800 text-body-sm-light">
-														Бонуси: 1400
-													</p>
-												</div>
-											</div>
-										</div>
-									</div>
-									<p class="widget-alert">Ваші діти ще не додані</p>
-
-								</div>
-							</div>
-							<div class="widget orders-shop order-4">
-								<div class="widget__header items-start">
-									<h4 class="md:heading-lg heading-md widget-badge">
-										Замовлення в магазині <span class="badge badge--numeric">
-											2
+									<span class="button__inner">
+										<span class="button__text">
+											Додати години
 										</span>
-									</h4>
-									<a href="#" class="link-blue">
-										Перейти
-									</a>
-								</div>
-								<div class="widget__body">
-									<p class="text-body-md-light md:mb-5 mb-4 text-grayscale-800">
-										Ваша дитина зробила замовлення у магазині бонусів. Підтвердить його, щоби наш менеджер відправив покупку вашій дитині
-									</p>
-									<div class="orders-shop__list">
-										<div class="orders-shop__order order">
-											<div class="order__body">
-												<div class="order__header">
-													<div class="order__profile profile profile--size-xs">
+									</span>
+								</a>
+							</div>
+						</div>
+						<div class="content-widgets">
+							<div class="content-widgets-large">
+								<div class="widget classes-calendar">
+									<div class="widget__header">
+										<h4 class="md:heading-lg heading-md">
+											Календар занять
+										</h4>
+										<a href="#" class="link-blue">
+											Перейти
+										</a>
+									</div>
+									<div class="widget__body" data-tabs>
+										<div class="classes-calendar__slider swiper mb-5">
+											<div class="classes-calendar__wrapper swiper-wrapper" data-tabs-titles>
+												<div class="classes-calendar__slide swiper-slide  _tab-active">
+													<a href="#" class="calendar-dates__button calendar-button">
+														<div class="calendar-button__body">
+															<div class="calendar-button__day text-grayscale-600 heading-sm">
+																Пн
+															</div>
+															<div class="calendar-button__date md:heading-xl heading-lg">
+																04
+															</div>
+															<div class="calendar-button__lesson-badges flex items-center gap-1 justify-center">
+																<span class="lesson-badge background-sky-600">
 
-														<div class="profile__avatar avatar-icon avatar-bg-pink">
-															<div class="svg-icon">
-																<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-																	<path d="M8.00002 1.33337C6.15902 1.33337 4.66669 2.82571 4.66669 4.66671C4.66669 6.50771 6.15902 8.00004 8.00002 8.00004C9.84102 8.00004 11.3334 6.50771 11.3334 4.66671C11.3334 2.82571 9.84102 1.33337 8.00002 1.33337ZM4.08335 9.33337C3.70769 9.33337 3.3474 9.48258 3.08174 9.74819C2.81607 10.0138 2.66678 10.374 2.66669 10.7497V11C2.66669 12.2517 3.31402 13.189 4.30669 13.7934C5.28335 14.3877 6.59535 14.6667 8.00002 14.6667C9.40469 14.6667 10.7167 14.3877 11.6934 13.7934C12.686 13.189 13.3334 12.2517 13.3334 11V10.7497C13.3334 10.5637 13.2967 10.3795 13.2255 10.2076C13.1543 10.0358 13.05 9.87961 12.9184 9.74809C12.7868 9.61657 12.6307 9.51225 12.4588 9.44109C12.2869 9.36993 12.1027 9.33333 11.9167 9.33337H4.08335Z" fill="white" />
-																	<path d="M4.66663 4.66671C4.66663 2.82571 6.15896 1.33337 7.99996 1.33337C9.84096 1.33337 11.3333 2.82571 11.3333 4.66671C11.3333 6.50771 9.84096 8.00004 7.99996 8.00004C6.15896 8.00004 4.66663 6.50771 4.66663 4.66671Z" fill="white" />
-																</svg>
+																</span>
 															</div>
 														</div>
-														<div class="profile__content">
-															<p class="profile__name ">
-																Тетяна Петренко
-															</p>
-														</div>
-
-													</div>
-													<div class="order__bonus flex items-center gap-1">
-														<div class="svg-icon">
-															<svg class="icon icon--size-m" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-																<path d="M12 18.9523C7.99277 18.9523 4.44902 17.976 2.21367 16.4681C1.7584 16.9666 1.5 17.5025 1.5 18.0674C1.5 20.5143 6.20039 22.5 12 22.5C17.7996 22.5 22.5 20.5143 22.5 18.0674C22.5 17.5025 22.2416 16.9666 21.7863 16.4722C19.551 17.976 16.0072 18.9523 12 18.9523ZM12 13.6349C7.99277 13.6349 4.44902 12.6586 2.21367 11.1506C1.7584 11.6491 1.5 12.185 1.5 12.75C1.5 15.1969 6.20039 17.1826 12 17.1826C17.7996 17.1826 22.5 15.1969 22.5 12.75C22.5 12.185 22.2416 11.6491 21.7863 11.1548C19.551 12.6586 16.0072 13.6349 12 13.6349Z" fill="#CACFE0" />
-																<path d="M12 11.8651C17.7996 11.8651 22.5 9.87942 22.5 7.43257C22.5 4.98573 17.7996 3 12 3C6.20039 3 1.5 4.98573 1.5 7.43257C1.5 9.87942 6.20039 11.8651 12 11.8651Z" fill="#747B98" />
-															</svg>
-														</div>
-														<span class="heading-md text-grayscale-800">120</span>
-
-													</div>
-												</div>
-												<div class="order__content">
-													<div class="order__line">
-														<a href="#" class="link-blue--underline link-blue--underline-icon">
-															Підписка Youtube Premium
-														</a>
-														<div class="bonus-element bonus-element--small">
-															<div class="svg-icon">
-																<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-																	<path d="M8 12.6348C5.32852 12.6348 2.96602 11.984 1.47578 10.9787C1.17227 11.311 1 11.6683 1 12.0449C1 13.6762 4.13359 15 8 15C11.8664 15 15 13.6762 15 12.0449C15 11.6683 14.8277 11.311 14.5242 10.9814C13.034 11.984 10.6715 12.6348 8 12.6348ZM8 9.08987C5.32852 9.08987 2.96602 8.43904 1.47578 7.43372C1.17227 7.76605 1 8.12332 1 8.49997C1 10.1312 4.13359 11.455 8 11.455C11.8664 11.455 15 10.1312 15 8.49997C15 8.12332 14.8277 7.76605 14.5242 7.43649C13.034 8.43904 10.6715 9.08987 8 9.08987Z" fill="#CACFE0" />
-																	<path d="M8 7.9101C11.8664 7.9101 15 6.58628 15 4.95505C15 3.32382 11.8664 2 8 2C4.13359 2 1 3.32382 1 4.95505C1 6.58628 4.13359 7.9101 8 7.9101Z" fill="#747B98" />
-																</svg>
-															</div>
-															80
-														</div>
-													</div>
-													<div class="order__line">
-														<a href="#" class="link-blue--underline link-blue--underline-icon">
-															Radiant Conqueror Shoulder - ігровий скін Dota 2
-														</a>
-														<div class="bonus-element bonus-element--small">
-															<div class="svg-icon">
-																<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-																	<path d="M8 12.6348C5.32852 12.6348 2.96602 11.984 1.47578 10.9787C1.17227 11.311 1 11.6683 1 12.0449C1 13.6762 4.13359 15 8 15C11.8664 15 15 13.6762 15 12.0449C15 11.6683 14.8277 11.311 14.5242 10.9814C13.034 11.984 10.6715 12.6348 8 12.6348ZM8 9.08987C5.32852 9.08987 2.96602 8.43904 1.47578 7.43372C1.17227 7.76605 1 8.12332 1 8.49997C1 10.1312 4.13359 11.455 8 11.455C11.8664 11.455 15 10.1312 15 8.49997C15 8.12332 14.8277 7.76605 14.5242 7.43649C13.034 8.43904 10.6715 9.08987 8 9.08987Z" fill="#CACFE0" />
-																	<path d="M8 7.9101C11.8664 7.9101 15 6.58628 15 4.95505C15 3.32382 11.8664 2 8 2C4.13359 2 1 3.32382 1 4.95505C1 6.58628 4.13359 7.9101 8 7.9101Z" fill="#747B98" />
-																</svg>
-															</div>
-															80
-														</div>
-													</div>
-												</div>
-												<div class="order__footer">
-													<a href="#" class="link-blue">
-														Підтвердити
 													</a>
-													<a href="#" class="link-red">
-														Скасувати
+												</div>
+
+												<div class="classes-calendar__slide swiper-slide">
+													<a href="#" class="calendar-dates__button calendar-button ">
+														<div class="calendar-button__body">
+															<div class="calendar-button__day text-grayscale-600 heading-sm">
+																Вт
+															</div>
+															<div class="calendar-button__date md:heading-xl heading-lg">
+																05
+															</div>
+															<div class="calendar-button__lesson-badges flex items-center gap-1 justify-center">
+																<span class="lesson-badge background-violet-700">
+
+																</span>
+																<span class="lesson-badge background-green-700">
+
+																</span>
+															</div>
+														</div>
+													</a>
+												</div>
+												<div class="classes-calendar__slide swiper-slide">
+													<a href="#" class="calendar-dates__button calendar-button ">
+														<div class="calendar-button__body">
+															<div class="calendar-button__day text-grayscale-600 heading-sm">
+																Ср
+															</div>
+															<div class="calendar-button__date md:heading-xl heading-lg">
+																06
+															</div>
+															<div class="calendar-button__lesson-badges flex items-center gap-1 justify-center">
+
+															</div>
+														</div>
+													</a>
+												</div>
+												<div class="classes-calendar__slide swiper-slide">
+													<a href="#" class="calendar-dates__button calendar-button ">
+														<div class="calendar-button__body">
+															<div class="calendar-button__day text-grayscale-600 heading-sm">
+																Чт
+															</div>
+															<div class="calendar-button__date md:heading-xl heading-lg">
+																07
+															</div>
+															<div class="calendar-button__lesson-badges flex items-center gap-1 justify-center">
+
+															</div>
+														</div>
+													</a>
+												</div>
+												<div class="classes-calendar__slide swiper-slide">
+													<a href="#" class="calendar-dates__button calendar-button ">
+														<div class="calendar-button__body">
+															<div class="calendar-button__day text-grayscale-600 heading-sm">
+																Пт
+															</div>
+															<div class="calendar-button__date md:heading-xl heading-lg">
+																08
+															</div>
+															<div class="calendar-button__lesson-badges flex items-center gap-1 justify-center">
+																<span class="lesson-badge background-sky-600">
+
+																</span>
+																<span class="lesson-badge background-green-700">
+
+																</span>
+															</div>
+														</div>
+													</a>
+												</div>
+												<div class="classes-calendar__slide swiper-slide">
+													<a href="#" class="calendar-dates__button calendar-button ">
+														<div class="calendar-button__body">
+															<div class="calendar-button__day text-grayscale-600 heading-sm">
+																Сб
+															</div>
+															<div class="calendar-button__date md:heading-xl heading-lg">
+																09
+															</div>
+															<div class="calendar-button__lesson-badges flex items-center gap-1 justify-center">
+
+															</div>
+														</div>
+													</a>
+												</div>
+												<div class="classes-calendar__slide swiper-slide">
+													<a href="#" class="calendar-dates__button calendar-button ">
+														<div class="calendar-button__body">
+															<div class="calendar-button__day text-grayscale-600 heading-sm">
+																Нд
+															</div>
+															<div class="calendar-button__date md:heading-xl heading-lg">
+																10
+															</div>
+															<div class="calendar-button__lesson-badges flex items-center gap-1 justify-center">
+
+															</div>
+														</div>
 													</a>
 												</div>
 											</div>
 										</div>
-										<div class="orders-shop__order order">
-											<div class="order__body">
-												<div class="order__header">
-													<div class="order__profile profile profile--size-xs">
+										<div class="classes-calendar__body" data-tabs-body>
+											<div class="classes-calendar__tabs-body">
+												<div class="wide-lessons-tile">
+													<div class="wide-lesson lesson-wide">
+														<div class="lesson-wide-badge background-violet-700"></div>
+														<div class="lesson-wide__body">
+															<div class="lesson-wide__header md:mb-4 mb-3 flex flex-wrap item-center gap-3 justify-between">
+																<div class="title-element-with-emoji">
+																	<div class="emoji-box emoji-box--size-m">
+																		<img srcset="img/icons-ios/robot.png 2x" alt="Icon IOS Robot">
+																	</div>
+																	<p class="md:heading-md heading-sm">
+																		Програмування у Minecraft Програмування у Minecraft Програмування у Minecraft Програмування у Minecraft Програмування у Minecraft Програмування у Minecraft Програмування у Minecraft Програмування у Minecraft Програмування у Minecraft Програмування у Minecraft
+																	</p>
+																</div>
+																<div class="tags">
+																	<div class="tag tag--medium tag-successful">
+																		<div class="svg-icon">
+																			<svg class="icon icon--size-s" height="16" width="16">
+																				<use xlink:href="img/icons/icons.svg#tabler_check"></use>
+																			</svg>
 
-														<div class="profile__avatar avatar-icon avatar-bg-pink">
-															<div class="svg-icon">
-																<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-																	<path d="M8.00002 1.33337C6.15902 1.33337 4.66669 2.82571 4.66669 4.66671C4.66669 6.50771 6.15902 8.00004 8.00002 8.00004C9.84102 8.00004 11.3334 6.50771 11.3334 4.66671C11.3334 2.82571 9.84102 1.33337 8.00002 1.33337ZM4.08335 9.33337C3.70769 9.33337 3.3474 9.48258 3.08174 9.74819C2.81607 10.0138 2.66678 10.374 2.66669 10.7497V11C2.66669 12.2517 3.31402 13.189 4.30669 13.7934C5.28335 14.3877 6.59535 14.6667 8.00002 14.6667C9.40469 14.6667 10.7167 14.3877 11.6934 13.7934C12.686 13.189 13.3334 12.2517 13.3334 11V10.7497C13.3334 10.5637 13.2967 10.3795 13.2255 10.2076C13.1543 10.0358 13.05 9.87961 12.9184 9.74809C12.7868 9.61657 12.6307 9.51225 12.4588 9.44109C12.2869 9.36993 12.1027 9.33333 11.9167 9.33337H4.08335Z" fill="white" />
-																	<path d="M4.66663 4.66671C4.66663 2.82571 6.15896 1.33337 7.99996 1.33337C9.84096 1.33337 11.3333 2.82571 11.3333 4.66671C11.3333 6.50771 9.84096 8.00004 7.99996 8.00004C6.15896 8.00004 4.66663 6.50771 4.66663 4.66671Z" fill="white" />
-																</svg>
+
+																		</div>
+																		Відвідування
+																	</div>
+																</div>
+															</div>
+															<div class="lesson-wide__content">
+																<div class="lesson-times flex items-center flex-wrap gap-x-5 gap-y-2">
+																	<div class="lesson-times-line lesson-times__time">
+																		<div class="svg-icon">
+																			<svg class="icon icon--size-sm" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+																				<path d="M10 5C10.221 5 10.433 5.0878 10.5893 5.24408C10.7455 5.40036 10.8333 5.61232 10.8333 5.83333V9.51833L12.5817 10.5283C12.7715 10.6396 12.9096 10.8215 12.9659 11.0342C13.0221 11.247 12.9919 11.4733 12.8819 11.6639C12.7719 11.8545 12.5909 11.9938 12.3786 12.0515C12.1662 12.1091 11.9396 12.0804 11.7483 11.9717L9.58333 10.7217C9.45693 10.6482 9.35197 10.5429 9.27887 10.4163C9.20577 10.2897 9.16709 10.1462 9.16666 10V5.83333C9.16666 5.61232 9.25446 5.40036 9.41074 5.24408C9.56702 5.0878 9.77898 5 10 5Z" fill="#747B98" />
+																				<path d="M1.66666 9.99996C1.66666 11.6481 2.15541 13.2593 3.07108 14.6297C3.98676 16.0001 5.28825 17.0682 6.81097 17.699C8.33369 18.3297 10.0092 18.4947 11.6258 18.1732C13.2423 17.8516 14.7271 17.058 15.8926 15.8925C17.058 14.7271 17.8517 13.2422 18.1732 11.6257C18.4948 10.0092 18.3297 8.33365 17.699 6.81093C17.0683 5.28821 16.0002 3.98672 14.6298 3.07105C13.2593 2.15537 11.6482 1.66663 10 1.66663C8.90565 1.66663 7.82202 1.88217 6.81097 2.30096C5.79992 2.71975 4.88126 3.33358 4.10744 4.1074C2.54464 5.67021 1.66666 7.78982 1.66666 9.99996ZM9.16666 5.83329C9.16666 5.61228 9.25446 5.40032 9.41074 5.24404C9.56702 5.08776 9.77898 4.99996 10 4.99996C10.221 4.99996 10.433 5.08776 10.5893 5.24404C10.7455 5.40032 10.8333 5.61228 10.8333 5.83329V9.51829L12.5817 10.5283C12.7715 10.6396 12.9096 10.8214 12.9659 11.0342C13.0221 11.2469 12.9919 11.4733 12.8819 11.6639C12.7719 11.8544 12.5909 11.9938 12.3786 12.0514C12.1662 12.1091 11.9396 12.0804 11.7483 11.9716L9.58333 10.7216C9.45693 10.6482 9.35197 10.5429 9.27887 10.4163C9.20577 10.2897 9.16709 10.1462 9.16666 9.99996V5.83329Z" fill="#CACFE0" />
+																			</svg>
+																		</div>
+																		<span>17:00-18:00</span>
+																	</div>
+																	<div class="lesson-times-line lesson-times__lesson-type">
+																		<div class="svg-icon">
+																			<svg class="icon icon--size-sm" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+																				<path d="M8.40571 2.49714C8.8849 2.20142 9.4369 2.0448 10 2.0448C10.5631 2.0448 11.1151 2.20142 11.5943 2.49714L18.6743 6.86571C18.7511 6.91305 18.8146 6.979 18.8591 7.05746C18.9036 7.13592 18.9276 7.22434 18.9288 7.31452C18.93 7.40471 18.9084 7.49373 18.8661 7.57336C18.8237 7.65298 18.7619 7.72062 18.6864 7.77L11.6614 12.3629C11.1675 12.6858 10.5902 12.8579 10 12.8579C9.40985 12.8579 8.83249 12.6858 8.33857 12.3629L2.14286 8.31286V12.6793C2.14286 12.8214 2.08641 12.9576 1.98595 13.0581C1.88548 13.1586 1.74922 13.215 1.60714 13.215C1.46506 13.215 1.3288 13.1586 1.22833 13.0581C1.12787 12.9576 1.07143 12.8214 1.07143 12.6793V7.5C1.07143 7.46928 1.07428 7.43928 1.07857 7.41071C1.06086 7.30559 1.07492 7.19758 1.11895 7.10049C1.16298 7.0034 1.23497 6.92166 1.32571 6.86571L8.40571 2.49714Z" fill="#747B98" />
+																				<path d="M4.28569 10.9928L7.75212 13.2592C8.42037 13.6962 9.20152 13.929 9.99998 13.929C10.7984 13.929 11.5796 13.6962 12.2478 13.2592L15.7143 10.9935V14.4642C15.7143 14.6778 15.5985 14.8064 15.4621 14.9399C15.3943 15.0057 15.2971 15.0971 15.17 15.2057C14.826 15.4991 14.4581 15.7631 14.07 15.9949C13.1185 16.5664 11.7293 17.1428 9.99998 17.1428C8.2714 17.1428 6.8814 16.5664 5.92998 15.9949C5.54187 15.7631 5.17391 15.4991 4.82998 15.2057C4.72953 15.1202 4.63186 15.0316 4.53712 14.9399C4.4014 14.8064 4.28569 14.6778 4.28569 14.4642V10.9928Z" fill="#CACFE0" />
+																			</svg>
+																		</div>
+																		<span>Індивідуально</span>
+																	</div>
+																	<div class="lesson-times-line lesson-times-line__profile profile profile--size-xs">
+
+																		<div class="profile__avatar avatar-icon avatar-bg-pink">
+																			<div class="svg-icon">
+																				<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+																					<path d="M8.00002 1.33337C6.15902 1.33337 4.66669 2.82571 4.66669 4.66671C4.66669 6.50771 6.15902 8.00004 8.00002 8.00004C9.84102 8.00004 11.3334 6.50771 11.3334 4.66671C11.3334 2.82571 9.84102 1.33337 8.00002 1.33337ZM4.08335 9.33337C3.70769 9.33337 3.3474 9.48258 3.08174 9.74819C2.81607 10.0138 2.66678 10.374 2.66669 10.7497V11C2.66669 12.2517 3.31402 13.189 4.30669 13.7934C5.28335 14.3877 6.59535 14.6667 8.00002 14.6667C9.40469 14.6667 10.7167 14.3877 11.6934 13.7934C12.686 13.189 13.3334 12.2517 13.3334 11V10.7497C13.3334 10.5637 13.2967 10.3795 13.2255 10.2076C13.1543 10.0358 13.05 9.87961 12.9184 9.74809C12.7868 9.61657 12.6307 9.51225 12.4588 9.44109C12.2869 9.36993 12.1027 9.33333 11.9167 9.33337H4.08335Z" fill="white"></path>
+																					<path d="M4.66663 4.66671C4.66663 2.82571 6.15896 1.33337 7.99996 1.33337C9.84096 1.33337 11.3333 2.82571 11.3333 4.66671C11.3333 6.50771 9.84096 8.00004 7.99996 8.00004C6.15896 8.00004 4.66663 6.50771 4.66663 4.66671Z" fill="white"></path>
+																				</svg>
+																			</div>
+																		</div>
+																		<div class="profile__content">
+																			<p class="profile__name ">
+																				Тетяна Петренко
+																			</p>
+																		</div>
+
+																	</div>
+																</div>
 															</div>
 														</div>
-														<div class="profile__content">
-															<p class="profile__name ">
-																Аліна Петренко
-															</p>
-														</div>
-
 													</div>
-													<div class="order__bonus flex items-center gap-1">
+													<div class="wide-lesson lesson-wide">
+														<div class="lesson-wide-badge background-green-700"></div>
+														<div class="lesson-wide__body">
+															<div class="lesson-wide__header md:mb-4 mb-3 flex flex-wrap item-center gap-3 justify-between">
+																<div class="title-element-with-emoji">
+																	<div class="emoji-box emoji-box--size-m">
+																		<img srcset="img/icons-ios/robot.png 2x" alt="Icon IOS Robot">
+																	</div>
+																	<p class="md:heading-md heading-sm">
+																		Програмування у Minecraft
+																	</p>
+																</div>
+																<div class="tags">
+																	<div class="tag tag--medium tag-cancelled">
+																		<div class="svg-icon">
+																			<svg class="icon icon--size-s" height="16" width="16">
+																				<use xlink:href="img/icons/icons.svg#maki_cross"></use>
+																			</svg>
+
+																		</div>
+																		Скасовано
+																	</div>
+																</div>
+															</div>
+															<div class="lesson-wide__content">
+																<div class="lesson-times flex items-center flex-wrap gap-x-5 gap-y-2">
+																	<div class="lesson-times-line lesson-times__time">
+																		<div class="svg-icon">
+																			<svg class="icon icon--size-sm" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+																				<path d="M10 5C10.221 5 10.433 5.0878 10.5893 5.24408C10.7455 5.40036 10.8333 5.61232 10.8333 5.83333V9.51833L12.5817 10.5283C12.7715 10.6396 12.9096 10.8215 12.9659 11.0342C13.0221 11.247 12.9919 11.4733 12.8819 11.6639C12.7719 11.8545 12.5909 11.9938 12.3786 12.0515C12.1662 12.1091 11.9396 12.0804 11.7483 11.9717L9.58333 10.7217C9.45693 10.6482 9.35197 10.5429 9.27887 10.4163C9.20577 10.2897 9.16709 10.1462 9.16666 10V5.83333C9.16666 5.61232 9.25446 5.40036 9.41074 5.24408C9.56702 5.0878 9.77898 5 10 5Z" fill="#747B98" />
+																				<path d="M1.66666 9.99996C1.66666 11.6481 2.15541 13.2593 3.07108 14.6297C3.98676 16.0001 5.28825 17.0682 6.81097 17.699C8.33369 18.3297 10.0092 18.4947 11.6258 18.1732C13.2423 17.8516 14.7271 17.058 15.8926 15.8925C17.058 14.7271 17.8517 13.2422 18.1732 11.6257C18.4948 10.0092 18.3297 8.33365 17.699 6.81093C17.0683 5.28821 16.0002 3.98672 14.6298 3.07105C13.2593 2.15537 11.6482 1.66663 10 1.66663C8.90565 1.66663 7.82202 1.88217 6.81097 2.30096C5.79992 2.71975 4.88126 3.33358 4.10744 4.1074C2.54464 5.67021 1.66666 7.78982 1.66666 9.99996ZM9.16666 5.83329C9.16666 5.61228 9.25446 5.40032 9.41074 5.24404C9.56702 5.08776 9.77898 4.99996 10 4.99996C10.221 4.99996 10.433 5.08776 10.5893 5.24404C10.7455 5.40032 10.8333 5.61228 10.8333 5.83329V9.51829L12.5817 10.5283C12.7715 10.6396 12.9096 10.8214 12.9659 11.0342C13.0221 11.2469 12.9919 11.4733 12.8819 11.6639C12.7719 11.8544 12.5909 11.9938 12.3786 12.0514C12.1662 12.1091 11.9396 12.0804 11.7483 11.9716L9.58333 10.7216C9.45693 10.6482 9.35197 10.5429 9.27887 10.4163C9.20577 10.2897 9.16709 10.1462 9.16666 9.99996V5.83329Z" fill="#CACFE0" />
+																			</svg>
+																		</div>
+																		<span>17:00-18:00</span>
+																	</div>
+																	<div class="lesson-times-line lesson-times__lesson-type">
+																		<div class="svg-icon">
+																			<svg class="icon icon--size-sm" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+																				<path d="M8.40571 2.49714C8.8849 2.20142 9.4369 2.0448 10 2.0448C10.5631 2.0448 11.1151 2.20142 11.5943 2.49714L18.6743 6.86571C18.7511 6.91305 18.8146 6.979 18.8591 7.05746C18.9036 7.13592 18.9276 7.22434 18.9288 7.31452C18.93 7.40471 18.9084 7.49373 18.8661 7.57336C18.8237 7.65298 18.7619 7.72062 18.6864 7.77L11.6614 12.3629C11.1675 12.6858 10.5902 12.8579 10 12.8579C9.40985 12.8579 8.83249 12.6858 8.33857 12.3629L2.14286 8.31286V12.6793C2.14286 12.8214 2.08641 12.9576 1.98595 13.0581C1.88548 13.1586 1.74922 13.215 1.60714 13.215C1.46506 13.215 1.3288 13.1586 1.22833 13.0581C1.12787 12.9576 1.07143 12.8214 1.07143 12.6793V7.5C1.07143 7.46928 1.07428 7.43928 1.07857 7.41071C1.06086 7.30559 1.07492 7.19758 1.11895 7.10049C1.16298 7.0034 1.23497 6.92166 1.32571 6.86571L8.40571 2.49714Z" fill="#747B98" />
+																				<path d="M4.28569 10.9928L7.75212 13.2592C8.42037 13.6962 9.20152 13.929 9.99998 13.929C10.7984 13.929 11.5796 13.6962 12.2478 13.2592L15.7143 10.9935V14.4642C15.7143 14.6778 15.5985 14.8064 15.4621 14.9399C15.3943 15.0057 15.2971 15.0971 15.17 15.2057C14.826 15.4991 14.4581 15.7631 14.07 15.9949C13.1185 16.5664 11.7293 17.1428 9.99998 17.1428C8.2714 17.1428 6.8814 16.5664 5.92998 15.9949C5.54187 15.7631 5.17391 15.4991 4.82998 15.2057C4.72953 15.1202 4.63186 15.0316 4.53712 14.9399C4.4014 14.8064 4.28569 14.6778 4.28569 14.4642V10.9928Z" fill="#CACFE0" />
+																			</svg>
+																		</div>
+																		<span>Індивідуально</span>
+																	</div>
+																	<div class="lesson-times-line lesson-times-line__profile profile profile--size-xs">
+
+																		<div class="profile__avatar avatar-icon avatar-bg-green">
+																			<div class="svg-icon">
+																				<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+																					<path d="M8.00002 1.33337C6.15902 1.33337 4.66669 2.82571 4.66669 4.66671C4.66669 6.50771 6.15902 8.00004 8.00002 8.00004C9.84102 8.00004 11.3334 6.50771 11.3334 4.66671C11.3334 2.82571 9.84102 1.33337 8.00002 1.33337ZM4.08335 9.33337C3.70769 9.33337 3.3474 9.48258 3.08174 9.74819C2.81607 10.0138 2.66678 10.374 2.66669 10.7497V11C2.66669 12.2517 3.31402 13.189 4.30669 13.7934C5.28335 14.3877 6.59535 14.6667 8.00002 14.6667C9.40469 14.6667 10.7167 14.3877 11.6934 13.7934C12.686 13.189 13.3334 12.2517 13.3334 11V10.7497C13.3334 10.5637 13.2967 10.3795 13.2255 10.2076C13.1543 10.0358 13.05 9.87961 12.9184 9.74809C12.7868 9.61657 12.6307 9.51225 12.4588 9.44109C12.2869 9.36993 12.1027 9.33333 11.9167 9.33337H4.08335Z" fill="white"></path>
+																					<path d="M4.66663 4.66671C4.66663 2.82571 6.15896 1.33337 7.99996 1.33337C9.84096 1.33337 11.3333 2.82571 11.3333 4.66671C11.3333 6.50771 9.84096 8.00004 7.99996 8.00004C6.15896 8.00004 4.66663 6.50771 4.66663 4.66671Z" fill="white"></path>
+																				</svg>
+																			</div>
+																		</div>
+																		<div class="profile__content">
+																			<p class="profile__name ">
+																				Тетяна Петренко
+																			</p>
+																		</div>
+
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="classes-calendar__tabs-body">
+												<div class="wide-lessons-tile">
+													<div class="wide-lesson lesson-wide">
+														<div class="lesson-wide-badge background-green-700"></div>
+														<div class="lesson-wide__body">
+															<div class="lesson-wide__header md:mb-4 mb-3 flex flex-wrap item-center gap-3 justify-between">
+																<div class="title-element-with-emoji">
+																	<div class="emoji-box emoji-box--size-m">
+																		<img srcset="img/icons-ios/robot.png 2x" alt="Icon IOS Robot">
+																	</div>
+																	<p class="md:heading-md heading-sm">
+																		Програмування у Minecraft
+																	</p>
+																</div>
+																<div class="tags">
+																	<div class="tag tag--medium tag-cancelled">
+																		<div class="svg-icon">
+																			<svg class="icon icon--size-s" height="16" width="16">
+																				<use xlink:href="img/icons/icons.svg#maki_cross"></use>
+																			</svg>
+
+																		</div>
+																		Скасовано
+																	</div>
+																</div>
+															</div>
+															<div class="lesson-wide__content">
+																<div class="lesson-times flex items-center flex-wrap gap-x-5 gap-y-2">
+																	<div class="lesson-times-line lesson-times__time">
+																		<div class="svg-icon">
+																			<svg class="icon icon--size-sm" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+																				<path d="M10 5C10.221 5 10.433 5.0878 10.5893 5.24408C10.7455 5.40036 10.8333 5.61232 10.8333 5.83333V9.51833L12.5817 10.5283C12.7715 10.6396 12.9096 10.8215 12.9659 11.0342C13.0221 11.247 12.9919 11.4733 12.8819 11.6639C12.7719 11.8545 12.5909 11.9938 12.3786 12.0515C12.1662 12.1091 11.9396 12.0804 11.7483 11.9717L9.58333 10.7217C9.45693 10.6482 9.35197 10.5429 9.27887 10.4163C9.20577 10.2897 9.16709 10.1462 9.16666 10V5.83333C9.16666 5.61232 9.25446 5.40036 9.41074 5.24408C9.56702 5.0878 9.77898 5 10 5Z" fill="#747B98" />
+																				<path d="M1.66666 9.99996C1.66666 11.6481 2.15541 13.2593 3.07108 14.6297C3.98676 16.0001 5.28825 17.0682 6.81097 17.699C8.33369 18.3297 10.0092 18.4947 11.6258 18.1732C13.2423 17.8516 14.7271 17.058 15.8926 15.8925C17.058 14.7271 17.8517 13.2422 18.1732 11.6257C18.4948 10.0092 18.3297 8.33365 17.699 6.81093C17.0683 5.28821 16.0002 3.98672 14.6298 3.07105C13.2593 2.15537 11.6482 1.66663 10 1.66663C8.90565 1.66663 7.82202 1.88217 6.81097 2.30096C5.79992 2.71975 4.88126 3.33358 4.10744 4.1074C2.54464 5.67021 1.66666 7.78982 1.66666 9.99996ZM9.16666 5.83329C9.16666 5.61228 9.25446 5.40032 9.41074 5.24404C9.56702 5.08776 9.77898 4.99996 10 4.99996C10.221 4.99996 10.433 5.08776 10.5893 5.24404C10.7455 5.40032 10.8333 5.61228 10.8333 5.83329V9.51829L12.5817 10.5283C12.7715 10.6396 12.9096 10.8214 12.9659 11.0342C13.0221 11.2469 12.9919 11.4733 12.8819 11.6639C12.7719 11.8544 12.5909 11.9938 12.3786 12.0514C12.1662 12.1091 11.9396 12.0804 11.7483 11.9716L9.58333 10.7216C9.45693 10.6482 9.35197 10.5429 9.27887 10.4163C9.20577 10.2897 9.16709 10.1462 9.16666 9.99996V5.83329Z" fill="#CACFE0" />
+																			</svg>
+																		</div>
+																		<span>17:00-18:00</span>
+																	</div>
+																	<div class="lesson-times-line lesson-times__lesson-type">
+																		<div class="svg-icon">
+																			<svg class="icon icon--size-sm" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+																				<path d="M8.40571 2.49714C8.8849 2.20142 9.4369 2.0448 10 2.0448C10.5631 2.0448 11.1151 2.20142 11.5943 2.49714L18.6743 6.86571C18.7511 6.91305 18.8146 6.979 18.8591 7.05746C18.9036 7.13592 18.9276 7.22434 18.9288 7.31452C18.93 7.40471 18.9084 7.49373 18.8661 7.57336C18.8237 7.65298 18.7619 7.72062 18.6864 7.77L11.6614 12.3629C11.1675 12.6858 10.5902 12.8579 10 12.8579C9.40985 12.8579 8.83249 12.6858 8.33857 12.3629L2.14286 8.31286V12.6793C2.14286 12.8214 2.08641 12.9576 1.98595 13.0581C1.88548 13.1586 1.74922 13.215 1.60714 13.215C1.46506 13.215 1.3288 13.1586 1.22833 13.0581C1.12787 12.9576 1.07143 12.8214 1.07143 12.6793V7.5C1.07143 7.46928 1.07428 7.43928 1.07857 7.41071C1.06086 7.30559 1.07492 7.19758 1.11895 7.10049C1.16298 7.0034 1.23497 6.92166 1.32571 6.86571L8.40571 2.49714Z" fill="#747B98" />
+																				<path d="M4.28569 10.9928L7.75212 13.2592C8.42037 13.6962 9.20152 13.929 9.99998 13.929C10.7984 13.929 11.5796 13.6962 12.2478 13.2592L15.7143 10.9935V14.4642C15.7143 14.6778 15.5985 14.8064 15.4621 14.9399C15.3943 15.0057 15.2971 15.0971 15.17 15.2057C14.826 15.4991 14.4581 15.7631 14.07 15.9949C13.1185 16.5664 11.7293 17.1428 9.99998 17.1428C8.2714 17.1428 6.8814 16.5664 5.92998 15.9949C5.54187 15.7631 5.17391 15.4991 4.82998 15.2057C4.72953 15.1202 4.63186 15.0316 4.53712 14.9399C4.4014 14.8064 4.28569 14.6778 4.28569 14.4642V10.9928Z" fill="#CACFE0" />
+																			</svg>
+																		</div>
+																		<span>Індивідуально</span>
+																	</div>
+																	<div class="lesson-times-line lesson-times-line__profile profile profile--size-xs">
+
+																		<div class="profile__avatar avatar-icon avatar-bg-green">
+																			<div class="svg-icon">
+																				<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+																					<path d="M8.00002 1.33337C6.15902 1.33337 4.66669 2.82571 4.66669 4.66671C4.66669 6.50771 6.15902 8.00004 8.00002 8.00004C9.84102 8.00004 11.3334 6.50771 11.3334 4.66671C11.3334 2.82571 9.84102 1.33337 8.00002 1.33337ZM4.08335 9.33337C3.70769 9.33337 3.3474 9.48258 3.08174 9.74819C2.81607 10.0138 2.66678 10.374 2.66669 10.7497V11C2.66669 12.2517 3.31402 13.189 4.30669 13.7934C5.28335 14.3877 6.59535 14.6667 8.00002 14.6667C9.40469 14.6667 10.7167 14.3877 11.6934 13.7934C12.686 13.189 13.3334 12.2517 13.3334 11V10.7497C13.3334 10.5637 13.2967 10.3795 13.2255 10.2076C13.1543 10.0358 13.05 9.87961 12.9184 9.74809C12.7868 9.61657 12.6307 9.51225 12.4588 9.44109C12.2869 9.36993 12.1027 9.33333 11.9167 9.33337H4.08335Z" fill="white"></path>
+																					<path d="M4.66663 4.66671C4.66663 2.82571 6.15896 1.33337 7.99996 1.33337C9.84096 1.33337 11.3333 2.82571 11.3333 4.66671C11.3333 6.50771 9.84096 8.00004 7.99996 8.00004C6.15896 8.00004 4.66663 6.50771 4.66663 4.66671Z" fill="white"></path>
+																				</svg>
+																			</div>
+																		</div>
+																		<div class="profile__content">
+																			<p class="profile__name ">
+																				Тетяна Петренко
+																			</p>
+																		</div>
+
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+								<div class="widget my-payments">
+									<div class="widget__header">
+										<h4 class="md:heading-lg heading-md">
+											Мої оплати
+										</h4>
+										<a href="#" class="link-blue">
+											Перейти
+										</a>
+									</div>
+									<div class="widget__body">
+										<div class="my-payments__item item-payment item-payment-hour">
+											<div class="item-payments__body flex items-center justify-between gap-4">
+												<div class="item-payment__left flex items-center gap-4">
+													<div class="svg-icon svg-icon-bg">
+														<svg class="icon icon--size-m" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+															<path d="M12 6C12.2652 6 12.5196 6.10536 12.7071 6.29289C12.8946 6.48043 13 6.73478 13 7V11.422L15.098 12.634C15.3258 12.7676 15.4915 12.9858 15.559 13.2411C15.6265 13.4964 15.5903 13.768 15.4583 13.9967C15.3262 14.2254 15.1091 14.3926 14.8543 14.4617C14.5994 14.5309 14.3276 14.4965 14.098 14.366L11.5 12.866C11.3483 12.7778 11.2224 12.6515 11.1346 12.4996C11.0469 12.3477 11.0005 12.1754 11 12V7C11 6.73478 11.1054 6.48043 11.2929 6.29289C11.4804 6.10536 11.7348 6 12 6Z" fill="#747B98" />
+															<path d="M2 12C2 13.9778 2.58649 15.9112 3.6853 17.5557C4.78412 19.2002 6.3459 20.4819 8.17317 21.2388C10.0004 21.9957 12.0111 22.1937 13.9509 21.8079C15.8907 21.422 17.6725 20.4696 19.0711 19.0711C20.4696 17.6725 21.422 15.8907 21.8079 13.9509C22.1937 12.0111 21.9957 10.0004 21.2388 8.17317C20.4819 6.3459 19.2002 4.78412 17.5557 3.6853C15.9112 2.58649 13.9778 2 12 2C10.6868 2 9.38642 2.25866 8.17317 2.7612C6.95991 3.26375 5.85752 4.00035 4.92893 4.92893C3.05357 6.8043 2 9.34784 2 12ZM11 7C11 6.73478 11.1054 6.48043 11.2929 6.29289C11.4804 6.10536 11.7348 6 12 6C12.2652 6 12.5196 6.10536 12.7071 6.29289C12.8946 6.48043 13 6.73478 13 7V11.422L15.098 12.634C15.3258 12.7676 15.4915 12.9858 15.559 13.2411C15.6265 13.4964 15.5903 13.768 15.4583 13.9967C15.3262 14.2254 15.1091 14.3926 14.8543 14.4617C14.5994 14.5309 14.3276 14.4965 14.098 14.366L11.5 12.866C11.3483 12.7778 11.2224 12.6515 11.1346 12.4996C11.0469 12.3477 11.0005 12.1754 11 12V7Z" fill="#CACFE0" />
+														</svg>
+													</div>
+													<div class="item-payment__left-item">
+														<p class="md:text-body-lg-light text-body-md-light">
+															<b>+5 годин</b> групових занять
+														</p>
+														<span class="text-body-md-light text-grayscale-800">
+															01.08.23
+														</span>
+													</div>
+												</div>
+												<div class="item-payment__right">
+													<div class="price heading-lg whitespace-nowrap">
+														2000 ₴
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="my-payments__item item-payment item-payment-bonus">
+											<div class="item-payments__body flex items-center justify-between gap-4">
+												<div class="item-payment__left flex items-center gap-4">
+													<div class="svg-icon svg-icon-bg">
+														<svg class="icon icon--size-m" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+															<path d="M12 18.9523C7.99277 18.9523 4.44902 17.976 2.21367 16.4681C1.7584 16.9666 1.5 17.5025 1.5 18.0674C1.5 20.5143 6.20039 22.5 12 22.5C17.7996 22.5 22.5 20.5143 22.5 18.0674C22.5 17.5025 22.2416 16.9666 21.7863 16.4722C19.551 17.976 16.0072 18.9523 12 18.9523ZM12 13.6349C7.99277 13.6349 4.44902 12.6586 2.21367 11.1506C1.7584 11.6491 1.5 12.185 1.5 12.75C1.5 15.1969 6.20039 17.1826 12 17.1826C17.7996 17.1826 22.5 15.1969 22.5 12.75C22.5 12.185 22.2416 11.6491 21.7863 11.1548C19.551 12.6586 16.0072 13.6349 12 13.6349Z" fill="#CACFE0" />
+															<path d="M12 11.8651C17.7996 11.8651 22.5 9.87942 22.5 7.43257C22.5 4.98573 17.7996 3 12 3C6.20039 3 1.5 4.98573 1.5 7.43257C1.5 9.87942 6.20039 11.8651 12 11.8651Z" fill="#747B98" />
+														</svg>
+													</div>
+													<div class="item-payment__left-item">
+														<p class="md:text-body-lg-light text-body-md-light">
+															<b>+10 бонусів</b> (Олег Петренко)
+														</p>
+														<span class="text-body-md-light text-grayscale-800">
+															01.08.23
+														</span>
+													</div>
+												</div>
+												<div class="item-payment__right">
+													<div class="price heading-lg whitespace-nowrap">
+														20000 ₴
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="my-payments__item item-payment item-payment-hour">
+											<div class="item-payments__body flex items-center justify-between gap-4">
+												<div class="item-payment__left flex items-center gap-4">
+													<div class="svg-icon svg-icon-bg">
+														<svg class="icon icon--size-m" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+															<path d="M12 6C12.2652 6 12.5196 6.10536 12.7071 6.29289C12.8946 6.48043 13 6.73478 13 7V11.422L15.098 12.634C15.3258 12.7676 15.4915 12.9858 15.559 13.2411C15.6265 13.4964 15.5903 13.768 15.4583 13.9967C15.3262 14.2254 15.1091 14.3926 14.8543 14.4617C14.5994 14.5309 14.3276 14.4965 14.098 14.366L11.5 12.866C11.3483 12.7778 11.2224 12.6515 11.1346 12.4996C11.0469 12.3477 11.0005 12.1754 11 12V7C11 6.73478 11.1054 6.48043 11.2929 6.29289C11.4804 6.10536 11.7348 6 12 6Z" fill="#747B98" />
+															<path d="M2 12C2 13.9778 2.58649 15.9112 3.6853 17.5557C4.78412 19.2002 6.3459 20.4819 8.17317 21.2388C10.0004 21.9957 12.0111 22.1937 13.9509 21.8079C15.8907 21.422 17.6725 20.4696 19.0711 19.0711C20.4696 17.6725 21.422 15.8907 21.8079 13.9509C22.1937 12.0111 21.9957 10.0004 21.2388 8.17317C20.4819 6.3459 19.2002 4.78412 17.5557 3.6853C15.9112 2.58649 13.9778 2 12 2C10.6868 2 9.38642 2.25866 8.17317 2.7612C6.95991 3.26375 5.85752 4.00035 4.92893 4.92893C3.05357 6.8043 2 9.34784 2 12ZM11 7C11 6.73478 11.1054 6.48043 11.2929 6.29289C11.4804 6.10536 11.7348 6 12 6C12.2652 6 12.5196 6.10536 12.7071 6.29289C12.8946 6.48043 13 6.73478 13 7V11.422L15.098 12.634C15.3258 12.7676 15.4915 12.9858 15.559 13.2411C15.6265 13.4964 15.5903 13.768 15.4583 13.9967C15.3262 14.2254 15.1091 14.3926 14.8543 14.4617C14.5994 14.5309 14.3276 14.4965 14.098 14.366L11.5 12.866C11.3483 12.7778 11.2224 12.6515 11.1346 12.4996C11.0469 12.3477 11.0005 12.1754 11 12V7Z" fill="#CACFE0" />
+														</svg>
+													</div>
+													<div class="item-payment__left-item">
+														<p class="md:text-body-lg-light text-body-md-light">
+															<b>+5 годин</b> групових занять
+														</p>
+														<span class="text-body-md-light text-grayscale-800">
+															01.08.23
+														</span>
+													</div>
+												</div>
+												<div class="item-payment__right">
+													<div class="price heading-lg whitespace-nowrap">
+														2000 ₴
+													</div>
+												</div>
+											</div>
+										</div>
+										<p class="widget-alert">Немає жодної оплати. Поповніть ваш баланс, щоб продовжити заняття</p>
+									</div>
+								</div>
+								<div class="widget referral-program order-5">
+									<div class="widget__header">
+										<h4 class="md:heading-lg heading-md">
+											Реферальна програма
+										</h4>
+										<a href="#" class="link-blue">Перейти</a>
+									</div>
+									<div class="widget__body">
+										<p class="text-body-md-light mb-3 text-grayscale-800">Поділіться цим посиланням і отримайте бонусні години за реєстрацію на навчання ваших знайомих!</p>
+										<div class="referral-program__link">
+											<input autocomplete="off" type="text" readonly data-after-text="Скопійовано! " name="form[]" data-value="http://bit.ly/t3390wg" placeholder="http://bit.ly/t3390wg" class="input input-referral">
+											<div class="referral-program__button">
+												<button type="submit" class="button button-copy-link-referral button-blue button-medium" data-ripple>
+													<span class="circle">
+
+													</span>
+													<span class="button__inner">
+														<span class="button__text">
+															Копіювати
+														</span>
+													</span>
+												</button>
+											</div>
+
+										</div>
+									</div>
+								</div>
+
+							</div>
+							<div class="content-widgets-small">
+
+								<div class="widget my-childrens order-3">
+									<div class="widget__header">
+										<h4 class="md:heading-lg heading-md">
+											Мої діти
+										</h4>
+										<a href="#" class="link-blue">Перейти</a>
+									</div>
+									<div class="widget__body">
+
+										<div class="my-childrens__child child">
+											<div class="child__body">
+												<div class="profile profile--size-l">
+
+													<div class="profile__avatar avatar-text avatar-bg-purple text-light">
+														ОA
+													</div>
+													<div class="profile__content">
+														<p class="profile__name " title="Олег Аліна Петренко Олег Аліна Петренко">
+															Аліна Петренко
+														</p>
+														<div class="child__info flex items-center gap-y-1 gap-x-4">
+															<div class="child__info-line line-courses">
+																<div class="svg-icon">
+																	<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+																		<path d="M6.18832 15H16.6666C16.6642 15.775 16.6483 16.3525 16.5725 16.8083C16.4808 17.3525 16.3141 17.64 16.0591 17.845C15.8033 18.05 15.445 18.1842 14.7675 18.2567C14.07 18.3317 13.1458 18.3333 11.8208 18.3333H8.12915C6.80415 18.3333 5.87915 18.3325 5.18248 18.2567C4.50498 18.1842 4.14665 18.05 3.89082 17.845C3.63582 17.64 3.46915 17.3525 3.37748 16.8092C3.37076 16.7673 3.36465 16.7254 3.35915 16.6833C3.32582 16.4408 3.30915 16.3192 3.41415 16.0333C3.51998 15.7467 3.56498 15.7025 3.65665 15.6125C3.9543 15.3303 4.32542 15.1377 4.72748 15.0567C4.96915 15.005 5.28582 15 6.18832 15Z" fill="#747B98" />
+																		<path d="M3.93915 2.27752C4.19415 2.02085 4.55081 1.85419 5.22581 1.76252C5.92081 1.66835 6.84081 1.66669 8.16081 1.66669H11.8391C13.1591 1.66669 14.0791 1.66835 14.7741 1.76252C15.4491 1.85419 15.8058 2.02085 16.0608 2.27752C16.315 2.53419 16.4808 2.89419 16.5716 3.57502C16.665 4.27502 16.6666 5.20419 16.6666 6.53502V15H6.18831C5.28498 15 4.96998 15.005 4.72748 15.0567C4.29998 15.1484 3.92748 15.3459 3.65665 15.6125C3.56498 15.7025 3.51998 15.7467 3.41415 16.0334C3.36364 16.155 3.33623 16.285 3.33331 16.4167V6.53502C3.33331 5.20419 3.33498 4.27585 3.42831 3.57502C3.51915 2.89502 3.68498 2.53419 3.93915 2.27752Z" fill="#CACFE0" />
+																		<path d="M6.04163 5.83337C6.04163 5.66761 6.10747 5.50864 6.22468 5.39143C6.34189 5.27422 6.50087 5.20837 6.66663 5.20837H13.3333C13.4991 5.20837 13.658 5.27422 13.7752 5.39143C13.8924 5.50864 13.9583 5.66761 13.9583 5.83337C13.9583 5.99913 13.8924 6.15811 13.7752 6.27532C13.658 6.39253 13.4991 6.45837 13.3333 6.45837H6.66663C6.50087 6.45837 6.34189 6.39253 6.22468 6.27532C6.10747 6.15811 6.04163 5.99913 6.04163 5.83337ZM6.66663 8.12504C6.50087 8.12504 6.34189 8.19089 6.22468 8.3081C6.10747 8.42531 6.04163 8.58428 6.04163 8.75004C6.04163 8.9158 6.10747 9.07477 6.22468 9.19198C6.34189 9.30919 6.50087 9.37504 6.66663 9.37504H10.8333C10.9991 9.37504 11.158 9.30919 11.2752 9.19198C11.3924 9.07477 11.4583 8.9158 11.4583 8.75004C11.4583 8.58428 11.3924 8.42531 11.2752 8.3081C11.158 8.19089 10.9991 8.12504 10.8333 8.12504H6.66663Z" fill="#747B98" />
+																	</svg>
+
+																</div>
+																<p class="text-grayscale-800 text-body-sm-light">
+																	Курси: 24
+																</p>
+															</div>
+															<div class="child__info-line line-bonus">
+																<div class="svg-icon">
+																	<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+																		<path d="M10 15.7936C6.66064 15.7936 3.70752 14.98 1.84473 13.7234C1.46533 14.1388 1.25 14.5854 1.25 15.0562C1.25 17.0952 5.16699 18.75 10 18.75C14.833 18.75 18.75 17.0952 18.75 15.0562C18.75 14.5854 18.5347 14.1388 18.1553 13.7268C16.2925 14.98 13.3394 15.7936 10 15.7936ZM10 11.3624C6.66064 11.3624 3.70752 10.5488 1.84473 9.29218C1.46533 9.7076 1.25 10.1542 1.25 10.625C1.25 12.664 5.16699 14.3188 10 14.3188C14.833 14.3188 18.75 12.664 18.75 10.625C18.75 10.1542 18.5347 9.7076 18.1553 9.29564C16.2925 10.5488 13.3394 11.3624 10 11.3624Z" fill="#CACFE0" />
+																		<path d="M10 9.88762C14.833 9.88762 18.75 8.23285 18.75 6.19381C18.75 4.15477 14.833 2.5 10 2.5C5.16699 2.5 1.25 4.15477 1.25 6.19381C1.25 8.23285 5.16699 9.88762 10 9.88762Z" fill="#747B98" />
+																	</svg>
+
+																</div>
+																<p class="text-grayscale-800 text-body-sm-light">
+																	Бонуси: 140
+																</p>
+															</div>
+														</div>
+													</div>
+
+												</div>
+												<div class="child__info child__info--mob flex items-center gap-y-1 gap-x-4 ">
+													<div class="child__info-line line-courses">
 														<div class="svg-icon">
-															<svg class="icon icon--size-m" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-																<path d="M12 18.9523C7.99277 18.9523 4.44902 17.976 2.21367 16.4681C1.7584 16.9666 1.5 17.5025 1.5 18.0674C1.5 20.5143 6.20039 22.5 12 22.5C17.7996 22.5 22.5 20.5143 22.5 18.0674C22.5 17.5025 22.2416 16.9666 21.7863 16.4722C19.551 17.976 16.0072 18.9523 12 18.9523ZM12 13.6349C7.99277 13.6349 4.44902 12.6586 2.21367 11.1506C1.7584 11.6491 1.5 12.185 1.5 12.75C1.5 15.1969 6.20039 17.1826 12 17.1826C17.7996 17.1826 22.5 15.1969 22.5 12.75C22.5 12.185 22.2416 11.6491 21.7863 11.1548C19.551 12.6586 16.0072 13.6349 12 13.6349Z" fill="#CACFE0" />
-																<path d="M12 11.8651C17.7996 11.8651 22.5 9.87942 22.5 7.43257C22.5 4.98573 17.7996 3 12 3C6.20039 3 1.5 4.98573 1.5 7.43257C1.5 9.87942 6.20039 11.8651 12 11.8651Z" fill="#747B98" />
+															<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+																<path d="M6.18832 15H16.6666C16.6642 15.775 16.6483 16.3525 16.5725 16.8083C16.4808 17.3525 16.3141 17.64 16.0591 17.845C15.8033 18.05 15.445 18.1842 14.7675 18.2567C14.07 18.3317 13.1458 18.3333 11.8208 18.3333H8.12915C6.80415 18.3333 5.87915 18.3325 5.18248 18.2567C4.50498 18.1842 4.14665 18.05 3.89082 17.845C3.63582 17.64 3.46915 17.3525 3.37748 16.8092C3.37076 16.7673 3.36465 16.7254 3.35915 16.6833C3.32582 16.4408 3.30915 16.3192 3.41415 16.0333C3.51998 15.7467 3.56498 15.7025 3.65665 15.6125C3.9543 15.3303 4.32542 15.1377 4.72748 15.0567C4.96915 15.005 5.28582 15 6.18832 15Z" fill="#747B98" />
+																<path d="M3.93915 2.27752C4.19415 2.02085 4.55081 1.85419 5.22581 1.76252C5.92081 1.66835 6.84081 1.66669 8.16081 1.66669H11.8391C13.1591 1.66669 14.0791 1.66835 14.7741 1.76252C15.4491 1.85419 15.8058 2.02085 16.0608 2.27752C16.315 2.53419 16.4808 2.89419 16.5716 3.57502C16.665 4.27502 16.6666 5.20419 16.6666 6.53502V15H6.18831C5.28498 15 4.96998 15.005 4.72748 15.0567C4.29998 15.1484 3.92748 15.3459 3.65665 15.6125C3.56498 15.7025 3.51998 15.7467 3.41415 16.0334C3.36364 16.155 3.33623 16.285 3.33331 16.4167V6.53502C3.33331 5.20419 3.33498 4.27585 3.42831 3.57502C3.51915 2.89502 3.68498 2.53419 3.93915 2.27752Z" fill="#CACFE0" />
+																<path d="M6.04163 5.83337C6.04163 5.66761 6.10747 5.50864 6.22468 5.39143C6.34189 5.27422 6.50087 5.20837 6.66663 5.20837H13.3333C13.4991 5.20837 13.658 5.27422 13.7752 5.39143C13.8924 5.50864 13.9583 5.66761 13.9583 5.83337C13.9583 5.99913 13.8924 6.15811 13.7752 6.27532C13.658 6.39253 13.4991 6.45837 13.3333 6.45837H6.66663C6.50087 6.45837 6.34189 6.39253 6.22468 6.27532C6.10747 6.15811 6.04163 5.99913 6.04163 5.83337ZM6.66663 8.12504C6.50087 8.12504 6.34189 8.19089 6.22468 8.3081C6.10747 8.42531 6.04163 8.58428 6.04163 8.75004C6.04163 8.9158 6.10747 9.07477 6.22468 9.19198C6.34189 9.30919 6.50087 9.37504 6.66663 9.37504H10.8333C10.9991 9.37504 11.158 9.30919 11.2752 9.19198C11.3924 9.07477 11.4583 8.9158 11.4583 8.75004C11.4583 8.58428 11.3924 8.42531 11.2752 8.3081C11.158 8.19089 10.9991 8.12504 10.8333 8.12504H6.66663Z" fill="#747B98" />
 															</svg>
-														</div>
-														<span class="heading-md text-grayscale-800">120</span>
 
+														</div>
+														<p class="text-grayscale-800 text-body-sm-light">
+															Курси: 24
+														</p>
+													</div>
+													<div class="child__info-line line-bonus">
+														<div class="svg-icon">
+															<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+																<path d="M10 15.7936C6.66064 15.7936 3.70752 14.98 1.84473 13.7234C1.46533 14.1388 1.25 14.5854 1.25 15.0562C1.25 17.0952 5.16699 18.75 10 18.75C14.833 18.75 18.75 17.0952 18.75 15.0562C18.75 14.5854 18.5347 14.1388 18.1553 13.7268C16.2925 14.98 13.3394 15.7936 10 15.7936ZM10 11.3624C6.66064 11.3624 3.70752 10.5488 1.84473 9.29218C1.46533 9.7076 1.25 10.1542 1.25 10.625C1.25 12.664 5.16699 14.3188 10 14.3188C14.833 14.3188 18.75 12.664 18.75 10.625C18.75 10.1542 18.5347 9.7076 18.1553 9.29564C16.2925 10.5488 13.3394 11.3624 10 11.3624Z" fill="#CACFE0" />
+																<path d="M10 9.88762C14.833 9.88762 18.75 8.23285 18.75 6.19381C18.75 4.15477 14.833 2.5 10 2.5C5.16699 2.5 1.25 4.15477 1.25 6.19381C1.25 8.23285 5.16699 9.88762 10 9.88762Z" fill="#747B98" />
+															</svg>
+
+														</div>
+														<p class="text-grayscale-800 text-body-sm-light">
+															Бонуси: 140
+														</p>
 													</div>
 												</div>
-												<div class="order__content">
-													<div class="order__line">
-														<a href="#" class="link-blue--underline link-blue--underline-icon">
-															Підписка Youtube Premium
-														</a>
-														<div class="bonus-element bonus-element--small">
-															<div class="svg-icon">
-																<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-																	<path d="M8 12.6348C5.32852 12.6348 2.96602 11.984 1.47578 10.9787C1.17227 11.311 1 11.6683 1 12.0449C1 13.6762 4.13359 15 8 15C11.8664 15 15 13.6762 15 12.0449C15 11.6683 14.8277 11.311 14.5242 10.9814C13.034 11.984 10.6715 12.6348 8 12.6348ZM8 9.08987C5.32852 9.08987 2.96602 8.43904 1.47578 7.43372C1.17227 7.76605 1 8.12332 1 8.49997C1 10.1312 4.13359 11.455 8 11.455C11.8664 11.455 15 10.1312 15 8.49997C15 8.12332 14.8277 7.76605 14.5242 7.43649C13.034 8.43904 10.6715 9.08987 8 9.08987Z" fill="#CACFE0" />
-																	<path d="M8 7.9101C11.8664 7.9101 15 6.58628 15 4.95505C15 3.32382 11.8664 2 8 2C4.13359 2 1 3.32382 1 4.95505C1 6.58628 4.13359 7.9101 8 7.9101Z" fill="#747B98" />
-																</svg>
+											</div>
+										</div>
+										<div class="my-childrens__child child">
+											<div class="child__body">
+												<div class="profile profile--size-l">
+
+													<div class="profile__avatar avatar-text avatar-bg-green text-light">
+														ОA
+													</div>
+													<div class="profile__content">
+														<p class="profile__name " title="Олег Аліна Петренко Олег Аліна Петренко">
+															Олег Аліна Петренко Олег Аліна Петренко
+														</p>
+														<div class="child__info flex items-center gap-y-1 gap-x-4">
+															<div class="child__info-line line-courses">
+																<div class="svg-icon">
+																	<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+																		<path d="M6.18832 15H16.6666C16.6642 15.775 16.6483 16.3525 16.5725 16.8083C16.4808 17.3525 16.3141 17.64 16.0591 17.845C15.8033 18.05 15.445 18.1842 14.7675 18.2567C14.07 18.3317 13.1458 18.3333 11.8208 18.3333H8.12915C6.80415 18.3333 5.87915 18.3325 5.18248 18.2567C4.50498 18.1842 4.14665 18.05 3.89082 17.845C3.63582 17.64 3.46915 17.3525 3.37748 16.8092C3.37076 16.7673 3.36465 16.7254 3.35915 16.6833C3.32582 16.4408 3.30915 16.3192 3.41415 16.0333C3.51998 15.7467 3.56498 15.7025 3.65665 15.6125C3.9543 15.3303 4.32542 15.1377 4.72748 15.0567C4.96915 15.005 5.28582 15 6.18832 15Z" fill="#747B98" />
+																		<path d="M3.93915 2.27752C4.19415 2.02085 4.55081 1.85419 5.22581 1.76252C5.92081 1.66835 6.84081 1.66669 8.16081 1.66669H11.8391C13.1591 1.66669 14.0791 1.66835 14.7741 1.76252C15.4491 1.85419 15.8058 2.02085 16.0608 2.27752C16.315 2.53419 16.4808 2.89419 16.5716 3.57502C16.665 4.27502 16.6666 5.20419 16.6666 6.53502V15H6.18831C5.28498 15 4.96998 15.005 4.72748 15.0567C4.29998 15.1484 3.92748 15.3459 3.65665 15.6125C3.56498 15.7025 3.51998 15.7467 3.41415 16.0334C3.36364 16.155 3.33623 16.285 3.33331 16.4167V6.53502C3.33331 5.20419 3.33498 4.27585 3.42831 3.57502C3.51915 2.89502 3.68498 2.53419 3.93915 2.27752Z" fill="#CACFE0" />
+																		<path d="M6.04163 5.83337C6.04163 5.66761 6.10747 5.50864 6.22468 5.39143C6.34189 5.27422 6.50087 5.20837 6.66663 5.20837H13.3333C13.4991 5.20837 13.658 5.27422 13.7752 5.39143C13.8924 5.50864 13.9583 5.66761 13.9583 5.83337C13.9583 5.99913 13.8924 6.15811 13.7752 6.27532C13.658 6.39253 13.4991 6.45837 13.3333 6.45837H6.66663C6.50087 6.45837 6.34189 6.39253 6.22468 6.27532C6.10747 6.15811 6.04163 5.99913 6.04163 5.83337ZM6.66663 8.12504C6.50087 8.12504 6.34189 8.19089 6.22468 8.3081C6.10747 8.42531 6.04163 8.58428 6.04163 8.75004C6.04163 8.9158 6.10747 9.07477 6.22468 9.19198C6.34189 9.30919 6.50087 9.37504 6.66663 9.37504H10.8333C10.9991 9.37504 11.158 9.30919 11.2752 9.19198C11.3924 9.07477 11.4583 8.9158 11.4583 8.75004C11.4583 8.58428 11.3924 8.42531 11.2752 8.3081C11.158 8.19089 10.9991 8.12504 10.8333 8.12504H6.66663Z" fill="#747B98" />
+																	</svg>
+
+																</div>
+																<p class="text-grayscale-800 text-body-sm-light">
+																	Курси: 24
+																</p>
 															</div>
-															80
+															<div class="child__info-line line-bonus">
+																<div class="svg-icon">
+																	<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+																		<path d="M10 15.7936C6.66064 15.7936 3.70752 14.98 1.84473 13.7234C1.46533 14.1388 1.25 14.5854 1.25 15.0562C1.25 17.0952 5.16699 18.75 10 18.75C14.833 18.75 18.75 17.0952 18.75 15.0562C18.75 14.5854 18.5347 14.1388 18.1553 13.7268C16.2925 14.98 13.3394 15.7936 10 15.7936ZM10 11.3624C6.66064 11.3624 3.70752 10.5488 1.84473 9.29218C1.46533 9.7076 1.25 10.1542 1.25 10.625C1.25 12.664 5.16699 14.3188 10 14.3188C14.833 14.3188 18.75 12.664 18.75 10.625C18.75 10.1542 18.5347 9.7076 18.1553 9.29564C16.2925 10.5488 13.3394 11.3624 10 11.3624Z" fill="#CACFE0" />
+																		<path d="M10 9.88762C14.833 9.88762 18.75 8.23285 18.75 6.19381C18.75 4.15477 14.833 2.5 10 2.5C5.16699 2.5 1.25 4.15477 1.25 6.19381C1.25 8.23285 5.16699 9.88762 10 9.88762Z" fill="#747B98" />
+																	</svg>
+
+																</div>
+																<p class="text-grayscale-800 text-body-sm-light">
+																	Бонуси: 1400
+																</p>
+															</div>
 														</div>
 													</div>
-													<div class="order__line">
-														<a href="#" class="link-blue--underline link-blue--underline-icon">
-															Radiant Conqueror Shoulder - ігровий скін Dota 2
-														</a>
-														<div class="bonus-element bonus-element--small">
-															<div class="svg-icon">
-																<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-																	<path d="M8 12.6348C5.32852 12.6348 2.96602 11.984 1.47578 10.9787C1.17227 11.311 1 11.6683 1 12.0449C1 13.6762 4.13359 15 8 15C11.8664 15 15 13.6762 15 12.0449C15 11.6683 14.8277 11.311 14.5242 10.9814C13.034 11.984 10.6715 12.6348 8 12.6348ZM8 9.08987C5.32852 9.08987 2.96602 8.43904 1.47578 7.43372C1.17227 7.76605 1 8.12332 1 8.49997C1 10.1312 4.13359 11.455 8 11.455C11.8664 11.455 15 10.1312 15 8.49997C15 8.12332 14.8277 7.76605 14.5242 7.43649C13.034 8.43904 10.6715 9.08987 8 9.08987Z" fill="#CACFE0" />
-																	<path d="M8 7.9101C11.8664 7.9101 15 6.58628 15 4.95505C15 3.32382 11.8664 2 8 2C4.13359 2 1 3.32382 1 4.95505C1 6.58628 4.13359 7.9101 8 7.9101Z" fill="#747B98" />
-																</svg>
-															</div>
-															40
+
+												</div>
+												<div class="child__info child__info--mob flex items-center gap-y-1 gap-x-4 ">
+													<div class="child__info-line line-courses">
+														<div class="svg-icon">
+															<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+																<path d="M6.18832 15H16.6666C16.6642 15.775 16.6483 16.3525 16.5725 16.8083C16.4808 17.3525 16.3141 17.64 16.0591 17.845C15.8033 18.05 15.445 18.1842 14.7675 18.2567C14.07 18.3317 13.1458 18.3333 11.8208 18.3333H8.12915C6.80415 18.3333 5.87915 18.3325 5.18248 18.2567C4.50498 18.1842 4.14665 18.05 3.89082 17.845C3.63582 17.64 3.46915 17.3525 3.37748 16.8092C3.37076 16.7673 3.36465 16.7254 3.35915 16.6833C3.32582 16.4408 3.30915 16.3192 3.41415 16.0333C3.51998 15.7467 3.56498 15.7025 3.65665 15.6125C3.9543 15.3303 4.32542 15.1377 4.72748 15.0567C4.96915 15.005 5.28582 15 6.18832 15Z" fill="#747B98" />
+																<path d="M3.93915 2.27752C4.19415 2.02085 4.55081 1.85419 5.22581 1.76252C5.92081 1.66835 6.84081 1.66669 8.16081 1.66669H11.8391C13.1591 1.66669 14.0791 1.66835 14.7741 1.76252C15.4491 1.85419 15.8058 2.02085 16.0608 2.27752C16.315 2.53419 16.4808 2.89419 16.5716 3.57502C16.665 4.27502 16.6666 5.20419 16.6666 6.53502V15H6.18831C5.28498 15 4.96998 15.005 4.72748 15.0567C4.29998 15.1484 3.92748 15.3459 3.65665 15.6125C3.56498 15.7025 3.51998 15.7467 3.41415 16.0334C3.36364 16.155 3.33623 16.285 3.33331 16.4167V6.53502C3.33331 5.20419 3.33498 4.27585 3.42831 3.57502C3.51915 2.89502 3.68498 2.53419 3.93915 2.27752Z" fill="#CACFE0" />
+																<path d="M6.04163 5.83337C6.04163 5.66761 6.10747 5.50864 6.22468 5.39143C6.34189 5.27422 6.50087 5.20837 6.66663 5.20837H13.3333C13.4991 5.20837 13.658 5.27422 13.7752 5.39143C13.8924 5.50864 13.9583 5.66761 13.9583 5.83337C13.9583 5.99913 13.8924 6.15811 13.7752 6.27532C13.658 6.39253 13.4991 6.45837 13.3333 6.45837H6.66663C6.50087 6.45837 6.34189 6.39253 6.22468 6.27532C6.10747 6.15811 6.04163 5.99913 6.04163 5.83337ZM6.66663 8.12504C6.50087 8.12504 6.34189 8.19089 6.22468 8.3081C6.10747 8.42531 6.04163 8.58428 6.04163 8.75004C6.04163 8.9158 6.10747 9.07477 6.22468 9.19198C6.34189 9.30919 6.50087 9.37504 6.66663 9.37504H10.8333C10.9991 9.37504 11.158 9.30919 11.2752 9.19198C11.3924 9.07477 11.4583 8.9158 11.4583 8.75004C11.4583 8.58428 11.3924 8.42531 11.2752 8.3081C11.158 8.19089 10.9991 8.12504 10.8333 8.12504H6.66663Z" fill="#747B98" />
+															</svg>
+
 														</div>
+														<p class="text-grayscale-800 text-body-sm-light">
+															Курси: 24
+														</p>
+													</div>
+													<div class="child__info-line line-bonus">
+														<div class="svg-icon">
+															<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+																<path d="M10 15.7936C6.66064 15.7936 3.70752 14.98 1.84473 13.7234C1.46533 14.1388 1.25 14.5854 1.25 15.0562C1.25 17.0952 5.16699 18.75 10 18.75C14.833 18.75 18.75 17.0952 18.75 15.0562C18.75 14.5854 18.5347 14.1388 18.1553 13.7268C16.2925 14.98 13.3394 15.7936 10 15.7936ZM10 11.3624C6.66064 11.3624 3.70752 10.5488 1.84473 9.29218C1.46533 9.7076 1.25 10.1542 1.25 10.625C1.25 12.664 5.16699 14.3188 10 14.3188C14.833 14.3188 18.75 12.664 18.75 10.625C18.75 10.1542 18.5347 9.7076 18.1553 9.29564C16.2925 10.5488 13.3394 11.3624 10 11.3624Z" fill="#CACFE0" />
+																<path d="M10 9.88762C14.833 9.88762 18.75 8.23285 18.75 6.19381C18.75 4.15477 14.833 2.5 10 2.5C5.16699 2.5 1.25 4.15477 1.25 6.19381C1.25 8.23285 5.16699 9.88762 10 9.88762Z" fill="#747B98" />
+															</svg>
+
+														</div>
+														<p class="text-grayscale-800 text-body-sm-light">
+															Бонуси: 1400
+														</p>
 													</div>
 												</div>
-												<div class="order__footer">
-													<a href="#" class="link-blue">
-														Підтвердити
-													</a>
-													<a href="#" class="link-red">
-														Скасувати
-													</a>
+											</div>
+										</div>
+										<p class="widget-alert">Ваші діти ще не додані</p>
+
+									</div>
+								</div>
+								<div class="widget orders-shop order-4">
+									<div class="widget__header items-start">
+										<h4 class="md:heading-lg heading-md widget-badge">
+											Замовлення в магазині <span class="badge badge--numeric">
+												2
+											</span>
+										</h4>
+										<a href="#" class="link-blue">
+											Перейти
+										</a>
+									</div>
+									<div class="widget__body">
+										<p class="text-body-md-light md:mb-5 mb-4 text-grayscale-800">
+											Ваша дитина зробила замовлення у магазині бонусів. Підтвердить його, щоби наш менеджер відправив покупку вашій дитині
+										</p>
+										<div class="orders-shop__list">
+											<div class="orders-shop__order order">
+												<div class="order__body">
+													<div class="order__header">
+														<div class="order__profile profile profile--size-xs">
+
+															<div class="profile__avatar avatar-icon avatar-bg-pink">
+																<div class="svg-icon">
+																	<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+																		<path d="M8.00002 1.33337C6.15902 1.33337 4.66669 2.82571 4.66669 4.66671C4.66669 6.50771 6.15902 8.00004 8.00002 8.00004C9.84102 8.00004 11.3334 6.50771 11.3334 4.66671C11.3334 2.82571 9.84102 1.33337 8.00002 1.33337ZM4.08335 9.33337C3.70769 9.33337 3.3474 9.48258 3.08174 9.74819C2.81607 10.0138 2.66678 10.374 2.66669 10.7497V11C2.66669 12.2517 3.31402 13.189 4.30669 13.7934C5.28335 14.3877 6.59535 14.6667 8.00002 14.6667C9.40469 14.6667 10.7167 14.3877 11.6934 13.7934C12.686 13.189 13.3334 12.2517 13.3334 11V10.7497C13.3334 10.5637 13.2967 10.3795 13.2255 10.2076C13.1543 10.0358 13.05 9.87961 12.9184 9.74809C12.7868 9.61657 12.6307 9.51225 12.4588 9.44109C12.2869 9.36993 12.1027 9.33333 11.9167 9.33337H4.08335Z" fill="white" />
+																		<path d="M4.66663 4.66671C4.66663 2.82571 6.15896 1.33337 7.99996 1.33337C9.84096 1.33337 11.3333 2.82571 11.3333 4.66671C11.3333 6.50771 9.84096 8.00004 7.99996 8.00004C6.15896 8.00004 4.66663 6.50771 4.66663 4.66671Z" fill="white" />
+																	</svg>
+																</div>
+															</div>
+															<div class="profile__content">
+																<p class="profile__name ">
+																	Тетяна Петренко
+																</p>
+															</div>
+
+														</div>
+														<div class="order__bonus flex items-center gap-1">
+															<div class="svg-icon">
+																<svg class="icon icon--size-m" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																	<path d="M12 18.9523C7.99277 18.9523 4.44902 17.976 2.21367 16.4681C1.7584 16.9666 1.5 17.5025 1.5 18.0674C1.5 20.5143 6.20039 22.5 12 22.5C17.7996 22.5 22.5 20.5143 22.5 18.0674C22.5 17.5025 22.2416 16.9666 21.7863 16.4722C19.551 17.976 16.0072 18.9523 12 18.9523ZM12 13.6349C7.99277 13.6349 4.44902 12.6586 2.21367 11.1506C1.7584 11.6491 1.5 12.185 1.5 12.75C1.5 15.1969 6.20039 17.1826 12 17.1826C17.7996 17.1826 22.5 15.1969 22.5 12.75C22.5 12.185 22.2416 11.6491 21.7863 11.1548C19.551 12.6586 16.0072 13.6349 12 13.6349Z" fill="#CACFE0" />
+																	<path d="M12 11.8651C17.7996 11.8651 22.5 9.87942 22.5 7.43257C22.5 4.98573 17.7996 3 12 3C6.20039 3 1.5 4.98573 1.5 7.43257C1.5 9.87942 6.20039 11.8651 12 11.8651Z" fill="#747B98" />
+																</svg>
+															</div>
+															<span class="heading-md text-grayscale-800">120</span>
+
+														</div>
+													</div>
+													<div class="order__content">
+														<div class="order__line">
+															<a href="#" class="link-blue--underline link-blue--underline-icon">
+																Підписка Youtube Premium
+															</a>
+															<div class="bonus-element bonus-element--small">
+																<div class="svg-icon">
+																	<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+																		<path d="M8 12.6348C5.32852 12.6348 2.96602 11.984 1.47578 10.9787C1.17227 11.311 1 11.6683 1 12.0449C1 13.6762 4.13359 15 8 15C11.8664 15 15 13.6762 15 12.0449C15 11.6683 14.8277 11.311 14.5242 10.9814C13.034 11.984 10.6715 12.6348 8 12.6348ZM8 9.08987C5.32852 9.08987 2.96602 8.43904 1.47578 7.43372C1.17227 7.76605 1 8.12332 1 8.49997C1 10.1312 4.13359 11.455 8 11.455C11.8664 11.455 15 10.1312 15 8.49997C15 8.12332 14.8277 7.76605 14.5242 7.43649C13.034 8.43904 10.6715 9.08987 8 9.08987Z" fill="#CACFE0" />
+																		<path d="M8 7.9101C11.8664 7.9101 15 6.58628 15 4.95505C15 3.32382 11.8664 2 8 2C4.13359 2 1 3.32382 1 4.95505C1 6.58628 4.13359 7.9101 8 7.9101Z" fill="#747B98" />
+																	</svg>
+																</div>
+																80
+															</div>
+														</div>
+														<div class="order__line">
+															<a href="#" class="link-blue--underline link-blue--underline-icon">
+																Radiant Conqueror Shoulder - ігровий скін Dota 2
+															</a>
+															<div class="bonus-element bonus-element--small">
+																<div class="svg-icon">
+																	<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+																		<path d="M8 12.6348C5.32852 12.6348 2.96602 11.984 1.47578 10.9787C1.17227 11.311 1 11.6683 1 12.0449C1 13.6762 4.13359 15 8 15C11.8664 15 15 13.6762 15 12.0449C15 11.6683 14.8277 11.311 14.5242 10.9814C13.034 11.984 10.6715 12.6348 8 12.6348ZM8 9.08987C5.32852 9.08987 2.96602 8.43904 1.47578 7.43372C1.17227 7.76605 1 8.12332 1 8.49997C1 10.1312 4.13359 11.455 8 11.455C11.8664 11.455 15 10.1312 15 8.49997C15 8.12332 14.8277 7.76605 14.5242 7.43649C13.034 8.43904 10.6715 9.08987 8 9.08987Z" fill="#CACFE0" />
+																		<path d="M8 7.9101C11.8664 7.9101 15 6.58628 15 4.95505C15 3.32382 11.8664 2 8 2C4.13359 2 1 3.32382 1 4.95505C1 6.58628 4.13359 7.9101 8 7.9101Z" fill="#747B98" />
+																	</svg>
+																</div>
+																80
+															</div>
+														</div>
+													</div>
+													<div class="order__footer">
+														<a href="#" class="link-blue">
+															Підтвердити
+														</a>
+														<a href="#" class="link-red">
+															Скасувати
+														</a>
+													</div>
+												</div>
+											</div>
+											<div class="orders-shop__order order">
+												<div class="order__body">
+													<div class="order__header">
+														<div class="order__profile profile profile--size-xs">
+
+															<div class="profile__avatar avatar-icon avatar-bg-pink">
+																<div class="svg-icon">
+																	<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+																		<path d="M8.00002 1.33337C6.15902 1.33337 4.66669 2.82571 4.66669 4.66671C4.66669 6.50771 6.15902 8.00004 8.00002 8.00004C9.84102 8.00004 11.3334 6.50771 11.3334 4.66671C11.3334 2.82571 9.84102 1.33337 8.00002 1.33337ZM4.08335 9.33337C3.70769 9.33337 3.3474 9.48258 3.08174 9.74819C2.81607 10.0138 2.66678 10.374 2.66669 10.7497V11C2.66669 12.2517 3.31402 13.189 4.30669 13.7934C5.28335 14.3877 6.59535 14.6667 8.00002 14.6667C9.40469 14.6667 10.7167 14.3877 11.6934 13.7934C12.686 13.189 13.3334 12.2517 13.3334 11V10.7497C13.3334 10.5637 13.2967 10.3795 13.2255 10.2076C13.1543 10.0358 13.05 9.87961 12.9184 9.74809C12.7868 9.61657 12.6307 9.51225 12.4588 9.44109C12.2869 9.36993 12.1027 9.33333 11.9167 9.33337H4.08335Z" fill="white" />
+																		<path d="M4.66663 4.66671C4.66663 2.82571 6.15896 1.33337 7.99996 1.33337C9.84096 1.33337 11.3333 2.82571 11.3333 4.66671C11.3333 6.50771 9.84096 8.00004 7.99996 8.00004C6.15896 8.00004 4.66663 6.50771 4.66663 4.66671Z" fill="white" />
+																	</svg>
+																</div>
+															</div>
+															<div class="profile__content">
+																<p class="profile__name ">
+																	Аліна Петренко
+																</p>
+															</div>
+
+														</div>
+														<div class="order__bonus flex items-center gap-1">
+															<div class="svg-icon">
+																<svg class="icon icon--size-m" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																	<path d="M12 18.9523C7.99277 18.9523 4.44902 17.976 2.21367 16.4681C1.7584 16.9666 1.5 17.5025 1.5 18.0674C1.5 20.5143 6.20039 22.5 12 22.5C17.7996 22.5 22.5 20.5143 22.5 18.0674C22.5 17.5025 22.2416 16.9666 21.7863 16.4722C19.551 17.976 16.0072 18.9523 12 18.9523ZM12 13.6349C7.99277 13.6349 4.44902 12.6586 2.21367 11.1506C1.7584 11.6491 1.5 12.185 1.5 12.75C1.5 15.1969 6.20039 17.1826 12 17.1826C17.7996 17.1826 22.5 15.1969 22.5 12.75C22.5 12.185 22.2416 11.6491 21.7863 11.1548C19.551 12.6586 16.0072 13.6349 12 13.6349Z" fill="#CACFE0" />
+																	<path d="M12 11.8651C17.7996 11.8651 22.5 9.87942 22.5 7.43257C22.5 4.98573 17.7996 3 12 3C6.20039 3 1.5 4.98573 1.5 7.43257C1.5 9.87942 6.20039 11.8651 12 11.8651Z" fill="#747B98" />
+																</svg>
+															</div>
+															<span class="heading-md text-grayscale-800">120</span>
+
+														</div>
+													</div>
+													<div class="order__content">
+														<div class="order__line">
+															<a href="#" class="link-blue--underline link-blue--underline-icon">
+																Підписка Youtube Premium
+															</a>
+															<div class="bonus-element bonus-element--small">
+																<div class="svg-icon">
+																	<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+																		<path d="M8 12.6348C5.32852 12.6348 2.96602 11.984 1.47578 10.9787C1.17227 11.311 1 11.6683 1 12.0449C1 13.6762 4.13359 15 8 15C11.8664 15 15 13.6762 15 12.0449C15 11.6683 14.8277 11.311 14.5242 10.9814C13.034 11.984 10.6715 12.6348 8 12.6348ZM8 9.08987C5.32852 9.08987 2.96602 8.43904 1.47578 7.43372C1.17227 7.76605 1 8.12332 1 8.49997C1 10.1312 4.13359 11.455 8 11.455C11.8664 11.455 15 10.1312 15 8.49997C15 8.12332 14.8277 7.76605 14.5242 7.43649C13.034 8.43904 10.6715 9.08987 8 9.08987Z" fill="#CACFE0" />
+																		<path d="M8 7.9101C11.8664 7.9101 15 6.58628 15 4.95505C15 3.32382 11.8664 2 8 2C4.13359 2 1 3.32382 1 4.95505C1 6.58628 4.13359 7.9101 8 7.9101Z" fill="#747B98" />
+																	</svg>
+																</div>
+																80
+															</div>
+														</div>
+														<div class="order__line">
+															<a href="#" class="link-blue--underline link-blue--underline-icon">
+																Radiant Conqueror Shoulder - ігровий скін Dota 2
+															</a>
+															<div class="bonus-element bonus-element--small">
+																<div class="svg-icon">
+																	<svg class="icon icon--size-s" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+																		<path d="M8 12.6348C5.32852 12.6348 2.96602 11.984 1.47578 10.9787C1.17227 11.311 1 11.6683 1 12.0449C1 13.6762 4.13359 15 8 15C11.8664 15 15 13.6762 15 12.0449C15 11.6683 14.8277 11.311 14.5242 10.9814C13.034 11.984 10.6715 12.6348 8 12.6348ZM8 9.08987C5.32852 9.08987 2.96602 8.43904 1.47578 7.43372C1.17227 7.76605 1 8.12332 1 8.49997C1 10.1312 4.13359 11.455 8 11.455C11.8664 11.455 15 10.1312 15 8.49997C15 8.12332 14.8277 7.76605 14.5242 7.43649C13.034 8.43904 10.6715 9.08987 8 9.08987Z" fill="#CACFE0" />
+																		<path d="M8 7.9101C11.8664 7.9101 15 6.58628 15 4.95505C15 3.32382 11.8664 2 8 2C4.13359 2 1 3.32382 1 4.95505C1 6.58628 4.13359 7.9101 8 7.9101Z" fill="#747B98" />
+																	</svg>
+																</div>
+																40
+															</div>
+														</div>
+													</div>
+													<div class="order__footer">
+														<a href="#" class="link-blue">
+															Підтвердити
+														</a>
+														<a href="#" class="link-red">
+															Скасувати
+														</a>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -1120,8 +1156,170 @@
 
 
 	</div>
-	<script src="https://cdn.jsdelivr.net/npm/chart.js?_v=20231026031345"></script>
-	<script src="js/app.min.js?_v=20231026031345"></script>
+	<!-- Стилі для body -->
+
+	<div id="preloader">
+		<!-- Документація: https://template.fls.guru/template-docs/modul-preloader.html -->
+		<!-- Стилі для прелоадера -->
+		<style>
+			* {
+				padding: 0px;
+				margin: 0px;
+				border: 0px;
+			}
+
+			*,
+			*:before,
+			*:after {
+				box-sizing: border-box;
+			}
+
+			body {}
+
+			html {
+				overflow: hidden;
+				touch-action: none;
+				overscroll-behavior: none;
+			}
+
+			/* Головний блок */
+			.preloader {
+				pointer-events: none;
+				z-index: 99999;
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background-color: #fff;
+			}
+
+			.preloader-logo .logo-page {
+				max-width: 100%;
+				width: 100%;
+				justify-content: center;
+			}
+
+			.preloader-logo .logo-page img {
+				@media (min-width: 992px) {
+					width: 75px;
+					height: 75px;
+				}
+			}
+
+			.preloader-logo span {
+				font: var(--heading-2-xl);
+				max-width: 250px;
+			}
+
+			/* Блок з елементами */
+			.preloader__body {
+				padding: 0.93rem;
+				max-width: 23.25rem;
+				display: flex;
+				flex-direction: column;
+			}
+
+			/* Блок з лічильником */
+			.preloader__counter {
+				font-size: 10rem;
+			}
+
+			/* Прогресбар */
+			.preloader__line {}
+
+			/* Лінія прогресбару */
+			.preloader__line span {
+				display: inline-block;
+				transition: width 0.2s ease;
+				height: 0.5rem;
+				margin-top: 1.25rem;
+				background-color: var(--accent-500);
+			}
+		</style>
+
+		<!-- Скріпт прелоадера -->
+
+	</div>
+	<script>
+		function preloader() {
+			const preloaderImages = document.querySelector('[data-preloader]') ? document.querySelectorAll('[data-preloader] img') : document.querySelectorAll('img');
+			const preloaderContainer = document.querySelector('#preloader');
+			if (preloaderImages.length) {
+				const preloaderTemplate = `
+        <div class="preloader">
+          <div class="preloader__body">
+            <div class="preloader-logo">
+              <div class="sidebar__logo logo-page">
+          <picture><source srcset="img/logo.webp" type="image/webp"><img src="img/logo.png" width="48" height="48" alt="Logo Sidebar"></picture>
+          <span>
+            Онлайн-школа
+Тінкертінс
+          </span>
+        </div></div>
+            <div class="preloader__line"><span></span></div>
+          </div>
+        </div>`;
+				document.querySelector('html').insertAdjacentHTML("beforeend", preloaderTemplate);
+
+				const
+					preloader = document.querySelector('.preloader'),
+					showPecentLoad = document.querySelector('.preloader__counter'),
+					showLineLoad = document.querySelector('.preloader__line span'),
+					htmlDocument = document.documentElement;
+
+				let imagesLoadedCount = counter = progress = 0;
+
+				htmlDocument.classList.add('loading');
+				htmlDocument.classList.add('lock');
+
+				preloaderImages.forEach(preloaderImage => {
+					const imgClone = document.createElement('img');
+					if (imgClone) {
+						imgClone.onload = imageLoaded;
+						imgClone.onerror = imageLoaded;
+						preloaderImage.dataset.src ? imgClone.src = preloaderImage.dataset.src : imgClone.src = preloaderImage.src;
+					}
+				});
+
+				function setValueProgress(progress) {
+					showPecentLoad ? showPecentLoad.innerText = `${progress}%` : null;
+					showLineLoad ? showLineLoad.style.width = `${progress}%` : null;
+				}
+				showPecentLoad ? setValueProgress(progress) : null;
+
+				function imageLoaded() {
+					imagesLoadedCount++;
+					progress = Math.round((100 / preloaderImages.length) * imagesLoadedCount);
+					const intervalId = setInterval(() => {
+						counter >= progress ? clearInterval(intervalId) : setValueProgress(++counter);
+						counter >= 100 ? addLoadedClass() : null;
+					}, 10);
+				}
+
+				function addLoadedClass() {
+					htmlDocument.classList.add('loaded');
+					htmlDocument.classList.remove('lock');
+					htmlDocument.classList.remove('loading');
+					setInterval(() => {
+						preloader.remove();
+						preloaderContainer.remove();
+					}, 500);
+				}
+			} else {
+				preloaderContainer.remove();
+			}
+		}
+		preloader();
+	</script>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/chart.js?_v=20231102173243"></script>
+	<script src="js/app.min.js?_v=20231102173243"></script>
+
 </body>
 
 </html>
