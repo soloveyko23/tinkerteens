@@ -11,11 +11,11 @@
 			pointer-events: none;
 		}
 	</style>
-	<link rel="stylesheet" href="css/style.min.css?_v=20231102173243">
+	<link rel="stylesheet" href="css/style.min.css?_v=20231230141553">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://cdn.tailwindcss.com?_v=20231102173243"></script>
+	<script src="https://cdn.tailwindcss.com?_v=20231230141553"></script>
 	<style>
 		.lock body {
 			overflow: hidden;
@@ -237,22 +237,6 @@
 										Мої курси
 									</h1>
 								</div>
-								<div class="header__title-page-bottom undefined">
-									<div class="breadcrumbs">
-										<ul>
-											<li>
-												<a href="#">
-													Мої діти @@
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													Олег Петренко
-												</a>
-											</li>
-										</ul>
-									</div>
-								</div>
 
 
 							</div>
@@ -367,100 +351,88 @@
 
 
 	</div>
-	<!-- Стилі для body -->
+	<!-- 
+<div id="preloader">
 
-	<div id="preloader">
-		<!-- Документація: https://template.fls.guru/template-docs/modul-preloader.html -->
-		<!-- Стилі для прелоадера -->
-		<style>
-			* {
-				padding: 0px;
-				margin: 0px;
-				border: 0px;
-			}
+	<style>
+		* {
+			padding: 0px;
+			margin: 0px;
+			border: 0px;
+		}
+		*,
+		*:before,
+		*:after {
+			box-sizing: border-box;
+		}
+    body {
+      
+    }
+		html{
+			overflow: hidden;
+			touch-action: none;
+			overscroll-behavior: none;
+		}
+		/* Головний блок */
+		.preloader{
+			pointer-events: none;
+			z-index: 99999;
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			display: flex;
+			justify-content:center;
+			align-items: center;
+      background-color: #fff;
+		}
+    .preloader-logo .logo-page {
+      max-width: 100%;
+      width: 100%;
+      justify-content: center;
+    }
+    .preloader-logo .logo-page img {
+      @media (min-width: 992px){
+         width: 75px;
+         height: 75px; 
+      }
+    }
+    .preloader-logo span{
+      font: var(--heading-2-xl);
+      max-width: 250px;
+    }
+		/* Блок з елементами */
+		.preloader__body{
+			padding: 0.93rem;
+			max-width: 23.25rem;
+			display: flex;
+			flex-direction: column;
+		}
+		/* Блок з лічильником */
+		.preloader__counter{
+			font-size: 10rem;
+		}
+		/* Прогресбар */
+		.preloader__line{}
+		/* Лінія прогресбару */
+		.preloader__line span{
+			display: inline-block;
+			transition: width 0.2s ease;
+			height: 0.5rem;
+      margin-top: 1.25rem;
+			background-color: var(--accent-500);
+		}
+	</style>
+   
 
-			*,
-			*:before,
-			*:after {
-				box-sizing: border-box;
-			}
-
-			body {}
-
-			html {
-				overflow: hidden;
-				touch-action: none;
-				overscroll-behavior: none;
-			}
-
-			/* Головний блок */
-			.preloader {
-				pointer-events: none;
-				z-index: 99999;
-				position: fixed;
-				width: 100%;
-				height: 100%;
-				top: 0;
-				left: 0;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				background-color: #fff;
-			}
-
-			.preloader-logo .logo-page {
-				max-width: 100%;
-				width: 100%;
-				justify-content: center;
-			}
-
-			.preloader-logo .logo-page img {
-				@media (min-width: 992px) {
-					width: 75px;
-					height: 75px;
-				}
-			}
-
-			.preloader-logo span {
-				font: var(--heading-2-xl);
-				max-width: 250px;
-			}
-
-			/* Блок з елементами */
-			.preloader__body {
-				padding: 0.93rem;
-				max-width: 23.25rem;
-				display: flex;
-				flex-direction: column;
-			}
-
-			/* Блок з лічильником */
-			.preloader__counter {
-				font-size: 10rem;
-			}
-
-			/* Прогресбар */
-			.preloader__line {}
-
-			/* Лінія прогресбару */
-			.preloader__line span {
-				display: inline-block;
-				transition: width 0.2s ease;
-				height: 0.5rem;
-				margin-top: 1.25rem;
-				background-color: var(--accent-500);
-			}
-		</style>
-
-		<!-- Скріпт прелоадера -->
-
-	</div>
-	<script>
-		function preloader() {
-			const preloaderImages = document.querySelector('[data-preloader]') ? document.querySelectorAll('[data-preloader] img') : document.querySelectorAll('img');
-			const preloaderContainer = document.querySelector('#preloader');
-			if (preloaderImages.length) {
-				const preloaderTemplate = `
+</div>
+<script>
+  function preloader() {
+    const preloaderImages = document.querySelector('[data-preloader]') ? document.querySelectorAll('[data-preloader] img') : document.querySelectorAll('img');
+    const preloaderContainer = document.querySelector('#preloader');
+    if (preloaderImages.length) {
+      const preloaderTemplate =`
         <div class="preloader">
           <div class="preloader__body">
             <div class="preloader-logo">
@@ -474,62 +446,60 @@
             <div class="preloader__line"><span></span></div>
           </div>
         </div>`;
-				document.querySelector('html').insertAdjacentHTML("beforeend", preloaderTemplate);
+      document.querySelector('html').insertAdjacentHTML("beforeend",preloaderTemplate);
 
-				const
-					preloader = document.querySelector('.preloader'),
-					showPecentLoad = document.querySelector('.preloader__counter'),
-					showLineLoad = document.querySelector('.preloader__line span'),
-					htmlDocument = document.documentElement;
+      const
+        preloader = document.querySelector('.preloader'),
+        showPecentLoad = document.querySelector('.preloader__counter'),
+        showLineLoad = document.querySelector('.preloader__line span'),
+        htmlDocument = document.documentElement;
 
-				let imagesLoadedCount = counter = progress = 0;
+      let imagesLoadedCount = counter = progress = 0;
+      
+      htmlDocument.classList.add('loading');
+      htmlDocument.classList.add('lock');
 
-				htmlDocument.classList.add('loading');
-				htmlDocument.classList.add('lock');
+      preloaderImages.forEach(preloaderImage => {
+        const imgClone = document.createElement('img');
+        if (imgClone) {
+          imgClone.onload = imageLoaded;
+          imgClone.onerror = imageLoaded;
+          preloaderImage.dataset.src ? imgClone.src = preloaderImage.dataset.src : imgClone.src = preloaderImage.src;
+        }
+      });
+      function setValueProgress(progress) {
+        showPecentLoad ? showPecentLoad.innerText = `${progress}%`: null;
+        showLineLoad ? showLineLoad.style.width = `${progress}%` : null;
+      }
+      showPecentLoad ? setValueProgress(progress) : null;
 
-				preloaderImages.forEach(preloaderImage => {
-					const imgClone = document.createElement('img');
-					if (imgClone) {
-						imgClone.onload = imageLoaded;
-						imgClone.onerror = imageLoaded;
-						preloaderImage.dataset.src ? imgClone.src = preloaderImage.dataset.src : imgClone.src = preloaderImage.src;
-					}
-				});
-
-				function setValueProgress(progress) {
-					showPecentLoad ? showPecentLoad.innerText = `${progress}%` : null;
-					showLineLoad ? showLineLoad.style.width = `${progress}%` : null;
-				}
-				showPecentLoad ? setValueProgress(progress) : null;
-
-				function imageLoaded() {
-					imagesLoadedCount++;
-					progress = Math.round((100 / preloaderImages.length) * imagesLoadedCount);
-					const intervalId = setInterval(() => {
-						counter >= progress ? clearInterval(intervalId) : setValueProgress(++counter);
-						counter >= 100 ? addLoadedClass() : null;
-					}, 10);
-				}
-
-				function addLoadedClass() {
-					htmlDocument.classList.add('loaded');
-					htmlDocument.classList.remove('lock');
-					htmlDocument.classList.remove('loading');
-					setInterval(() => {
-						preloader.remove();
-						preloaderContainer.remove();
-					}, 500);
-				}
-			} else {
-				preloaderContainer.remove();
-			}
-		}
-		preloader();
-	</script>
+      function imageLoaded() {
+        imagesLoadedCount++;
+        progress = Math.round((100 / preloaderImages.length) * imagesLoadedCount);
+        const intervalId = setInterval(() => {
+          counter >= progress ? clearInterval(intervalId) : setValueProgress(++counter);
+          counter >= 100 ? addLoadedClass() : null;
+        }, 10);
+      }
+      function addLoadedClass() {
+        htmlDocument.classList.add('loaded');
+        htmlDocument.classList.remove('lock');
+        htmlDocument.classList.remove('loading');
+        setInterval(() => {
+          preloader.remove();
+          preloaderContainer.remove();
+        },500);
+      }
+    }else{
+      preloaderContainer.remove();
+    }
+  }
+  preloader();
+</script> -->
 
 
-	<script src="https://cdn.jsdelivr.net/npm/chart.js?_v=20231102173243"></script>
-	<script src="js/app.min.js?_v=20231102173243"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js?_v=20231230141553"></script>
+	<script src="js/app.min.js?_v=20231230141553"></script>
 
 </body>
 

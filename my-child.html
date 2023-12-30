@@ -11,11 +11,11 @@
 			pointer-events: none;
 		}
 	</style>
-	<link rel="stylesheet" href="css/style.min.css?_v=20231102173243">
+	<link rel="stylesheet" href="css/style.min.css">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://cdn.tailwindcss.com?_v=20231102173243"></script>
+	<script src="https://cdn.tailwindcss.com"></script>
 	<style>
 		.lock body {
 			overflow: hidden;
@@ -46,7 +46,7 @@
 					<div class="sidebar__body">
 						<div class="sidebar__content-top">
 							<a href="#" class="sidebar__logo logo-page">
-								<picture><source srcset="img/logo.webp" type="image/webp"><img src="img/logo.png" width="48" height="48" alt="Logo Sidebar"></picture>
+								<img src="img/logo.png" width="48" height="48" alt="Logo Sidebar">
 								<span>
 									Онлайн-школа
 									Тінкертінс
@@ -137,7 +137,7 @@
 											</a>
 										</li>
 										<li class="menu__item">
-											<a href="#" class="menu__link link-menu link-with-icon link-with-icon--hover ">
+											<a href="calendar-parent.html" class="menu__link link-menu link-with-icon link-with-icon--hover ">
 												<div class="link-menu-wrap">
 													<div class="link-menu-icon svg-icon">
 														<svg class="icon icon--size-m" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -222,22 +222,6 @@
 									<h1 class="title-page lg:heading-4xl md:heading-xl heading-lg">
 										Мої діти
 									</h1>
-								</div>
-								<div class="header__title-page-bottom undefined">
-									<div class="breadcrumbs">
-										<ul>
-											<li>
-												<a href="#">
-													Мої діти @@
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													Олег Петренко
-												</a>
-											</li>
-										</ul>
-									</div>
 								</div>
 
 
@@ -344,10 +328,12 @@
 												</div>
 
 											</div>
-											<div class="icon-button md:basis-16 ">
-												<a href="#" class="icon-button-link flex justify-end icon-button-link--icon text-right">
-													<svg class="icon icon--size-m" height="24" width="24">
-														<use xlink:href="img/icons/icons.svg#h-menu"></use>
+											<div class="icon-button md:basis-16 md:!flex md:justify-end ">
+												<a href="#" class="icon-button-link flex justify-end icon-button-link--icon icon-button-link--icon_fill text-right">
+													<svg class="icon icon--size-m" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+														<g id="h-menu">
+															<path id="Vector" d="M19.9995 14C19.7332 14.006 19.4683 13.9588 19.2205 13.861C18.9726 13.7633 18.7468 13.617 18.5563 13.4308C18.3658 13.2446 18.2144 13.0222 18.111 12.7766C18.0076 12.5311 17.9543 12.2674 17.9543 12.001C17.9542 11.7346 18.0074 11.4708 18.1106 11.2253C18.2139 10.9797 18.3652 10.7572 18.5556 10.5709C18.746 10.3846 18.9718 10.2382 19.2195 10.1403C19.4673 10.0425 19.7321 9.99509 19.9985 10.001C20.5211 10.0125 21.0183 10.2282 21.3839 10.6018C21.7494 10.9754 21.9541 11.4773 21.9543 12C21.9544 12.5227 21.7499 13.0246 21.3846 13.3984C21.0192 13.7722 20.522 13.9882 19.9995 14ZM5.99949 12C6.00551 12.2663 5.95826 12.5312 5.86052 12.779C5.76277 13.0268 5.6165 13.2526 5.43029 13.4432C5.24407 13.6337 5.02167 13.7851 4.77614 13.8885C4.53062 13.9918 4.26691 14.0451 4.0005 14.0452C3.73409 14.0453 3.47036 13.9921 3.22478 13.8888C2.9792 13.7856 2.75672 13.6343 2.57041 13.4439C2.38411 13.2534 2.23772 13.0277 2.13985 12.7799C2.04198 12.5322 1.9946 12.2673 2.00049 12.001C2.01204 11.4784 2.22771 10.9811 2.60133 10.6156C2.97494 10.2501 3.47681 10.0453 3.9995 10.0452C4.52219 10.0451 5.02416 10.2496 5.39796 10.6149C5.77175 10.9803 5.98767 11.4774 5.99949 12ZM13.9995 12C14.0055 12.2663 13.9583 12.5312 13.8605 12.779C13.7628 13.0268 13.6165 13.2526 13.4303 13.4432C13.2441 13.6337 13.0217 13.7851 12.7761 13.8885C12.5306 13.9918 12.2669 14.0451 12.0005 14.0452C11.7341 14.0453 11.4704 13.9921 11.2248 13.8888C10.9792 13.7856 10.7567 13.6343 10.5704 13.4439C10.3841 13.2534 10.2377 13.0277 10.1398 12.7799C10.042 12.5322 9.9946 12.2673 10.0005 12.001C10.012 11.4784 10.2277 10.9811 10.6013 10.6156C10.9749 10.2501 11.4768 10.0453 11.9995 10.0452C12.5222 10.0451 13.0242 10.2496 13.398 10.6149C13.7718 10.9803 13.9877 11.4774 13.9995 12Z" fill="black" />
+														</g>
 													</svg>
 												</a>
 												<ul class="icon-button__list">
@@ -426,10 +412,12 @@
 												</div>
 
 											</div>
-											<div class="icon-button md:basis-16 ">
-												<a href="#" class="icon-button-link flex justify-end icon-button-link--icon text-right">
-													<svg class="icon icon--size-m" height="24" width="24">
-														<use xlink:href="img/icons/icons.svg#h-menu"></use>
+											<div class="icon-button md:basis-16 md:!flex md:justify-end ">
+												<a href="#" class="icon-button-link flex justify-end icon-button-link--icon icon-button-link--icon_fill text-right">
+													<svg class="icon icon--size-m" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+														<g id="h-menu">
+															<path id="Vector" d="M19.9995 14C19.7332 14.006 19.4683 13.9588 19.2205 13.861C18.9726 13.7633 18.7468 13.617 18.5563 13.4308C18.3658 13.2446 18.2144 13.0222 18.111 12.7766C18.0076 12.5311 17.9543 12.2674 17.9543 12.001C17.9542 11.7346 18.0074 11.4708 18.1106 11.2253C18.2139 10.9797 18.3652 10.7572 18.5556 10.5709C18.746 10.3846 18.9718 10.2382 19.2195 10.1403C19.4673 10.0425 19.7321 9.99509 19.9985 10.001C20.5211 10.0125 21.0183 10.2282 21.3839 10.6018C21.7494 10.9754 21.9541 11.4773 21.9543 12C21.9544 12.5227 21.7499 13.0246 21.3846 13.3984C21.0192 13.7722 20.522 13.9882 19.9995 14ZM5.99949 12C6.00551 12.2663 5.95826 12.5312 5.86052 12.779C5.76277 13.0268 5.6165 13.2526 5.43029 13.4432C5.24407 13.6337 5.02167 13.7851 4.77614 13.8885C4.53062 13.9918 4.26691 14.0451 4.0005 14.0452C3.73409 14.0453 3.47036 13.9921 3.22478 13.8888C2.9792 13.7856 2.75672 13.6343 2.57041 13.4439C2.38411 13.2534 2.23772 13.0277 2.13985 12.7799C2.04198 12.5322 1.9946 12.2673 2.00049 12.001C2.01204 11.4784 2.22771 10.9811 2.60133 10.6156C2.97494 10.2501 3.47681 10.0453 3.9995 10.0452C4.52219 10.0451 5.02416 10.2496 5.39796 10.6149C5.77175 10.9803 5.98767 11.4774 5.99949 12ZM13.9995 12C14.0055 12.2663 13.9583 12.5312 13.8605 12.779C13.7628 13.0268 13.6165 13.2526 13.4303 13.4432C13.2441 13.6337 13.0217 13.7851 12.7761 13.8885C12.5306 13.9918 12.2669 14.0451 12.0005 14.0452C11.7341 14.0453 11.4704 13.9921 11.2248 13.8888C10.9792 13.7856 10.7567 13.6343 10.5704 13.4439C10.3841 13.2534 10.2377 13.0277 10.1398 12.7799C10.042 12.5322 9.9946 12.2673 10.0005 12.001C10.012 11.4784 10.2277 10.9811 10.6013 10.6156C10.9749 10.2501 11.4768 10.0453 11.9995 10.0452C12.5222 10.0451 13.0242 10.2496 13.398 10.6149C13.7718 10.9803 13.9877 11.4774 13.9995 12Z" fill="black" />
+														</g>
 													</svg>
 												</a>
 												<ul class="icon-button__list">
@@ -497,105 +485,93 @@
 
 
 	</div>
-	<!-- Стилі для body -->
+	<!-- 
+<div id="preloader">
 
-	<div id="preloader">
-		<!-- Документація: https://template.fls.guru/template-docs/modul-preloader.html -->
-		<!-- Стилі для прелоадера -->
-		<style>
-			* {
-				padding: 0px;
-				margin: 0px;
-				border: 0px;
-			}
+	<style>
+		* {
+			padding: 0px;
+			margin: 0px;
+			border: 0px;
+		}
+		*,
+		*:before,
+		*:after {
+			box-sizing: border-box;
+		}
+    body {
+      
+    }
+		html{
+			overflow: hidden;
+			touch-action: none;
+			overscroll-behavior: none;
+		}
+		/* Головний блок */
+		.preloader{
+			pointer-events: none;
+			z-index: 99999;
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			display: flex;
+			justify-content:center;
+			align-items: center;
+      background-color: #fff;
+		}
+    .preloader-logo .logo-page {
+      max-width: 100%;
+      width: 100%;
+      justify-content: center;
+    }
+    .preloader-logo .logo-page img {
+      @media (min-width: 992px){
+         width: 75px;
+         height: 75px; 
+      }
+    }
+    .preloader-logo span{
+      font: var(--heading-2-xl);
+      max-width: 250px;
+    }
+		/* Блок з елементами */
+		.preloader__body{
+			padding: 0.93rem;
+			max-width: 23.25rem;
+			display: flex;
+			flex-direction: column;
+		}
+		/* Блок з лічильником */
+		.preloader__counter{
+			font-size: 10rem;
+		}
+		/* Прогресбар */
+		.preloader__line{}
+		/* Лінія прогресбару */
+		.preloader__line span{
+			display: inline-block;
+			transition: width 0.2s ease;
+			height: 0.5rem;
+      margin-top: 1.25rem;
+			background-color: var(--accent-500);
+		}
+	</style>
+   
 
-			*,
-			*:before,
-			*:after {
-				box-sizing: border-box;
-			}
-
-			body {}
-
-			html {
-				overflow: hidden;
-				touch-action: none;
-				overscroll-behavior: none;
-			}
-
-			/* Головний блок */
-			.preloader {
-				pointer-events: none;
-				z-index: 99999;
-				position: fixed;
-				width: 100%;
-				height: 100%;
-				top: 0;
-				left: 0;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				background-color: #fff;
-			}
-
-			.preloader-logo .logo-page {
-				max-width: 100%;
-				width: 100%;
-				justify-content: center;
-			}
-
-			.preloader-logo .logo-page img {
-				@media (min-width: 992px) {
-					width: 75px;
-					height: 75px;
-				}
-			}
-
-			.preloader-logo span {
-				font: var(--heading-2-xl);
-				max-width: 250px;
-			}
-
-			/* Блок з елементами */
-			.preloader__body {
-				padding: 0.93rem;
-				max-width: 23.25rem;
-				display: flex;
-				flex-direction: column;
-			}
-
-			/* Блок з лічильником */
-			.preloader__counter {
-				font-size: 10rem;
-			}
-
-			/* Прогресбар */
-			.preloader__line {}
-
-			/* Лінія прогресбару */
-			.preloader__line span {
-				display: inline-block;
-				transition: width 0.2s ease;
-				height: 0.5rem;
-				margin-top: 1.25rem;
-				background-color: var(--accent-500);
-			}
-		</style>
-
-		<!-- Скріпт прелоадера -->
-
-	</div>
-	<script>
-		function preloader() {
-			const preloaderImages = document.querySelector('[data-preloader]') ? document.querySelectorAll('[data-preloader] img') : document.querySelectorAll('img');
-			const preloaderContainer = document.querySelector('#preloader');
-			if (preloaderImages.length) {
-				const preloaderTemplate = `
+</div>
+<script>
+  function preloader() {
+    const preloaderImages = document.querySelector('[data-preloader]') ? document.querySelectorAll('[data-preloader] img') : document.querySelectorAll('img');
+    const preloaderContainer = document.querySelector('#preloader');
+    if (preloaderImages.length) {
+      const preloaderTemplate =`
         <div class="preloader">
           <div class="preloader__body">
             <div class="preloader-logo">
               <div class="sidebar__logo logo-page">
-          <picture><source srcset="img/logo.webp" type="image/webp"><img src="img/logo.png" width="48" height="48" alt="Logo Sidebar"></picture>
+          <img src="img/logo.png" width="48" height="48" alt="Logo Sidebar">
           <span>
             Онлайн-школа
 Тінкертінс
@@ -604,62 +580,60 @@
             <div class="preloader__line"><span></span></div>
           </div>
         </div>`;
-				document.querySelector('html').insertAdjacentHTML("beforeend", preloaderTemplate);
+      document.querySelector('html').insertAdjacentHTML("beforeend",preloaderTemplate);
 
-				const
-					preloader = document.querySelector('.preloader'),
-					showPecentLoad = document.querySelector('.preloader__counter'),
-					showLineLoad = document.querySelector('.preloader__line span'),
-					htmlDocument = document.documentElement;
+      const
+        preloader = document.querySelector('.preloader'),
+        showPecentLoad = document.querySelector('.preloader__counter'),
+        showLineLoad = document.querySelector('.preloader__line span'),
+        htmlDocument = document.documentElement;
 
-				let imagesLoadedCount = counter = progress = 0;
+      let imagesLoadedCount = counter = progress = 0;
+      
+      htmlDocument.classList.add('loading');
+      htmlDocument.classList.add('lock');
 
-				htmlDocument.classList.add('loading');
-				htmlDocument.classList.add('lock');
+      preloaderImages.forEach(preloaderImage => {
+        const imgClone = document.createElement('img');
+        if (imgClone) {
+          imgClone.onload = imageLoaded;
+          imgClone.onerror = imageLoaded;
+          preloaderImage.dataset.src ? imgClone.src = preloaderImage.dataset.src : imgClone.src = preloaderImage.src;
+        }
+      });
+      function setValueProgress(progress) {
+        showPecentLoad ? showPecentLoad.innerText = `${progress}%`: null;
+        showLineLoad ? showLineLoad.style.width = `${progress}%` : null;
+      }
+      showPecentLoad ? setValueProgress(progress) : null;
 
-				preloaderImages.forEach(preloaderImage => {
-					const imgClone = document.createElement('img');
-					if (imgClone) {
-						imgClone.onload = imageLoaded;
-						imgClone.onerror = imageLoaded;
-						preloaderImage.dataset.src ? imgClone.src = preloaderImage.dataset.src : imgClone.src = preloaderImage.src;
-					}
-				});
-
-				function setValueProgress(progress) {
-					showPecentLoad ? showPecentLoad.innerText = `${progress}%` : null;
-					showLineLoad ? showLineLoad.style.width = `${progress}%` : null;
-				}
-				showPecentLoad ? setValueProgress(progress) : null;
-
-				function imageLoaded() {
-					imagesLoadedCount++;
-					progress = Math.round((100 / preloaderImages.length) * imagesLoadedCount);
-					const intervalId = setInterval(() => {
-						counter >= progress ? clearInterval(intervalId) : setValueProgress(++counter);
-						counter >= 100 ? addLoadedClass() : null;
-					}, 10);
-				}
-
-				function addLoadedClass() {
-					htmlDocument.classList.add('loaded');
-					htmlDocument.classList.remove('lock');
-					htmlDocument.classList.remove('loading');
-					setInterval(() => {
-						preloader.remove();
-						preloaderContainer.remove();
-					}, 500);
-				}
-			} else {
-				preloaderContainer.remove();
-			}
-		}
-		preloader();
-	</script>
+      function imageLoaded() {
+        imagesLoadedCount++;
+        progress = Math.round((100 / preloaderImages.length) * imagesLoadedCount);
+        const intervalId = setInterval(() => {
+          counter >= progress ? clearInterval(intervalId) : setValueProgress(++counter);
+          counter >= 100 ? addLoadedClass() : null;
+        }, 10);
+      }
+      function addLoadedClass() {
+        htmlDocument.classList.add('loaded');
+        htmlDocument.classList.remove('lock');
+        htmlDocument.classList.remove('loading');
+        setInterval(() => {
+          preloader.remove();
+          preloaderContainer.remove();
+        },500);
+      }
+    }else{
+      preloaderContainer.remove();
+    }
+  }
+  preloader();
+</script> -->
 
 
-	<script src="https://cdn.jsdelivr.net/npm/chart.js?_v=20231102173243"></script>
-	<script src="js/app.min.js?_v=20231102173243"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="js/app.min.js"></script>
 
 </body>
 
